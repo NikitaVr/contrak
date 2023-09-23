@@ -15,14 +15,20 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 import { Spacer } from "./ui/spacer";
+import Link from "next/link";
 
 export function ContractCard({
   name,
   createdAt,
+  contractHistoryId,
+  id,
 }: {
   name: string;
   createdAt: Date;
+  contractHistoryId: string;
+  id: number;
 }) {
+
   return (
     <Card>
       <CardHeader className="grid grid-cols-[1fr_min-content] items-start gap-4 space-y-0">
@@ -55,10 +61,12 @@ export function ContractCard({
           </div>
           <Spacer />
           <div>
-            Deployed{" "}
-            <strong className="text-accent-foreground font-medium">
-              {DateTime.fromJSDate(createdAt).toFormat("LLL dd yyyy @ HH:mm")}
-            </strong>
+            <Link href={`/contracts/history/${contractHistoryId}?contractId=${id}`}>
+              Deployed{" "}
+              <strong className="text-accent-foreground font-medium">
+                {DateTime.fromJSDate(createdAt).toFormat("LLL dd yyyy @ HH:mm")}
+              </strong>
+            </Link>
           </div>
         </div>
       </CardContent>

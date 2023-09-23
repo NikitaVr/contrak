@@ -2,15 +2,26 @@
 
 import { client } from "~/lib/react-query";
 import { ContractCard } from "./contract-card";
+import { useSearchParams } from "next/navigation";
 
-export function ContractsFeed() {
+
+
+export function ContractsHistory({ historyId }: { historyId: string}) {
+  const searchParams = useSearchParams()
+ 
+  const search = searchParams?.get('contractId')
+
   const {
     data: contracts,
     status,
     error,
-  } = client.getAllContracts.useQuery(
-    ["contracts"],
-    {},
+  } = client.getContractsByHistory.useQuery(
+    ["contractsByHistory"],
+    {
+      params: {
+        historyId: historyId
+      }
+    },
     { refetchInterval: 1000 }
   );
 

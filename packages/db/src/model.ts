@@ -11,6 +11,14 @@ export async function getAllContracts() {
     .orderBy(desc(schema.contracts.createdAt));
 }
 
+export async function getContractsByHistory(historyId: string) {
+  return db
+    .select()
+    .from(schema.contracts)
+    .where(eq(schema.contracts.contractHistoryId, historyId))
+    .orderBy(desc(schema.contracts.createdAt));
+}
+
 export async function getContractById(id: number) {
   const [first] = await db
     .select()

@@ -21,6 +21,15 @@ export const router = createNextRoute(contract, {
     };
   },
 
+  getContractsByHistory: async (args) => {
+    const contracts = await db.getContractsByHistory(args.params.historyId);
+
+    return {
+      status: 200,
+      body: contracts,
+    };
+  },
+
   getContract: async (args) => {
     const contract = await db.getContractById(args.params.id);
 

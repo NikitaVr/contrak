@@ -8,6 +8,7 @@ const ContractSchema = z.object({
   id: z.number(),
   name: z.string(),
   createdAt: z.date(),
+  contractHistoryId: z.string(),
 });
 
 export const contract = c.router({
@@ -30,6 +31,17 @@ export const contract = c.router({
       200: z.array(ContractSchema),
     },
     summary: "Get all contracts",
+  },
+  getContractsByHistory: {
+    method: "GET",
+    path: "/contracts/history/:historyId",
+    pathParams: z.object({
+      historyId: z.string(),
+    }),
+    responses: {
+      200: z.array(ContractSchema),
+    },
+    summary: "Get all contracts associated to the same history id.",
   },
   getContract: {
     method: "GET",
