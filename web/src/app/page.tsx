@@ -1,9 +1,11 @@
 import { client } from "@midna/rest";
-import { ContractCard } from "~/components/contract-card";
+import { ContractsFeed } from "~/components/contract-feed";
 import { ModeToggle } from "~/components/theme-mode-toggle";
+import { Button } from "~/components/ui/button";
+import { RssIcon } from "lucide-react";
 
 export default async function Home() {
-  const contractsResponse = await client.getAllContracts({ cache: "no-cache"});
+  const contractsResponse = await client.getAllContracts({ cache: "no-cache" });
 
   if (contractsResponse.status !== 200) {
     return <div>Something went wrong</div>;
@@ -22,6 +24,11 @@ export default async function Home() {
             Keep track of your contracts and get notified when new ones are
             deployed.
           </p>
+          <Button>
+            <RssIcon className="w-4 h-4 mr-2" />
+            Subscribe to RSS
+          </Button>
+
           <div className="absolute top-0 right-0">
             <ModeToggle />
           </div>
@@ -31,9 +38,7 @@ export default async function Home() {
           <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
             Contracts
           </h2>
-          {contracts.map((contract) => (
-            <ContractCard key={contract.id} name={contract.name} />
-          ))}
+          <ContractsFeed initialData={contracts} />
         </section>
       </div>
     </main>

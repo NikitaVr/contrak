@@ -1,13 +1,10 @@
 import {
-  ChevronDownIcon,
   CircleIcon,
-  PlusIcon,
-  StarIcon,
-  BarChartIcon,
-  LapTimerIcon,
-  GitHubLogoIcon,
   CodeIcon,
+  GitHubLogoIcon,
+  LapTimerIcon,
 } from "@radix-ui/react-icons";
+import { DateTime } from "luxon";
 
 import { Button } from "~/components/ui/button";
 import {
@@ -17,15 +14,20 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
+import { Spacer } from "./ui/spacer";
 
-export function ContractCard({name}: {name: string}) {
+export function ContractCard({
+  name,
+  createdAt,
+}: {
+  name: string;
+  createdAt: Date;
+}) {
   return (
     <Card>
       <CardHeader className="grid grid-cols-[1fr_min-content] items-start gap-4 space-y-0">
         <div className="space-y-1">
-          <CardTitle className="leading-tight">
-            {name}
-          </CardTitle>
+          <CardTitle className="leading-tight">{name}</CardTitle>
           <CardDescription>
             This contract implements a proxy that is upgradeable by an admin.
           </CardDescription>
@@ -42,7 +44,7 @@ export function ContractCard({name}: {name: string}) {
         </div>
       </CardHeader>
       <CardContent>
-        <div className="flex space-x-4 text-sm text-muted-foreground">
+        <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
           <div className="flex items-center">
             <CircleIcon className="mr-1 h-3 w-3 fill-orange-400 text-orange-400" />
             Solidity
@@ -51,7 +53,13 @@ export function ContractCard({name}: {name: string}) {
             <LapTimerIcon className="mr-1 h-3 w-3" />
             20k tx/s
           </div>
-          <div>Deployed April 5, 2023</div>
+          <Spacer />
+          <div>
+            Deployed{" "}
+            <strong className="text-accent-foreground font-medium">
+              {DateTime.fromJSDate(createdAt).toFormat("LLL dd yyyy @ HH:mm")}
+            </strong>
+          </div>
         </div>
       </CardContent>
     </Card>

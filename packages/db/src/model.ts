@@ -1,11 +1,14 @@
-import { eq } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 
 import * as schema from "./schema";
 import { db } from "./db";
 import { CreateContractSchemaType } from "./zod";
 
 export async function getAllContracts() {
-  return db.select().from(schema.contracts);
+  return db
+    .select()
+    .from(schema.contracts)
+    .orderBy(desc(schema.contracts.createdAt));
 }
 
 export async function getContractById(id: number) {
@@ -16,7 +19,9 @@ export async function getContractById(id: number) {
   return first;
 }
 
-export async function createContract(contract: CreateContractSchemaType) {
+export async function createContract(
+  contract: Omit<CreateContractSchemaType, "createdAt">
+) {
   const [row] = await db
     .insert(schema.contracts)
     .values({
@@ -30,7 +35,6 @@ export async function createContract(contract: CreateContractSchemaType) {
       deployerSignature: contract.deployerSignature,
       orgSignature: contract.orgSignature,
       createdAt: new Date(),
-      updatedAt: new Date(),
     })
     .returning();
   return row;

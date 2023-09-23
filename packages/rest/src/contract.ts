@@ -1,4 +1,4 @@
-import { createContractSchema } from "@midna/db";
+import { createContractSchema } from "@midna/db/src/zod";
 import { initContract } from "@ts-rest/core";
 import { z } from "zod";
 
@@ -7,6 +7,7 @@ const c = initContract();
 const ContractSchema = z.object({
   id: z.number(),
   name: z.string(),
+  createdAt: z.string(),
 });
 
 export const contract = c.router({
@@ -16,7 +17,10 @@ export const contract = c.router({
     responses: {
       201: ContractSchema,
     },
-    body: createContractSchema.omit({ id: true, createdAt: true, updatedAt: true }),
+    body: createContractSchema.omit({
+      id: true,
+      createdAt: true,
+    }),
     summary: "Create a contract",
   },
   getAllContracts: {

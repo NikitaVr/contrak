@@ -18,8 +18,7 @@ export const contracts = sqliteTable(
     message: text("message"),
     deployerSignature: text("deployer_signature"),
     orgSignature: text("org_signature"),
-    createdAt: integer("created_at", { mode: "timestamp" }),
-    updatedAt: integer("updated_at", { mode: "timestamp" }),
+    createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
   },
   (contracts) => ({
     nameIdx: uniqueIndex("nameIdx").on(contracts.name),
