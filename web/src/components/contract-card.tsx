@@ -3,6 +3,10 @@ import {
   CircleIcon,
   PlusIcon,
   StarIcon,
+  BarChartIcon,
+  LapTimerIcon,
+  GitHubLogoIcon,
+  CodeIcon,
 } from "@radix-ui/react-icons";
 
 import { Button } from "~/components/ui/button";
@@ -13,72 +17,41 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "~/components/ui/dropdown-menu";
-import { Separator } from "~/components/ui/separator";
 
 export function ContractCard() {
   return (
     <Card>
-      <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
+      <CardHeader className="grid grid-cols-[1fr_min-content] items-start gap-4 space-y-0">
         <div className="space-y-1">
-          <CardTitle>shadcn/ui</CardTitle>
+          <CardTitle className="leading-tight">
+            Morpho Proxy (transparentUpgradableProxy)
+          </CardTitle>
           <CardDescription>
-            Beautifully designed components built with Radix UI and Tailwind
-            CSS.
+            This contract implements a proxy that is upgradeable by an admin.
           </CardDescription>
         </div>
-        <div className="flex items-center space-x-1 rounded-md bg-secondary text-secondary-foreground">
-          <Button variant="secondary" className="px-3 shadow-none">
-            <StarIcon className="mr-2 h-4 w-4" />
-            Star
+        <div className="flex gap-2">
+          <Button variant="secondary">
+            <CodeIcon className="mr-2 h-4 w-4" />
+            ABI
           </Button>
-          <Separator orientation="vertical" className="h-[20px]" />
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="secondary" className="px-2 shadow-none">
-                <ChevronDownIcon className="h-4 w-4 text-secondary-foreground" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              align="end"
-              alignOffset={-5}
-              className="w-[200px]"
-              forceMount
-            >
-              <DropdownMenuLabel>Suggested Lists</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuCheckboxItem checked>
-                Future Ideas
-              </DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem>My Stack</DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem>Inspiration</DropdownMenuCheckboxItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <PlusIcon className="mr-2 h-4 w-4" /> Create List
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Button>
+            <GitHubLogoIcon className="mr-2 h-4 w-4" />
+            GitHub
+          </Button>
         </div>
       </CardHeader>
       <CardContent>
         <div className="flex space-x-4 text-sm text-muted-foreground">
           <div className="flex items-center">
-            <CircleIcon className="mr-1 h-3 w-3 fill-sky-400 text-sky-400" />
-            TypeScript
+            <CircleIcon className="mr-1 h-3 w-3 fill-orange-400 text-orange-400" />
+            Solidity
           </div>
           <div className="flex items-center">
-            <StarIcon className="mr-1 h-3 w-3" />
-            20k
+            <LapTimerIcon className="mr-1 h-3 w-3" />
+            20k tx/s
           </div>
-          <div>Updated April 2023</div>
+          <div>Deployed April 5, 2023</div>
         </div>
       </CardContent>
     </Card>
