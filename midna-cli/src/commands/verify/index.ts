@@ -1,5 +1,6 @@
 import { Args, Command } from "@oclif/core";
 import { ethers } from "ethers";
+import { verify } from "midna-sdk";
 
 export default class Verify extends Command {
   static description =
@@ -27,12 +28,10 @@ export default class Verify extends Command {
   async run(): Promise<void> {
     const { args } = await this.parse(Verify);
 
-    console.log(`Message: ${args.message}`);
-
-    const message = `{"contractAddress":"0x1231231","orgPublicKey":"0x53243"}`;
-
-    const signer = ethers.verifyMessage(message, args.signature);
-
-    console.log(`Signer: ${signer}`);
+    verify({
+      message: args.message,
+      signature: args.signature,
+      // transactionHash: args.transactionHash,
+    });
   }
 }
