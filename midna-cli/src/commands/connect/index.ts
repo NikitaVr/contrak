@@ -1,5 +1,7 @@
 import { Args, Command } from "@oclif/core";
 import { ethers } from "ethers";
+const fs = require("fs");
+import "dotenv/config";
 
 export default class Connect extends Command {
   static description =
@@ -41,14 +43,15 @@ export default class Connect extends Command {
 
     console.log("message: ", message);
 
+    console.log("env private key", process.env.DEPLOYER_PRIVATE_KEY);
+
     // public key is 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 for private key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
-    const privateKey =
-      "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"; //process.env.MIDNA_PRIVATE_KEY;
-    if (!privateKey) {
+    const deployerPrivateKey = process.env.DEPLOYER_PRIVATE_KEY;
+    if (!deployerPrivateKey) {
       throw new Error("Private key not found in environment variables");
     }
 
-    const signer = new ethers.Wallet(privateKey);
+    const signer = new ethers.Wallet(deployerPrivateKey);
     const signature = await signer.signMessage(message);
 
     // const recoveredSigner = ethers.verifyMessage(message, signature);
@@ -56,5 +59,28 @@ export default class Connect extends Command {
     console.log(`Signed message: ${message}`);
     console.log(`Signature: ${signature}`);
     // console.log(`Recovered signer: ${recoveredSigner}`);
+
+    let teamSignature = null;
+
+    const teamPrivateKey = process.env.TEAM_PRIVATE_KEY;
+    if (teamPrivateKey) {
+      const teamSigner = new ethers.Wallet(teamPrivateKey);
+      teamSignature = await teamSigner.signMessage(message);
+    }
+
+    const output = {
+      chainID: args.chainID,
+      contractAddress: args.contractAddress,
+      orgPublicKey: args.orgPublicKey,
+      message: message,
+      deployerSignature: signature,
+      teamSignature: teamSignature,
+    };
+
+    // write output to file
+    fs.writeFileSync("output.json", JSON.stringify(output));
+
+    // log output file location
+    console.log("output file location: ", __dirname + "/output.json");
   }
 }
