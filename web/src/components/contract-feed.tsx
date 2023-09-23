@@ -3,7 +3,7 @@
 import { client } from "~/lib/react-query";
 import { ContractCard } from "./contract-card";
 
-export function ContractsFeed({ initialData }: { initialData?: any }) {
+export function ContractsFeed() {
   const {
     data: contracts,
     status,
@@ -11,7 +11,7 @@ export function ContractsFeed({ initialData }: { initialData?: any }) {
   } = client.getAllContracts.useQuery(
     ["contracts"],
     {},
-    { initialData, refetchInterval: 1000 }
+    { refetchInterval: 1000 }
   );
 
   if (status === "loading") {

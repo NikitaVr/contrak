@@ -7,7 +7,7 @@ const c = initContract();
 const ContractSchema = z.object({
   id: z.number(),
   name: z.string(),
-  createdAt: z.string(),
+  createdAt: z.date(),
 });
 
 export const contract = c.router({

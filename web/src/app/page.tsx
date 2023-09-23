@@ -5,14 +5,6 @@ import { Button } from "~/components/ui/button";
 import { RssIcon } from "lucide-react";
 
 export default async function Home() {
-  const contractsResponse = await client.getAllContracts({ cache: "no-cache" });
-
-  if (contractsResponse.status !== 200) {
-    return <div>Something went wrong</div>;
-  }
-
-  const contracts = contractsResponse.body;
-
   return (
     <main className="py-16">
       <div className="px-4 mx-auto w-full max-w-screen-md flex flex-col items-start gap-8">
@@ -38,7 +30,7 @@ export default async function Home() {
           <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
             Contracts
           </h2>
-          <ContractsFeed initialData={contracts} />
+          <ContractsFeed />
         </section>
       </div>
     </main>
