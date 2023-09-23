@@ -1,6 +1,6 @@
+import * as db from "@midna/db";
+import { contract } from "@midna/rest";
 import { createNextRoute } from "@ts-rest/next";
-import { contract } from "./contract";
-import * as db from "~/db";
 
 export const router = createNextRoute(contract, {
   createContract: async (args) => {

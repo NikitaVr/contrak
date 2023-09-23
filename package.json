@@ -1,0 +1,8 @@
+{
+  "name": "midna",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "web"
+  ]
+}

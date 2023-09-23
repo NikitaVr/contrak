@@ -1,0 +1,14 @@
+{
+  "name": "@midna/db",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": {
+    "better-sqlite3": "^8.6.0",
+    "drizzle-orm": "^0.28.6"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.5",
+    "drizzle-kit": "^0.19.13"
+  }
+}
