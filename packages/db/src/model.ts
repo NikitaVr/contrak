@@ -27,6 +27,7 @@ export async function createContract(
     .values({
       name: contract.name,
       chainId: contract.chainId,
+      contractHistoryId: contract.contractHistoryId,
       contractAddress: contract.contractAddress,
       deployerAddress: contract.deployerAddress,
       deploymentTransactionHash: contract.deploymentTransactionHash,
