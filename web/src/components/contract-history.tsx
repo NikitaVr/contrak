@@ -3,13 +3,27 @@
 import { client } from "~/lib/react-query";
 import { ContractCard } from "./contract-card";
 import { useSearchParams } from "next/navigation";
+import { AlertCircle } from "lucide-react"
+import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert"
+
+export function AlertDestructive() {
+  return (
+    <Alert variant="destructive">
+      <AlertCircle className="h-4 w-4" />
+      <AlertTitle>Warning</AlertTitle>
+      <AlertDescription>
+        Your Selected Contract is not the most recent
+      </AlertDescription>
+    </Alert>
+  )
+}
 
 
 
 export function ContractsHistory({ historyId }: { historyId: string}) {
   const searchParams = useSearchParams()
  
-  const search = searchParams?.get('contractId')
+  const selectedContractId = searchParams?.get('contractId')
 
   const {
     data: contracts,
@@ -32,9 +46,12 @@ export function ContractsHistory({ historyId }: { historyId: string}) {
   if (status === "error") {
     return <div>Error: {error.status}</div>;
   }
+  const firstContractId = contracts.body?.[0]?.id;
+  const isMostRecent = selectedContractId === firstContractId.toString();
 
   return (
     <>
+    {firstContractId && selectedContractId && !isMostRecent && <AlertDestructive />}
       {contracts?.body?.map((contract) => (
         <ContractCard
           key={contract.id}
@@ -42,6 +59,7 @@ export function ContractsHistory({ historyId }: { historyId: string}) {
           createdAt={new Date(contract.createdAt)}
           contractHistoryId={contract.contractHistoryId}
           id={contract.id}
+          selected={selectedContractId === contract.id.toString()}
         />
       ))}
     </>

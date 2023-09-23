@@ -22,15 +22,17 @@ export function ContractCard({
   createdAt,
   contractHistoryId,
   id,
+  selected,
 }: {
   name: string;
   createdAt: Date;
   contractHistoryId: string;
   id: number;
+  selected?: boolean;
 }) {
 
   return (
-    <Card>
+    <Card className={selected ? "border-white" : undefined}>
       <CardHeader className="grid grid-cols-[1fr_min-content] items-start gap-4 space-y-0">
         <div className="space-y-1">
           <CardTitle className="leading-tight">{name}</CardTitle>
