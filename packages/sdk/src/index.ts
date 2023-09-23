@@ -6,6 +6,11 @@ import * as ethers from "ethers";
 
 import * as etherscanLink from "@metamask/etherscan-link";
 
+const chainIdMap = {
+  "1": "test",
+  "84531": "https://goerli.basescan.org/address/",
+};
+
 type ConnectOptions = {
   contractName: string;
   chainID: string;
@@ -56,9 +61,14 @@ async function notifyWeb3Inbox(connectResult: ConnectOutput) {
 
   const contractExplorerUrl = etherscanLink.createExplorerLink(
     connectResult.contractAddress,
-    connectResult.chainID
+    "84531"
   );
 
+  console.log(
+    "contractExplorerUrl params",
+    connectResult.contractAddress,
+    connectResult.chainID
+  );
   console.log("contractExplorerUrl", contractExplorerUrl);
 
   // 2. Send a notification to all your subscribers
