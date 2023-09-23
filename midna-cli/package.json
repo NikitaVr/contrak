@@ -17,12 +17,12 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
+    "@midna/sdk": "*",
     "@oclif/core": "^2",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^3.7.0",
     "dotenv": "^16.3.1",
-    "ethers": "^6.7.1",
-    "midna-sdk": "file:../sdk"
+    "ethers": "^6.7.1"
   },
   "devDependencies": {
     "@oclif/test": "^2.5.4",

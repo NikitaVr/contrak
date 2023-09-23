@@ -3,6 +3,8 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "web"
+    "web",
+    "midna-cli",
+    "hardhat-example"
   ]
 }

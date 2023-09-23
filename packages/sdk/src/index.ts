@@ -1,6 +1,7 @@
-import { ethers } from "ethers";
-const fs = require("fs");
 import "dotenv/config";
+
+import * as fs from "node:fs";
+import * as ethers from "ethers";
 
 type ConnectOptions = {
   contractName: string;
@@ -40,14 +41,14 @@ export async function connect({
     throw new Error("Private key not found in environment variables");
   }
 
-  const signer = new ethers.Wallet(deployerPrivateKey);
+  const signer = new ethers.ethers.Wallet(deployerPrivateKey);
   const signature = await signer.signMessage(message);
 
   let orgSignature = null;
 
   const orgPrivateKey = process.env.TEAM_PRIVATE_KEY;
   if (orgPrivateKey) {
-    const teamSigner = new ethers.Wallet(orgPrivateKey);
+    const teamSigner = new ethers.ethers.Wallet(orgPrivateKey);
     orgSignature = await teamSigner.signMessage(message);
   }
 
@@ -70,7 +71,7 @@ export async function connect({
 }
 
 export async function verify({ message, signature }: VerifyOptions) {
-  const signer = ethers.verifyMessage(message, signature);
+  const signer = ethers.ethers.verifyMessage(message, signature);
 
   console.log(`Signer: ${signer}`);
 }

@@ -1,6 +1,5 @@
 import { Args, Command } from "@oclif/core";
-import { ethers } from "ethers";
-import { verify } from "midna-sdk";
+import { verify } from "@midna/sdk";
 
 export default class Verify extends Command {
   static description =

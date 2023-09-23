@@ -1,6 +1,7 @@
-import { ethers } from "hardhat";
-import { connect } from "midna-sdk";
 import "dotenv/config";
+
+import { ethers } from "hardhat";
+import { connect } from "@midna/sdk";
 
 async function main() {
   const currentTimestampInSeconds = Math.round(Date.now() / 1000);

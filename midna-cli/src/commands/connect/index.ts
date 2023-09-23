@@ -1,7 +1,5 @@
 import { Args, Command } from "@oclif/core";
-import { ethers } from "ethers";
-import { connect, verify } from "midna-sdk";
-const fs = require("fs");
+import { connect, verify } from "@midna/sdk";
 import "dotenv/config";
 
 export default class Connect extends Command {
