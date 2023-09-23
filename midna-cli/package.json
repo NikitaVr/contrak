@@ -1,5 +1,5 @@
 {
-  "name": "midna",
+  "name": "@midna/cli",
   "version": "0.0.0",
   "description": "Tracking smart contract deployments for teams",
   "author": "Nikita Varabei @NikitaVr",
@@ -17,7 +17,7 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
-    "@midna/sdk": "*",
+    "@midna/sdk": "workspace:*",
     "@oclif/core": "^2",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^3.7.0",
