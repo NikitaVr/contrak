@@ -35,7 +35,7 @@ export const contract = c.router({
     method: "GET",
     path: `/contracts/:id`,
     pathParams: z.object({
-      id: z.number(),
+      id: z.coerce.number(),
     }),
     responses: {
       200: ContractSchema.nullable(),

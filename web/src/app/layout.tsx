@@ -18,6 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          href="/rss.xml"
+          title="Contract Feed RSS"
+        />
+      </head>
       <body className={inter.className}>
         <ReactQueryClientProvider>
           <ThemeProvider
