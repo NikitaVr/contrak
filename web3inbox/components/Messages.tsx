@@ -47,6 +47,7 @@ function Messages() {
           ) : (
             messages
               .sort((a, b) => b.id - a.id)
+              .filter(({ message }) => message.type === "alerts")
               .map(({ id, message }) => (
                 <Alert
                   as={Link}

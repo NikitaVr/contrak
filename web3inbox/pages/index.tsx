@@ -241,10 +241,10 @@ const Home: NextPage = () => {
 
         {isSubscribed && (
           <Accordion defaultIndex={[1]} allowToggle mt={10} rounded="xl">
-            <Subscription />
+            {/* <Subscription /> */}
             <Messages />
-            <Preferences />
-            <Subscribers />
+            {/* <Preferences />
+            <Subscribers /> */}
           </Accordion>
         )}
       </Flex>

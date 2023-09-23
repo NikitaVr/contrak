@@ -88,7 +88,7 @@ async function notifyWeb3Inbox(connectResult: ConnectOutput) {
       body: `Midna Team`,
       icon: "https://avatars.githubusercontent.com/u/37784886?s=48&v=4",
       url: contractExplorerUrl,
-      type: "promotional",
+      type: "alerts",
     },
   });
 
