@@ -18,6 +18,8 @@ import { useMessages, useW3iAccount } from "@web3inbox/widget-react";
 import Link from "next/link";
 import React from "react";
 
+import etherscanlink from "@metamask/etherscan-link";
+
 function Messages() {
   const { account } = useW3iAccount();
   const { messages, deleteMessage } = useMessages(account);

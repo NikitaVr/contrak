@@ -13,6 +13,7 @@
     "@chakra-ui/react": "^2.5.4",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@metamask/etherscan-link": "^2.2.0",
     "@web3inbox/core": "^0.0.14",
     "@web3inbox/widget-react": "^0.6.18",
     "@web3modal/wagmi": "^3.0.0-beta.4",
