@@ -21,6 +21,11 @@ export default class Connect extends Command {
         "Address of the Contract that will be owned by the organization",
       required: true,
     }),
+    contractDeploymentTransactionHash: Args.string({
+      description:
+        "Transaction Hash that deployed the contract that will be owned by the organization",
+      required: true,
+    }),
     orgPublicKey: Args.string({
       description: "Public Key of the Organization that owns the contract",
       required: true,

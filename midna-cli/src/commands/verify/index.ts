@@ -18,6 +18,10 @@ export default class Verify extends Command {
       description: "The signature of the message",
       required: true,
     }),
+    transactionHash: Args.string({
+      description: "The transaction hash where the contract was deployed",
+      required: true,
+    }),
   };
 
   async run(): Promise<void> {
