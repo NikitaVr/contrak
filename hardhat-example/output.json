@@ -1,0 +1,10 @@
+{
+  "contractName": "Lock",
+  "chainID": "31337",
+  "contractAddress": "0x959922bE3CAee4b8Cd9a407cc3ac1C251C2007B1",
+  "contractDeploymentTransactionHash": "0xe1a3aa05e6c51628a06a555edb842586d31cf9c2df0a0f203af38dc0d7e49d04",
+  "orgPublicKey": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+  "message": "eyJhY3Rpb24iOiJjb25uZWN0IiwiY2hhaW5JRCI6IjMxMzM3IiwiY29udHJhY3RBZGRyZXNzIjoiMHg5NTk5MjJiRTNDQWVlNGI4Q2Q5YTQwN2NjM2FjMUMyNTFDMjAwN0IxIiwib3JnUHVibGljS2V5IjoiMHhmMzlGZDZlNTFhYWQ4OEY2RjRjZTZhQjg4MjcyNzljZmZGYjkyMjY2In0=",
+  "deployerSignature": "0x09fe88e971e33254fb98f33d04c3c699c1a6f6f82df48bf87405615849ad70583083c3b79b041651eef2d604131e99283d9de7438797a034c96122938d95e2051b",
+  "teamSignature": "0x75e1eac27f165b4703224d002a54beadb5b7658c2e2ce0f029fa3ca9d4142b955b5caed6060ed1427d893d65ea3bcc27372e947b6c5da7f7e6cc9498c5bc4ba21b"
+}
