@@ -169,13 +169,13 @@ const Home: NextPage = () => {
         }
       />
       <Heading alignSelf={"center"} textAlign={"center"} mb={6}>
-        Web3Inbox hooks
+        Midna Contract Deployments Feed
       </Heading>
 
       <Flex flexDirection="column" gap={4}>
         {isSubscribed ? (
           <Flex flexDirection={"column"} alignItems="center" gap={4}>
-            <Button
+            {/* <Button
               leftIcon={<BsSendFill />}
               variant="outline"
               onClick={handleTestNotification}
@@ -186,7 +186,7 @@ const Home: NextPage = () => {
               loadingText="Sending..."
             >
               Send test notification
-            </Button>
+            </Button> */}
             <Button
               leftIcon={isBlockNotificationEnabled ? <FaPause /> : <FaPlay />}
               variant="outline"
