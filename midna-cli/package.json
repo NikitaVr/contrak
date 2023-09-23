@@ -1,0 +1,69 @@
+{
+  "name": "midna",
+  "version": "0.0.0",
+  "description": "Tracking smart contract deployments for teams",
+  "author": "Nikita Varabei @NikitaVr",
+  "bin": {
+    "midna": "./bin/run"
+  },
+  "homepage": "https://github.com/NikitaVr/midna",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": "NikitaVr/midna",
+  "files": [
+    "/bin",
+    "/dist",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "dependencies": {
+    "@oclif/core": "^2",
+    "@oclif/plugin-help": "^5",
+    "@oclif/plugin-plugins": "^3.7.0",
+    "ethers": "^6.7.1"
+  },
+  "devDependencies": {
+    "@oclif/test": "^2.5.4",
+    "@types/chai": "^4",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.18.51",
+    "chai": "^4",
+    "mocha": "^9",
+    "oclif": "^3.16.0",
+    "shx": "^0.3.3",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.6.2",
+    "typescript": "^4.9.5"
+  },
+  "oclif": {
+    "bin": "midna",
+    "dirname": "midna",
+    "commands": "./dist/commands",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-plugins"
+    ],
+    "topicSeparator": " ",
+    "topics": {
+      "hello": {
+        "description": "Say hello to the world and others"
+      }
+    }
+  },
+  "scripts": {
+    "build": "shx rm -rf dist && tsc -b",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "posttest": "yarn lint",
+    "prepack": "yarn build && oclif manifest && oclif readme",
+    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif readme && git add README.md"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "bugs": "https://github.com/NikitaVr/midna/issues",
+  "keywords": [
+    "oclif"
+  ],
+  "types": "dist/index.d.ts"
+}
