@@ -2,7 +2,7 @@ import { getAllContracts } from "@midna/db";
 import { NextResponse } from "next/server";
 import Rss from "rss";
 
-const SITE_URL = "http://localhost:3000";
+const SITE_URL = "https://midna.io";
 
 export const revalidate = 0;
 
