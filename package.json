@@ -5,7 +5,8 @@
     "packages/*",
     "web",
     "midna-cli",
-    "hardhat-example"
+    "hardhat-example",
+    "web3inbox"
   ],
   "packageManager": "yarn@3.6.3",
   "engines": {
