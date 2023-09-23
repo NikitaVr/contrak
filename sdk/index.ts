@@ -43,12 +43,12 @@ export async function connect({
   const signer = new ethers.Wallet(deployerPrivateKey);
   const signature = await signer.signMessage(message);
 
-  let teamSignature = null;
+  let orgSignature = null;
 
   const teamPrivateKey = process.env.TEAM_PRIVATE_KEY;
   if (teamPrivateKey) {
     const teamSigner = new ethers.Wallet(teamPrivateKey);
-    teamSignature = await teamSigner.signMessage(message);
+    orgSignature = await teamSigner.signMessage(message);
   }
 
   const output = {
@@ -59,7 +59,7 @@ export async function connect({
     orgPublicKey: orgPublicKey,
     message: message,
     deployerSignature: signature,
-    teamSignature: teamSignature,
+    orgSignature: orgSignature,
   };
 
   // write output to file
