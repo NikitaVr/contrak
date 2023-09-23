@@ -10,7 +10,8 @@ export const contracts = sqliteTable(
   {
     id: integer("id").primaryKey({ autoIncrement: true }),
     name: text("name").notNull(),
-    contractAddress: text("contract_address"),
+    chainId: text("chain_id").notNull(),
+    contractAddress: text("contract_address").notNull(),
     deployerAddress: text("deployer_address"),
     deploymentTransactionHash: text("deployment_transaction_hash"),
     orgPublicKey: text("org_public_key"),

@@ -18,13 +18,13 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 
-export function ContractCard() {
+export function ContractCard({name}: {name: string}) {
   return (
     <Card>
       <CardHeader className="grid grid-cols-[1fr_min-content] items-start gap-4 space-y-0">
         <div className="space-y-1">
           <CardTitle className="leading-tight">
-            Morpho Proxy (transparentUpgradableProxy)
+            {name}
           </CardTitle>
           <CardDescription>
             This contract implements a proxy that is upgradeable by an admin.

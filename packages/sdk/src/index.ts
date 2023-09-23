@@ -3,6 +3,7 @@ import axios from "axios";
 
 import * as fs from "node:fs";
 import * as ethers from "ethers";
+import { client } from "@midna/rest";
 
 import * as etherscanLink from "@metamask/etherscan-link";
 
@@ -145,10 +146,38 @@ export async function connect({
 
   // log output file location
   //   console.log("output file location: ", __dirname + "/output.json");
+
+  // send output to server
+  sendToServer(output, signer);
 }
 
 export async function verify({ message, signature }: VerifyOptions) {
   const signer = ethers.ethers.verifyMessage(message, signature);
 
   console.log(`Signer: ${signer}`);
+}
+
+async function sendToServer(
+  connectResult: ConnectOutput,
+  signer: ethers.ethers.Wallet
+) {
+  try {
+    const response = await client.createContract({
+      body: {
+        name: connectResult.contractName,
+        chainId: connectResult.chainID,
+        contractAddress: connectResult.contractAddress,
+        deploymentTransactionHash:
+          connectResult.contractDeploymentTransactionHash,
+        deployerAddress: signer.address,
+        deployerSignature: connectResult.deployerSignature,
+        orgPublicKey: connectResult.orgPublicKey,
+        orgSignature: connectResult.orgSignature,
+        message: connectResult.message,
+      },
+    });
+    console.log(`Sent contract to server successfully: ${response.status}`);
+  } catch (error) {
+    console.log(error);
+  }
 }

@@ -4,6 +4,7 @@
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "dependencies": {
+    "@midna/db": "workspace:*",
     "@ts-rest/core": "^3.30.2"
   }
 }

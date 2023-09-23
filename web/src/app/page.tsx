@@ -1,7 +1,16 @@
+import { client } from "@midna/rest";
 import { ContractCard } from "~/components/contract-card";
 import { ModeToggle } from "~/components/theme-mode-toggle";
 
-export default function Home() {
+export default async function Home() {
+  const contractsResponse = await client.getAllContracts({ cache: "no-cache"});
+
+  if (contractsResponse.status !== 200) {
+    return <div>Something went wrong</div>;
+  }
+
+  const contracts = contractsResponse.body;
+
   return (
     <main className="py-16">
       <div className="px-4 mx-auto w-full max-w-screen-md flex flex-col items-start gap-8">
@@ -22,10 +31,9 @@ export default function Home() {
           <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
             Contracts
           </h2>
-          <ContractCard />
-          <ContractCard />
-          <ContractCard />
-          <ContractCard />
+          {contracts.map((contract) => (
+            <ContractCard key={contract.id} name={contract.name} />
+          ))}
         </section>
       </div>
     </main>

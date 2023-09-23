@@ -6,13 +6,14 @@
   "scripts": {
     "build": "tsc"
   },
-  "devDependencies": {
-    "typescript": "^5.2.2"
-  },
   "dependencies": {
     "@metamask/etherscan-link": "^2.2.0",
+    "@midna/rest": "workspace:*",
     "axios": "^1.5.0",
     "dotenv": "^16.3.1",
     "ethers": "^6.7.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
   }
 }

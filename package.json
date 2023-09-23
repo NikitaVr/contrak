@@ -7,5 +7,11 @@
     "midna-cli",
     "hardhat-example"
   ],
-  "packageManager": "yarn@3.6.3"
+  "packageManager": "yarn@3.6.3",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3"
+  }
 }
