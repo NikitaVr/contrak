@@ -7,9 +7,10 @@ import { client } from "@midna/rest";
 
 import * as etherscanLink from "@metamask/etherscan-link";
 
-const chainIdMap = {
-  "1": "test",
+const chainIdMap: { [key: string]: string } = {
+  "1": "https://etherscan.io/address/",
   "84531": "https://goerli.basescan.org/address/",
+  "31337": "https://hardhat.org/",
 };
 
 type ConnectOptions = {
@@ -37,6 +38,13 @@ type VerifyOptions = {
   //   contractDeploymentTransactionHash: string;
 };
 
+export function getExplorerUrl(chainId: string, contractAddress: string) {
+  const contractExplorerUrl = `${
+    chainIdMap[chainId as keyof typeof chainIdMap]
+  }${contractAddress}`;
+  return contractExplorerUrl;
+}
+
 async function notifyWeb3Inbox(connectResult: ConnectOutput) {
   console.log("notifyWeb3Inbox");
   // Your project ID from WalletConnect Cloud
@@ -60,9 +68,9 @@ async function notifyWeb3Inbox(connectResult: ConnectOutput) {
   );
   const subscribers = await subscribersRes.data;
 
-  const contractExplorerUrl = etherscanLink.createExplorerLink(
-    connectResult.contractAddress,
-    "84531"
+  const contractExplorerUrl = getExplorerUrl(
+    connectResult.chainID,
+    connectResult.contractAddress
   );
 
   console.log(

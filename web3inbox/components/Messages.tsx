@@ -24,6 +24,8 @@ function Messages() {
   const { account } = useW3iAccount();
   const { messages, deleteMessage } = useMessages(account);
 
+  console.log("messages", messages);
+
   return (
     <AccordionItem>
       <AccordionButton>
