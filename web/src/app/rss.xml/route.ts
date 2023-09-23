@@ -4,6 +4,8 @@ import Rss from "rss";
 
 const SITE_URL = "http://localhost:3000";
 
+export const revalidate = 0;
+
 export async function GET() {
   const contracts = await getAllContracts();
 
