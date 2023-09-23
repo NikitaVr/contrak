@@ -15,6 +15,7 @@ const chainIdMap: { [key: string]: string } = {
 
 type ConnectOptions = {
   contractName: string;
+  contractHistoryId: string;
   chainID: string;
   contractAddress: string;
   contractDeploymentTransactionHash: string;
@@ -23,6 +24,7 @@ type ConnectOptions = {
 
 type ConnectOutput = {
   contractName: string;
+  contractHistoryId: string;
   chainID: string;
   contractAddress: string;
   contractDeploymentTransactionHash: string;
@@ -103,6 +105,7 @@ async function notifyWeb3Inbox(connectResult: ConnectOutput) {
 
 export async function connect({
   contractName,
+  contractHistoryId,
   chainID,
   contractAddress,
   contractDeploymentTransactionHash,
@@ -138,6 +141,7 @@ export async function connect({
 
   const output = {
     contractName: contractName,
+    contractHistoryId,
     chainID: chainID,
     contractAddress: contractAddress,
     contractDeploymentTransactionHash,
@@ -173,6 +177,7 @@ async function sendToServer(
     const response = await client.createContract({
       body: {
         name: connectResult.contractName,
+        contractHistoryId: connectResult.contractHistoryId,
         chainId: connectResult.chainID,
         contractAddress: connectResult.contractAddress,
         deploymentTransactionHash:

@@ -8,6 +8,7 @@ import {
 export const contracts = sqliteTable("contracts", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   name: text("name").notNull(),
+  contractHistoryId: text("contract_history_id").notNull(),
   chainId: text("chain_id").notNull(),
   contractAddress: text("contract_address").notNull(),
   deployerAddress: text("deployer_address"),

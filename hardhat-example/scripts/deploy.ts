@@ -3,6 +3,8 @@ import "dotenv/config";
 import { ethers } from "hardhat";
 import { connect } from "@midna/sdk";
 
+const CONTRACT_HISTORY_ID = "143d0bde-5383-427d-8ea4-3b8178b11fac"
+
 async function main() {
   const currentTimestampInSeconds = Math.round(Date.now() / 1000);
   const unlockTime = currentTimestampInSeconds + 60;
@@ -43,6 +45,7 @@ async function main() {
 
   connect({
     contractName,
+    contractHistoryId: CONTRACT_HISTORY_ID,
     chainID: deploymentTransaction.chainId.toString(),
     contractAddress: contractAddress,
     contractDeploymentTransactionHash: deploymentTransaction.hash,
