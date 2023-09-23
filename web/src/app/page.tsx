@@ -1,8 +1,8 @@
-import { client } from "@midna/rest";
 import { ContractsFeed } from "~/components/contract-feed";
 import { ModeToggle } from "~/components/theme-mode-toggle";
 import { Button } from "~/components/ui/button";
 import { RssIcon } from "lucide-react";
+import Link from "next/link";
 
 export default async function Home() {
   return (
@@ -16,9 +16,12 @@ export default async function Home() {
             Keep track of your contracts and get notified when new ones are
             deployed.
           </p>
-          <Button>
-            <RssIcon className="w-4 h-4 mr-2" />
-            Subscribe to RSS
+
+          <Button asChild>
+            <Link href="/rss.xml">
+              <RssIcon className="w-4 h-4 mr-2" />
+              Subscribe to RSS
+            </Link>
           </Button>
 
           <div className="absolute top-0 right-0">
