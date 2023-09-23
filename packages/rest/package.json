@@ -3,6 +3,9 @@
   "private": true,
   "main": "./src/index.ts",
   "types": "./src/index.ts",
+  "peerDependencies": {
+    "zod": "^3.22.2"
+  },
   "dependencies": {
     "@midna/db": "workspace:*",
     "@ts-rest/core": "^3.30.2"

@@ -2482,6 +2482,8 @@ __metadata:
   dependencies:
     "@midna/db": "workspace:*"
     "@ts-rest/core": ^3.30.2
+  peerDependencies:
+    zod: ^3.22.2
   languageName: unknown
   linkType: soft
 
