@@ -45,9 +45,9 @@ export async function connect({
 
   let orgSignature = null;
 
-  const teamPrivateKey = process.env.TEAM_PRIVATE_KEY;
-  if (teamPrivateKey) {
-    const teamSigner = new ethers.Wallet(teamPrivateKey);
+  const orgPrivateKey = process.env.TEAM_PRIVATE_KEY;
+  if (orgPrivateKey) {
+    const teamSigner = new ethers.Wallet(orgPrivateKey);
     orgSignature = await teamSigner.signMessage(message);
   }
 

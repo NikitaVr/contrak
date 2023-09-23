@@ -62,9 +62,9 @@ function connect({
     const signer = new ethers_1.ethers.Wallet(deployerPrivateKey);
     const signature = yield signer.signMessage(message);
     let orgSignature = null;
-    const teamPrivateKey = process.env.TEAM_PRIVATE_KEY;
-    if (teamPrivateKey) {
-      const teamSigner = new ethers_1.ethers.Wallet(teamPrivateKey);
+    const orgPrivateKey = process.env.TEAM_PRIVATE_KEY;
+    if (orgPrivateKey) {
+      const teamSigner = new ethers_1.ethers.Wallet(orgPrivateKey);
       orgSignature = yield teamSigner.signMessage(message);
     }
     const output = {
