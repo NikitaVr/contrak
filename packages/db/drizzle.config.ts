@@ -6,6 +6,6 @@ export default {
   schema: "./src/schema.ts",
   driver: "better-sqlite",
   dbCredentials: {
-    url: process.env.DATABASE_URL!,
+    url: process.env.DATABASE_URL ?? "../../data.db",
   },
 } satisfies Config;
