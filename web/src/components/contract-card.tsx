@@ -99,28 +99,32 @@ export function ContractCard({
             <LapTimerIcon className="mr-1 h-3 w-3" />
             20k tx/s
           </div>
+
           <Spacer />
-          <div>
+
+          <Link
+            href={`/contracts/history/${contractHistoryId}?contractId=${id}`}
+          >
+            Deployed{" "}
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger>
-                  <Link
-                    href={`/contracts/history/${contractHistoryId}?contractId=${id}`}
-                  >
-                    Deployed{" "}
-                    <strong className="text-accent-foreground font-medium">
-                      {DateTime.fromJSDate(createdAt).toFormat(
-                        "LLL dd yyyy @ HH:mm"
-                      )}
-                    </strong>
-                  </Link>
+                  <strong className="text-accent-foreground font-medium">
+                    {DateTime.fromJSDate(createdAt).toRelative({
+                      padding: 1000 * 60,
+                    })}
+                  </strong>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Link to Contract History</p>
+                  <p>
+                    {DateTime.fromJSDate(createdAt).toFormat(
+                      "LLL dd yyyy @ HH:mm"
+                    )}
+                  </p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
-          </div>
+          </Link>
         </div>
       </CardContent>
     </Card>
