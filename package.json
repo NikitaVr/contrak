@@ -8,6 +8,12 @@
     "hardhat-example",
     "web3inbox"
   ],
+  "scripts": {
+    "dev:web": "yarn workspace web dev",
+    "build:web": "yarn workspace web build",
+    "start:web": "yarn workspace web start",
+    "db:push": "DATABASE_URL=$(pwd)/data.db yarn workspace @midna/db push"
+  },
   "packageManager": "yarn@3.6.3",
   "engines": {
     "node": ">=18.0.0"
