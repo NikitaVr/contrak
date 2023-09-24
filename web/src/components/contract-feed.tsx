@@ -2,6 +2,7 @@
 
 import { client } from "~/lib/react-query";
 import { ContractCard } from "./contract-card";
+import { Spinner } from "./spinner";
 
 export function ContractsFeed() {
   const {
@@ -15,7 +16,12 @@ export function ContractsFeed() {
   );
 
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center text-sm text-muted-foreground">
+        <Spinner className="mr-2 h-4 w-4" />
+        Loading...
+      </div>
+    );
   }
 
   if (status === "error") {
