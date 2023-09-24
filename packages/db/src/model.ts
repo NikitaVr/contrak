@@ -43,6 +43,7 @@ export async function createContract(
       message: contract.message,
       deployerSignature: contract.deployerSignature,
       orgSignature: contract.orgSignature,
+      githubUrl: contract.githubUrl,
       createdAt: new Date(),
     })
     .returning();

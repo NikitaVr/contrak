@@ -11,6 +11,7 @@ const ContractSchema = z.object({
   contractHistoryId: z.string(),
   contractAddress: z.string(),
   chainId: z.string(),
+  githubUrl: z.string().nullable(),
 });
 
 export const contract = c.router({

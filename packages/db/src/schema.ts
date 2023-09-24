@@ -18,4 +18,5 @@ export const contracts = sqliteTable("contracts", {
   deployerSignature: text("deployer_signature"),
   orgSignature: text("org_signature"),
   createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
+  githubUrl: text("github_url"),
 });

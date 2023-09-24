@@ -25,6 +25,7 @@ export function ContractCard({
   id,
   contractAddress,
   chainId,
+  githubUrl,
   selected,
 }: {
   name: string;
@@ -33,6 +34,7 @@ export function ContractCard({
   id: number;
   contractAddress: string;
   chainId: string;
+  githubUrl: string | null;
   selected?: boolean;
 }) {
   return (
@@ -41,20 +43,30 @@ export function ContractCard({
         <div className="space-y-1">
           <CardTitle className="leading-tight">{name}</CardTitle>
           <CardDescription>
-            <Link href={getExplorerUrl(chainId, contractAddress)}>
-              {getChainName(chainId)} - {contractAddress}
-            </Link>
+            {getChainName(chainId)} - {contractAddress}
           </CardDescription>
         </div>
         <div className="flex gap-2">
-          <Button variant="secondary">
-            <CodeIcon className="mr-2 h-4 w-4" />
-            ABI
-          </Button>
-          <Button>
-            <GitHubLogoIcon className="mr-2 h-4 w-4" />
-            GitHub
-          </Button>
+          {chainId !== "31337" && (
+            <Link
+              href={getExplorerUrl(chainId, contractAddress)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="secondary">
+                <CodeIcon className="mr-2 h-4 w-4" />
+                Explorer
+              </Button>
+            </Link>
+          )}
+          {githubUrl && (
+            <Link href={githubUrl} target="_blank" rel="noopener noreferrer">
+              <Button>
+                <GitHubLogoIcon className="mr-2 h-4 w-4" />
+                GitHub
+              </Button>
+            </Link>
+          )}
         </div>
       </CardHeader>
       <CardContent>

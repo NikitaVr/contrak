@@ -2497,8 +2497,6 @@ __metadata:
     axios: ^1.5.0
     dotenv: ^16.3.1
     ethers: ^6.7.1
-    git-rev-sync: ^3.0.2
-    github-url-from-git: ^1.5.0
     typescript: ^5.2.2
   languageName: unknown
   linkType: soft
@@ -2506,6 +2504,11 @@ __metadata:
 "@midna/utils@workspace:*, @midna/utils@workspace:packages/utils":
   version: 0.0.0-use.local
   resolution: "@midna/utils@workspace:packages/utils"
+  dependencies:
+    "@types/git-rev-sync": ^2.0.0
+    "@types/github-url-from-git": ^1.5.1
+    git-rev-sync: ^3.0.2
+    github-url-from-git: ^1.5.0
   languageName: unknown
   linkType: soft
 
@@ -5170,6 +5173,20 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: f0c283fdef2dd7191168a37b9cb2625af3cfbd7f72b5a514f938bea0a135669f79d736186d434b9e81150b47ef1bf20d97b188014a00583556fad6ce59fb9bbf
+  languageName: node
+  linkType: hard
+
+"@types/git-rev-sync@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@types/git-rev-sync@npm:2.0.0"
+  checksum: db70d3a58577cfc67431954f00af8fed4f38a1754872624998ffe6b524208c6491c278063ca2cbd08247e3b194bc74c6c85ec3e0e19a1aa8d1de987b50ad122c
+  languageName: node
+  linkType: hard
+
+"@types/github-url-from-git@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "@types/github-url-from-git@npm:1.5.1"
+  checksum: 90eda3deefe55b9d2e31c3d4c28ed1c79f3178448f2c076496941d9b24a0449094bcb4588a3fe057e19bc4ccd7397cc592415fc29dd5a1d756d1d8b03157df71
   languageName: node
   linkType: hard
 

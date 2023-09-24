@@ -4,8 +4,8 @@ import axios from "axios";
 import * as fs from "node:fs";
 import * as ethers from "ethers";
 import { client } from "@midna/rest";
-import { getCommitLink } from "./git";
 import { getExplorerUrl } from "@midna/utils";
+import { getCommitLink } from "./git";
 
 type ConnectOptions = {
   contractName: string;
@@ -26,6 +26,7 @@ type ConnectOutput = {
   message: string;
   deployerSignature: string;
   orgSignature: string | null;
+  githubUrl: string | undefined;
 };
 
 type VerifyOptions = {
@@ -126,8 +127,9 @@ export async function connect({
     orgSignature = await teamSigner.signMessage(message);
   }
 
-  const githubLink = getCommitLink();
-  console.log("githubLink", githubLink);
+  const githubUrl = getCommitLink();
+
+  console.log("githubUrl", githubUrl);
 
   const output = {
     contractName: contractName,
@@ -139,6 +141,7 @@ export async function connect({
     message: message,
     deployerSignature: signature,
     orgSignature: orgSignature,
+    githubUrl: githubUrl,
   };
 
   // write output to file
@@ -176,9 +179,11 @@ async function sendToServer(
         deployerSignature: connectResult.deployerSignature,
         orgPublicKey: connectResult.orgPublicKey,
         orgSignature: connectResult.orgSignature,
+        githubUrl: connectResult.githubUrl,
         message: connectResult.message,
       },
     });
+    console.log("sending github url", connectResult.githubUrl);
     console.log(`Sent contract to server successfully: ${response.status}`);
   } catch (error) {
     console.log(error);

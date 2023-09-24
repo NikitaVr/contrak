@@ -28,6 +28,8 @@ export function ContractsFeed() {
     return <div>Error: {error.status}</div>;
   }
 
+  console.log("contracts", contracts);
+
   return (
     <>
       {contracts?.body?.map((contract) => (
@@ -39,6 +41,7 @@ export function ContractsFeed() {
           id={contract.id}
           contractAddress={contract.contractAddress}
           chainId={contract.chainId}
+          githubUrl={contract.githubUrl}
         />
       ))}
     </>
