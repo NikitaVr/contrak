@@ -3,8 +3,8 @@ import axios from "axios";
 
 import * as fs from "node:fs";
 import * as ethers from "ethers";
-import { client } from "@midna/rest";
-import { getChainName, getExplorerUrl } from "@midna/utils";
+import { createClient } from "@midna/rest";
+import { getChainName } from "@midna/utils";
 import { getCommitLink } from "./git";
 
 type ConnectOptions = {
@@ -166,6 +166,7 @@ async function sendToServer(
   signer: ethers.ethers.Wallet
 ) {
   try {
+    const client = createClient({ baseUrl: process.env.MIDNA_API_URL });
     const response = await client.createContract({
       body: {
         name: connectResult.contractName,
