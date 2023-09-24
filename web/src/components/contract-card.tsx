@@ -5,7 +5,7 @@ import {
   LapTimerIcon,
 } from "@radix-ui/react-icons";
 import { DateTime } from "luxon";
-import { getExplorerUrl, getChainName } from "@midna/sdk/src/utils"
+import { getExplorerUrl, getChainName } from "@midna/utils";
 
 import { Button } from "~/components/ui/button";
 import {
@@ -34,7 +34,6 @@ export function ContractCard({
   contractAddress: string;
   chainId: string;
   selected?: boolean;
-  
 }) {
   return (
     <Card className={selected ? "border-primary border-2" : undefined}>
@@ -42,7 +41,9 @@ export function ContractCard({
         <div className="space-y-1">
           <CardTitle className="leading-tight">{name}</CardTitle>
           <CardDescription>
-            <Link href={getExplorerUrl(chainId, contractAddress )}>{getChainName(chainId)} - {contractAddress}</Link>
+            <Link href={getExplorerUrl(chainId, contractAddress)}>
+              {getChainName(chainId)} - {contractAddress}
+            </Link>
           </CardDescription>
         </div>
         <div className="flex gap-2">
