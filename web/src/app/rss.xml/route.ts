@@ -28,19 +28,13 @@ export async function GET() {
       `https://etherscan.io`
     ).toString();
     const title = `Deployed ${contract.name} on ${contract.chainId}`;
-    const description = `
-      <p>Deployed ${contract.name} on ${contract.chainId}</p>
-      <br />
-      <p><strong>Deployer:</strong> ${contract.deployerAddress ?? "Unknown"}</p>
-      <p><strong>Contract Address:</strong> ${contract.contractAddress}</p>
-      <p><strong>Transaction Hash:</strong> ${
-        contract.deploymentTransactionHash
-      }</p>
-      
-      <br />
-
-      <p><a href="${midnaUrl}">View on Midna</a> | <a href="${etherscanUrl}">View on Etherscan</a></p>
-    `;
+    const description = `<p><b>Deployer:</b> ${
+      contract.deployerAddress ?? "Unknown"
+    }</p><p><b>Contract Address:</b> ${
+      contract.contractAddress
+    }</p><p><b>Transaction Hash:</b> ${
+      contract.deploymentTransactionHash
+    }</p><br /><p><a href="${midnaUrl}">View on Midna</a> | <a href="${etherscanUrl}">View on Etherscan</a></p>`;
     feed.item({
       title,
       description,
