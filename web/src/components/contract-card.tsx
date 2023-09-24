@@ -7,6 +7,13 @@ import {
 import { DateTime } from "luxon";
 import { getExplorerUrl, getChainName } from "@midna/utils";
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "~/components/ui/tooltip";
+
 import { Button } from "~/components/ui/button";
 import {
   Card,
@@ -60,12 +67,25 @@ export function ContractCard({
             </Link>
           )}
           {githubUrl && (
-            <Link href={githubUrl} target="_blank" rel="noopener noreferrer">
-              <Button>
-                <GitHubLogoIcon className="mr-2 h-4 w-4" />
-                GitHub
-              </Button>
-            </Link>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <Link
+                    href={githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button>
+                      <GitHubLogoIcon className="mr-2 h-4 w-4" />
+                      GitHub
+                    </Button>
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Link To Commit Hash When This Contract Was Deployed</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           )}
         </div>
       </CardHeader>
@@ -81,14 +101,25 @@ export function ContractCard({
           </div>
           <Spacer />
           <div>
-            <Link
-              href={`/contracts/history/${contractHistoryId}?contractId=${id}`}
-            >
-              Deployed{" "}
-              <strong className="text-accent-foreground font-medium">
-                {DateTime.fromJSDate(createdAt).toFormat("LLL dd yyyy @ HH:mm")}
-              </strong>
-            </Link>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <Link
+                    href={`/contracts/history/${contractHistoryId}?contractId=${id}`}
+                  >
+                    Deployed{" "}
+                    <strong className="text-accent-foreground font-medium">
+                      {DateTime.fromJSDate(createdAt).toFormat(
+                        "LLL dd yyyy @ HH:mm"
+                      )}
+                    </strong>
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Link to Contract History</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </div>
         </div>
       </CardContent>

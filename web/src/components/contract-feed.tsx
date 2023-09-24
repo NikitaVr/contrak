@@ -3,8 +3,11 @@
 import { client } from "~/lib/react-query";
 import { ContractCard } from "./contract-card";
 import { Spinner } from "./spinner";
+import { useState } from "react";
+import { Input } from "~/components/ui/input";
 
 export function ContractsFeed() {
+  const [searchTerm, setSearchTerm] = useState("");
   const {
     data: contracts,
     status,
@@ -28,11 +31,19 @@ export function ContractsFeed() {
     return <div>Error: {error.status}</div>;
   }
 
-  console.log("contracts", contracts);
+  const filteredContracts = contracts?.body?.filter((contract) =>
+    contract.contractAddress.includes(searchTerm)
+  );
 
   return (
     <>
-      {contracts?.body?.map((contract) => (
+      <Input
+        type="text"
+        placeholder="Search by contract hash"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      {filteredContracts?.map((contract) => (
         <ContractCard
           key={contract.id}
           name={contract.name}
