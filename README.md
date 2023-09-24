@@ -9,7 +9,6 @@ Midna helps teams track track their smart contract deployments.
 ### Deploying Midna
 
 1. Click the "Deploy on Railway" button above
-2. Create a new Railway project
 3. Fill in the environment variables:
 
 | Variable       | Description                                          |
