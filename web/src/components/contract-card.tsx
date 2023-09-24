@@ -24,6 +24,7 @@ import {
 } from "~/components/ui/card";
 import { Spacer } from "./ui/spacer";
 import Link from "next/link";
+import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 
 export function ContractCard({
   name,
@@ -91,21 +92,17 @@ export function ContractCard({
       </CardHeader>
       <CardContent>
         <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-          <div className="flex items-center">
-            <CircleIcon className="mr-1 h-3 w-3 fill-orange-400 text-orange-400" />
-            Solidity
-          </div>
-          <div className="flex items-center">
-            <LapTimerIcon className="mr-1 h-3 w-3" />
-            20k tx/s
-          </div>
-
-          <Spacer />
-
           <Link
             href={`/contracts/history/${contractHistoryId}?contractId=${id}`}
           >
-            Deployed{" "}
+            <Avatar className="w-5 h-5 inline-block align-middle mb-0.5">
+              <AvatarImage src="https://github.com/nikitavr.png" />
+              <AvatarFallback>NV</AvatarFallback>
+            </Avatar>{" "}
+            <strong className="text-accent-foreground font-medium">
+              Nikita V.
+            </strong>{" "}
+            deployed{" "}
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger>
@@ -125,6 +122,18 @@ export function ContractCard({
               </Tooltip>
             </TooltipProvider>
           </Link>
+
+          <Spacer />
+
+          <div className="flex items-center">
+            <CircleIcon className="mr-1 h-3 w-3 fill-orange-400 text-orange-400" />
+            Solidity
+          </div>
+
+          <div className="flex items-center">
+            <LapTimerIcon className="mr-1 h-3 w-3" />
+            20k tx/s
+          </div>
         </div>
       </CardContent>
     </Card>
