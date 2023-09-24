@@ -6,6 +6,8 @@ const SITE_URL = process.env.SITE_URL ?? "https://midna.io";
 
 export const revalidate = 0;
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   const contracts = await getAllContracts();
 
