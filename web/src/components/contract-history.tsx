@@ -57,9 +57,7 @@ export function ContractsHistory({ historyId }: { historyId: string }) {
 
   return (
     <>
-      {firstContractId && selectedContractId && !isMostRecent && (
-        <AlertDestructive />
-      )}
+      {selectedContract && !isMostRecent && <AlertDestructive />}
       {contracts?.body?.map((contract) => (
         <ContractCard
           key={contract.id}
