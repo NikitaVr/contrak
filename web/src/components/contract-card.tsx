@@ -30,9 +30,8 @@ export function ContractCard({
   id: number;
   selected?: boolean;
 }) {
-
   return (
-    <Card className={selected ? "border-white" : undefined}>
+    <Card className={selected ? "border-primary border-2" : undefined}>
       <CardHeader className="grid grid-cols-[1fr_min-content] items-start gap-4 space-y-0">
         <div className="space-y-1">
           <CardTitle className="leading-tight">{name}</CardTitle>
@@ -63,7 +62,9 @@ export function ContractCard({
           </div>
           <Spacer />
           <div>
-            <Link href={`/contracts/history/${contractHistoryId}?contractId=${id}`}>
+            <Link
+              href={`/contracts/history/${contractHistoryId}?contractId=${id}`}
+            >
               Deployed{" "}
               <strong className="text-accent-foreground font-medium">
                 {DateTime.fromJSDate(createdAt).toFormat("LLL dd yyyy @ HH:mm")}
