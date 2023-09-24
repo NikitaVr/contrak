@@ -1,4 +1,3 @@
-import { getAllContracts } from "@midna/db";
 import { NextResponse } from "next/server";
 import Rss from "rss";
 
@@ -9,6 +8,8 @@ export const revalidate = 0;
 export const dynamic = "force-dynamic";
 
 export async function GET() {
+  const { getAllContracts } = await import("@midna/db");
+
   const contracts = await getAllContracts();
 
   const feed = new Rss({
