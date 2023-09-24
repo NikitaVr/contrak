@@ -2,7 +2,7 @@ import { getAllContracts } from "@midna/db";
 import { NextResponse } from "next/server";
 import Rss from "rss";
 
-const SITE_URL = "https://midna.io";
+const SITE_URL = process.env.SITE_URL ?? "https://midna.io";
 
 export const revalidate = 0;
 
@@ -15,15 +15,39 @@ export async function GET() {
     feed_url: `${SITE_URL}/rss.xml`,
     site_url: SITE_URL,
     language: "en",
+    ttl: 5,
   });
 
   contracts.forEach((contract) => {
+    const midnaUrl = new URL(
+      `/contracts/history/${contract.contractHistoryId}?contractId=${contract.id}`,
+      SITE_URL
+    ).toString();
+    const etherscanUrl = new URL(
+      `/address/${contract.contractAddress}`,
+      `https://etherscan.io`
+    ).toString();
+    const title = `Deployed ${contract.name} on ${contract.chainId}`;
+    const description = `
+      <p>Deployed ${contract.name} on ${contract.chainId}</p>
+      <br />
+      <p><strong>Deployer:</strong> ${contract.deployerAddress ?? "Unknown"}</p>
+      <p><strong>Contract Address:</strong> ${contract.contractAddress}</p>
+      <p><strong>Transaction Hash:</strong> ${
+        contract.deploymentTransactionHash
+      }</p>
+      
+      <br />
+
+      <p><a href="${midnaUrl}">View on Midna</a> | <a href="${etherscanUrl}">View on Etherscan</a></p>
+    `;
     feed.item({
-      title: contract.name,
-      description: contract.name,
-      url: `${SITE_URL}/api/contracts/${contract.id}`,
+      title,
+      description,
+      url: midnaUrl,
       guid: `${contract.id}`,
       date: contract.createdAt,
+      author: contract.deployerAddress ?? "Unknown",
     });
   });
 
