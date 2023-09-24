@@ -1,6 +1,8 @@
 # Midna
 
-Midna helps teams track track their smart contract deployments
+Midna helps teams track track their smart contract deployments.
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/qc4V0T?referralCode=kMU60t)
 
 ## Contributing
 
