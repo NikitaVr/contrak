@@ -59,6 +59,8 @@ export function ContractsHistory({ historyId }: { historyId: string}) {
           createdAt={new Date(contract.createdAt)}
           contractHistoryId={contract.contractHistoryId}
           id={contract.id}
+          contractAddress={contract.contractAddress}
+          chainId={contract.chainId}
           selected={selectedContractId === contract.id.toString()}
         />
       ))}

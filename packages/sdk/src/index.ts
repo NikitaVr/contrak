@@ -4,14 +4,7 @@ import axios from "axios";
 import * as fs from "node:fs";
 import * as ethers from "ethers";
 import { client } from "@midna/rest";
-
-import * as etherscanLink from "@metamask/etherscan-link";
-
-const chainIdMap: { [key: string]: string } = {
-  "1": "https://etherscan.io/address/",
-  "84531": "https://goerli.basescan.org/address/",
-  "31337": "https://hardhat.org/",
-};
+import { getExplorerUrl } from "./utils";
 
 type ConnectOptions = {
   contractName: string;
@@ -39,13 +32,6 @@ type VerifyOptions = {
   signature: string;
   //   contractDeploymentTransactionHash: string;
 };
-
-export function getExplorerUrl(chainId: string, contractAddress: string) {
-  const contractExplorerUrl = `${
-    chainIdMap[chainId as keyof typeof chainIdMap]
-  }${contractAddress}`;
-  return contractExplorerUrl;
-}
 
 async function notifyWeb3Inbox(connectResult: ConnectOutput) {
   console.log("notifyWeb3Inbox");

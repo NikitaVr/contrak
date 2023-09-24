@@ -5,6 +5,7 @@ import {
   LapTimerIcon,
 } from "@radix-ui/react-icons";
 import { DateTime } from "luxon";
+import { getExplorerUrl, getChainName } from "@midna/sdk/src/utils"
 
 import { Button } from "~/components/ui/button";
 import {
@@ -22,13 +23,18 @@ export function ContractCard({
   createdAt,
   contractHistoryId,
   id,
+  contractAddress,
+  chainId,
   selected,
 }: {
   name: string;
   createdAt: Date;
   contractHistoryId: string;
   id: number;
+  contractAddress: string;
+  chainId: string;
   selected?: boolean;
+  
 }) {
   return (
     <Card className={selected ? "border-primary border-2" : undefined}>
@@ -36,7 +42,7 @@ export function ContractCard({
         <div className="space-y-1">
           <CardTitle className="leading-tight">{name}</CardTitle>
           <CardDescription>
-            This contract implements a proxy that is upgradeable by an admin.
+            <Link href={getExplorerUrl(chainId, contractAddress )}>{getChainName(chainId)} - {contractAddress}</Link>
           </CardDescription>
         </div>
         <div className="flex gap-2">

@@ -31,6 +31,8 @@ export function ContractsFeed() {
           createdAt={new Date(contract.createdAt)}
           contractHistoryId={contract.contractHistoryId}
           id={contract.id}
+          contractAddress={contract.contractAddress}
+          chainId={contract.chainId}
         />
       ))}
     </>

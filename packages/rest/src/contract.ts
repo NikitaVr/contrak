@@ -9,6 +9,8 @@ const ContractSchema = z.object({
   name: z.string(),
   createdAt: z.date(),
   contractHistoryId: z.string(),
+  contractAddress: z.string(),
+  chainId: z.string(),
 });
 
 export const contract = c.router({
