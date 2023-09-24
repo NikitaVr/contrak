@@ -3,8 +3,8 @@
 import { client } from "~/lib/react-query";
 import { ContractCard } from "./contract-card";
 import { useSearchParams } from "next/navigation";
-import { AlertCircle } from "lucide-react"
-import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert"
+import { AlertCircle } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 
 export function AlertDestructive() {
   return (
@@ -15,15 +15,14 @@ export function AlertDestructive() {
         Your Selected Contract is not the most recent
       </AlertDescription>
     </Alert>
-  )
+  );
 }
 
+export function ContractsHistory({ historyId }: { historyId: string }) {
+  const searchParams = useSearchParams();
 
-
-export function ContractsHistory({ historyId }: { historyId: string}) {
-  const searchParams = useSearchParams()
- 
-  const selectedContractId = searchParams?.get('contractId')
+  const selectedContractId = searchParams?.get("contractId");
+  const selectedContractAddress = searchParams?.get("contractAddress");
 
   const {
     data: contracts,
@@ -33,8 +32,8 @@ export function ContractsHistory({ historyId }: { historyId: string}) {
     ["contractsByHistory"],
     {
       params: {
-        historyId: historyId
-      }
+        historyId: historyId,
+      },
     },
     { refetchInterval: 1000 }
   );
@@ -46,12 +45,21 @@ export function ContractsHistory({ historyId }: { historyId: string}) {
   if (status === "error") {
     return <div>Error: {error.status}</div>;
   }
+
+  const selectedContract = contracts.body?.find(
+    (contract) =>
+      contract.id.toString() === selectedContractId ||
+      contract.contractAddress === selectedContractAddress
+  );
+
   const firstContractId = contracts.body?.[0]?.id;
-  const isMostRecent = selectedContractId === firstContractId.toString();
+  const isMostRecent = selectedContract?.id === firstContractId;
 
   return (
     <>
-    {firstContractId && selectedContractId && !isMostRecent && <AlertDestructive />}
+      {firstContractId && selectedContractId && !isMostRecent && (
+        <AlertDestructive />
+      )}
       {contracts?.body?.map((contract) => (
         <ContractCard
           key={contract.id}
@@ -61,7 +69,7 @@ export function ContractsHistory({ historyId }: { historyId: string}) {
           id={contract.id}
           contractAddress={contract.contractAddress}
           chainId={contract.chainId}
-          selected={selectedContractId === contract.id.toString()}
+          selected={selectedContract?.id === contract.id}
           githubUrl={contract.githubUrl}
         />
       ))}

@@ -58,17 +58,12 @@ async function notifyWeb3Inbox(connectResult: ConnectOutput) {
   );
   const subscribers = await subscribersRes.data;
 
-  const contractExplorerUrl = getExplorerUrl(
-    connectResult.chainID,
-    connectResult.contractAddress
-  );
+  // const contractExplorerUrl = getExplorerUrl(
+  //   connectResult.chainID,
+  //   connectResult.contractAddress
+  // );
 
-  console.log(
-    "contractExplorerUrl params",
-    connectResult.contractAddress,
-    connectResult.chainID
-  );
-  console.log("contractExplorerUrl", contractExplorerUrl);
+  const midnaUrl = process.env.MIDNA_URL;
 
   // 2. Send a notification to all your subscribers
   const body = JSON.stringify({
@@ -77,7 +72,7 @@ async function notifyWeb3Inbox(connectResult: ConnectOutput) {
       title: `Contract Deployed - ${connectResult.contractName}`,
       body: `Midna Team`,
       icon: "https://avatars.githubusercontent.com/u/37784886?s=48&v=4",
-      url: contractExplorerUrl,
+      url: `${midnaUrl}/contracts/${connectResult.contractHistoryId}?contractAddress=${connectResult.contractAddress}`,
       type: "alerts",
     },
   });
