@@ -5,6 +5,7 @@ import * as fs from "node:fs";
 import * as ethers from "ethers";
 import { client } from "@midna/rest";
 import { getExplorerUrl } from "./utils";
+import { getCommitLink } from "./git";
 
 type ConnectOptions = {
   contractName: string;
@@ -124,6 +125,9 @@ export async function connect({
     const teamSigner = new ethers.ethers.Wallet(orgPrivateKey);
     orgSignature = await teamSigner.signMessage(message);
   }
+
+  const githubLink = getCommitLink();
+  console.log("githubLink", githubLink);
 
   const output = {
     contractName: contractName,

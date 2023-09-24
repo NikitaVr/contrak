@@ -1,11 +1,11 @@
 {
-  "contractName": "Lock",
-  "contractHistoryId": "143d0bde-5383-427d-8ea4-3b8178b11fac",
-  "chainID": "84531",
-  "contractAddress": "0xE76295EF83F01BA2E15f05E75F99F1E2a922dc59",
-  "contractDeploymentTransactionHash": "0xafb254b5254f931885b68d014e9884a747760eca8f0db630d179a15c32875bc4",
+  "contractName": "Manager",
+  "contractHistoryId": "f131f1f0-1822-42da-8a50-390d659ba850",
+  "chainID": "31337",
+  "contractAddress": "0xCD8a1C3ba11CF5ECfa6267617243239504a98d90",
+  "contractDeploymentTransactionHash": "0x05adc259a9d38c12b39928ee0f8b571fb102eacd7437779cfec4868b9ef1e8c4",
   "orgPublicKey": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-  "message": "eyJhY3Rpb24iOiJjb25uZWN0IiwiY2hhaW5JRCI6Ijg0NTMxIiwiY29udHJhY3RBZGRyZXNzIjoiMHhFNzYyOTVFRjgzRjAxQkEyRTE1ZjA1RTc1Rjk5RjFFMmE5MjJkYzU5Iiwib3JnUHVibGljS2V5IjoiMHhmMzlGZDZlNTFhYWQ4OEY2RjRjZTZhQjg4MjcyNzljZmZGYjkyMjY2In0=",
-  "deployerSignature": "0xf77a6398ee4e353d9631ca86f626cded431f45ca73fa9b95d56e2537218a53b803d8c457c95b473587174f47374cf13dec08f5e84dd7631f60c2ed8f1f1bb3c71b",
-  "orgSignature": "0x87a344e33fde301e7e1aab848d72dccc24733dc5972a909f6ec81968539d02f129a7dee791aaa8c11412d453a6999ae8288029f6b78e918151149980dcbc7a261b"
+  "message": "eyJhY3Rpb24iOiJjb25uZWN0IiwiY2hhaW5JRCI6IjMxMzM3IiwiY29udHJhY3RBZGRyZXNzIjoiMHhDRDhhMUMzYmExMUNGNUVDZmE2MjY3NjE3MjQzMjM5NTA0YTk4ZDkwIiwib3JnUHVibGljS2V5IjoiMHhmMzlGZDZlNTFhYWQ4OEY2RjRjZTZhQjg4MjcyNzljZmZGYjkyMjY2In0=",
+  "deployerSignature": "0x6f0ada907cef23d848981ff48b9ce0f4114e3c32a11851808a2e40f4414aecd26e39e4d4a1b7e0e385bc0abbbfec346853a00f4abfe858e688a6a991d6152c7d1b",
+  "orgSignature": "0x2e3cc860f65c63f8a791fc010bb886a8278b39e33d200caee770640ae0b6c17624b67833d43c7d6a87d81f4fa8c4ffaeca0171fc2187b492e2d39898da0cce291c"
 }

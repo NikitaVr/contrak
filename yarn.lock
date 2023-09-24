@@ -2496,6 +2496,8 @@ __metadata:
     axios: ^1.5.0
     dotenv: ^16.3.1
     ethers: ^6.7.1
+    git-rev-sync: ^3.0.2
+    github-url-from-git: ^1.5.0
     typescript: ^5.2.2
   languageName: unknown
   linkType: soft
@@ -10817,6 +10819,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"git-rev-sync@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "git-rev-sync@npm:3.0.2"
+  dependencies:
+    escape-string-regexp: 1.0.5
+    graceful-fs: 4.1.15
+    shelljs: 0.8.5
+  checksum: a6c1b8d9417643f40db0e005df9f05b0f6440756ef5ed379f1565cb90ad58ac1192da193838b243ccf8979ca5109a43c9ca7eb016c612af06912868dab307dd3
+  languageName: node
+  linkType: hard
+
 "github-from-package@npm:0.0.0":
   version: 0.0.0
   resolution: "github-from-package@npm:0.0.0"
@@ -10828,6 +10841,13 @@ __metadata:
   version: 1.5.0
   resolution: "github-slugger@npm:1.5.0"
   checksum: c70988224578b3bdaa25df65973ffc8c24594a77a28550c3636e495e49d17aef5cdb04c04fa3f1744babef98c61eecc6a43299a13ea7f3cc33d680bf9053ffbe
+  languageName: node
+  linkType: hard
+
+"github-url-from-git@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "github-url-from-git@npm:1.5.0"
+  checksum: 928d401865f850e76dec5e604e8aad110c0e7c221362356830e5037332ec3d1c0678b6c0b2dbd6f4df0e8a34a9cd69f85dee1d4c5256bd465b5e61a1c758d23c
   languageName: node
   linkType: hard
 
@@ -11101,6 +11121,13 @@ __metadata:
     p-cancelable: ^2.0.0
     responselike: ^2.0.0
   checksum: bbc783578a8d5030c8164ef7f57ce41b5ad7db2ed13371e1944bef157eeca5a7475530e07c0aaa71610d7085474d0d96222c9f4268d41db333a17e39b463f45d
+  languageName: node
+  linkType: hard
+
+"graceful-fs@npm:4.1.15":
+  version: 4.1.15
+  resolution: "graceful-fs@npm:4.1.15"
+  checksum: 0c7d7fcb739f760b3b702f993b64e2c111fce22084bbc9c5c8ff7f1a051691a7bba2baf0bf1c464ea5081225f8e17610c6b30167bcd6899aaabca820d55e403c
   languageName: node
   linkType: hard
 
@@ -16954,7 +16981,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shelljs@npm:^0.8.3, shelljs@npm:^0.8.5":
+"shelljs@npm:0.8.5, shelljs@npm:^0.8.3, shelljs@npm:^0.8.5":
   version: 0.8.5
   resolution: "shelljs@npm:0.8.5"
   dependencies:
