@@ -5,6 +5,36 @@ import { ContractCard } from "./contract-card";
 import { Spinner } from "./spinner";
 import { useState } from "react";
 import { Input } from "~/components/ui/input";
+import { motion, Variants } from "framer-motion";
+
+const parentVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+} satisfies Variants;
+
+const childVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.9,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: "spring",
+      mass: 0.4,
+      damping: 10,
+      stiffness: 100,
+    },
+  },
+} satisfies Variants;
 
 export function ContractsFeed() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -36,7 +66,12 @@ export function ContractsFeed() {
   );
 
   return (
-    <>
+    <motion.div
+      className="flex flex-col gap-4"
+      variants={parentVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <Input
         type="text"
         placeholder="Search by contract hash"
@@ -44,17 +79,18 @@ export function ContractsFeed() {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
       {filteredContracts?.map((contract) => (
-        <ContractCard
-          key={contract.id}
-          name={contract.name}
-          createdAt={new Date(contract.createdAt)}
-          contractHistoryId={contract.contractHistoryId}
-          id={contract.id}
-          contractAddress={contract.contractAddress}
-          chainId={contract.chainId}
-          githubUrl={contract.githubUrl}
-        />
+        <motion.div layout key={contract.id} variants={childVariants}>
+          <ContractCard
+            name={contract.name}
+            createdAt={new Date(contract.createdAt)}
+            contractHistoryId={contract.contractHistoryId}
+            id={contract.id}
+            contractAddress={contract.contractAddress}
+            chainId={contract.chainId}
+            githubUrl={contract.githubUrl}
+          />
+        </motion.div>
       ))}
-    </>
+    </motion.div>
   );
 }
