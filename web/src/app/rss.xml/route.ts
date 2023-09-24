@@ -30,11 +30,11 @@ export async function GET() {
     const title = `Deployed ${contract.name} on ${contract.chainId}`;
     const description = `<p><b>Deployer:</b> ${
       contract.deployerAddress ?? "Unknown"
-    }</p><p><b>Contract Address:</b> ${
+    }</p><br /><p><b>Contract Address:</b> ${
       contract.contractAddress
-    }</p><p><b>Transaction Hash:</b> ${
+    }</p><br /><p><b>Transaction Hash:</b> ${
       contract.deploymentTransactionHash
-    }</p><br /><p><a href="${midnaUrl}">View on Midna</a> | <a href="${etherscanUrl}">View on Etherscan</a></p>`;
+    }</p><br /><p><a href="${midnaUrl}">View on Midna</a> | <a href="${etherscanUrl}">Open contract on Etherscan</a></p>`;
     feed.item({
       title,
       description,
