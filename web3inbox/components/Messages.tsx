@@ -49,7 +49,7 @@ function Messages() {
           >
             <AlertIcon />
 
-            <Flex flexDir={"column"} flexGrow={1}>
+            <Flex flexDir={"column"} flexGrow={0.8}>
               <AlertTitle>{message.title}</AlertTitle>
               <AlertDescription flexGrow={1}>{message.body}</AlertDescription>
             </Flex>
