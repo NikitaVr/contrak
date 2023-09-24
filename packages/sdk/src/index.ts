@@ -64,6 +64,7 @@ async function notifyWeb3Inbox(connectResult: ConnectOutput) {
   // );
 
   const midnaUrl = process.env.MIDNA_URL;
+  console.log("midnaUrl", midnaUrl);
 
   // 2. Send a notification to all your subscribers
   const body = JSON.stringify({

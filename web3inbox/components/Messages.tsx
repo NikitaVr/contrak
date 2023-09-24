@@ -13,6 +13,7 @@ import {
   HStack,
   Heading,
   Image,
+  Stack,
   Text,
 } from "@chakra-ui/react";
 import { useMessages, useW3iAccount } from "@web3inbox/widget-react";
@@ -32,7 +33,7 @@ function Messages() {
   }
 
   return (
-    <HStack spacing={1}>
+    <Stack spacing={1}>
       {messages
         .sort((a, b) => b.id - a.id)
         .filter(({ message }) => message.type === "alerts")
@@ -73,7 +74,7 @@ function Messages() {
             />
           </Alert>
         ))}
-    </HStack>
+    </Stack>
   );
 }
 
