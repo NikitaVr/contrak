@@ -83,7 +83,6 @@ async function notifyWeb3Inbox(connectResult: ConnectOutput) {
     { headers }
   );
   const result = await notifyRes.data;
-  console.log(result);
 }
 
 export async function connect({
