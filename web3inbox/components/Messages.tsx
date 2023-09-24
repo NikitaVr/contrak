@@ -49,18 +49,18 @@ function Messages() {
           >
             <AlertIcon />
 
-            <Flex flexDir={"column"} flexGrow={0.8}>
+            <Flex flexDir={"column"} flexGrow={1}>
               <AlertTitle>{message.title}</AlertTitle>
               <AlertDescription flexGrow={1}>{message.body}</AlertDescription>
             </Flex>
             <Flex w="60px" justifyContent="center">
-              <Image
+              {/* <Image
                 src={message.icon}
                 alt="notification image"
                 height="60px"
                 rounded="full"
                 alignSelf="center"
-              />
+              /> */}
             </Flex>
             <CloseButton
               alignSelf="flex-start"

@@ -1,12 +1,12 @@
 {
-  "contractName": "Manager",
-  "contractHistoryId": "f131f1f0-1822-42da-8a50-390d659ba850",
+  "contractName": "Lock",
+  "contractHistoryId": "143d0bde-5383-427d-8ea4-3b8178b11fac",
   "chainID": "31337",
-  "contractAddress": "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6",
-  "contractDeploymentTransactionHash": "0x798a773b34cb457e6237a149c01230ec6687c44dadfd405d727cf68f93794e26",
+  "contractAddress": "0x68B1D87F95878fE05B998F19b66F4baba5De1aed",
+  "contractDeploymentTransactionHash": "0xea3b6e3310120f1554e227be11dc7818087a5818c147255180d3fcb7b9db6e20",
   "orgPublicKey": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-  "message": "eyJhY3Rpb24iOiJjb25uZWN0IiwiY2hhaW5JRCI6IjMxMzM3IiwiY29udHJhY3RBZGRyZXNzIjoiMHgyMjc5QjdBMGE2N0RCMzcyOTk2YTVGYUI1MEQ5MWVBQTczZDJlQmU2Iiwib3JnUHVibGljS2V5IjoiMHhmMzlGZDZlNTFhYWQ4OEY2RjRjZTZhQjg4MjcyNzljZmZGYjkyMjY2In0=",
-  "deployerSignature": "0x2bf161959f7e358bfa05b148d440bdef0c5bcfce9b4ff6cdd1dd11748c38c9fc21bf2a98bdacb127656621dd6f025297d87a7f5fae3b14e8cbe7e6be86a982f71b",
-  "orgSignature": "0xc455d25438161236befd4af76d9cb614868ef52c5adf54d565aa42ce710515835aad388409b6318717484b4681546072ae7bcaf1bc457e15a6cc0018594ed4111b",
-  "githubUrl": "https://github.com/NikitaVr/midna/tree/52d42b5"
+  "message": "eyJhY3Rpb24iOiJjb25uZWN0IiwiY2hhaW5JRCI6IjMxMzM3IiwiY29udHJhY3RBZGRyZXNzIjoiMHg2OEIxRDg3Rjk1ODc4ZkUwNUI5OThGMTliNjZGNGJhYmE1RGUxYWVkIiwib3JnUHVibGljS2V5IjoiMHhmMzlGZDZlNTFhYWQ4OEY2RjRjZTZhQjg4MjcyNzljZmZGYjkyMjY2In0=",
+  "deployerSignature": "0x1d7c52f916f5019bff6b33bc5d33cd3885847b62a926a3917291b899e95231eb37ade2a78b0610bf7a17279434adcb7cb8a866660c43f003b8ace9359ca154d21b",
+  "orgSignature": "0x1db1207cd7e3c8c0e04558aac31b272838ec0d7b36fc06914e93afee8c475be5631925bd2f6b56167bc04444415577bf684ab92e4c081f0eb4df1908da0bc6061c",
+  "githubUrl": "https://github.com/NikitaVr/midna/tree/b4abd0b"
 }
