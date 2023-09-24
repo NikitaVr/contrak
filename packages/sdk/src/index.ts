@@ -4,7 +4,7 @@ import axios from "axios";
 import * as fs from "node:fs";
 import * as ethers from "ethers";
 import { client } from "@midna/rest";
-import { getExplorerUrl } from "@midna/utils";
+import { getChainName, getExplorerUrl } from "@midna/utils";
 import { getCommitLink } from "./git";
 
 type ConnectOptions = {
@@ -71,9 +71,13 @@ async function notifyWeb3Inbox(connectResult: ConnectOutput) {
     accounts: subscribers,
     notification: {
       title: `Contract Deployed - ${connectResult.contractName}`,
-      body: `Midna Team`,
+      body: `${
+        connectResult.contractAddress
+      } Deployed by Midna Team to chain ${getChainName(
+        connectResult.chainID
+      )} - ${connectResult.chainID}`,
       icon: "https://avatars.githubusercontent.com/u/37784886?s=48&v=4",
-      url: `${midnaUrl}/contracts/${connectResult.contractHistoryId}?contractAddress=${connectResult.contractAddress}`,
+      url: `${midnaUrl}/contracts/history/${connectResult.contractHistoryId}?contractAddress=${connectResult.contractAddress}`,
       type: "alerts",
     },
   });

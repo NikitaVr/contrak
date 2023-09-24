@@ -114,50 +114,6 @@ const Home: NextPage = () => {
     }
   }, [handleSendNotification, isSubscribed]);
 
-  // Example of how to send a notification based on some "automation".
-  // sendNotification will make a fetch request to /api/notify
-  const handleBlockNotification = useCallback(async () => {
-    if (isSubscribed && account && isBlockNotificationEnabled) {
-      const blockNumber = await wagmiPublicClient.getBlockNumber();
-      if (lastBlock !== blockNumber.toString()) {
-        setLastBlock(blockNumber.toString());
-        try {
-          toast({
-            title: "New block",
-            position: "top",
-            variant: "subtle",
-          });
-          await sendNotification({
-            accounts: [account], // accounts that we want to send the notification to.
-            notification: {
-              title: "New block",
-              body: blockNumber.toString(),
-              icon: `${window.location.origin}/eth-glyph-colored.png`,
-              url: `https://etherscan.io/block/${blockNumber.toString()}`,
-              type: "transactional",
-            },
-          });
-        } catch (error: any) {
-          toast({
-            title: "Failed to send new block notification",
-            description: error.message ?? "Something went wrong",
-          });
-        }
-      }
-    }
-  }, [
-    wagmiPublicClient,
-    isSubscribed,
-    lastBlock,
-    account,
-    toast,
-    isBlockNotificationEnabled,
-  ]);
-
-  useInterval(() => {
-    handleBlockNotification();
-  }, 12000);
-
   return (
     <Flex w="full" flexDirection={"column"} maxW="700px">
       <Image
