@@ -4,7 +4,22 @@ Midna helps teams track track their smart contract deployments.
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/qc4V0T?referralCode=kMU60t)
 
-## Contributing
+## 🚀 Getting Started
+
+### Deploying Midna
+
+1. Click the "Deploy on Railway" button above
+2. Create a new Railway project
+3. Fill in the environment variables:
+
+| Variable       | Description                                          |
+| -------------- | ---------------------------------------------------- |
+| `SITE_URL`     | Set this to `https://${{RAILWAY_PUBLIC_DOMAIN}}/`    |
+| `DATABASE_URL` | Set this to `${{RAILWAY_VOLUME_MOUNT_PATH}}/data.db` |
+
+4. Click "Deploy"
+
+## 👷 Contributing
 
 ### Setup
 
