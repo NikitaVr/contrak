@@ -36,7 +36,6 @@ type VerifyOptions = {
 };
 
 async function notifyWeb3Inbox(connectResult: ConnectOutput) {
-  console.log("notifyWeb3Inbox");
   // Your project ID from WalletConnect Cloud
   const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
   // notify_api_secret generated in WalletConnect Cloud
@@ -64,7 +63,6 @@ async function notifyWeb3Inbox(connectResult: ConnectOutput) {
   // );
 
   const midnaUrl = process.env.MIDNA_URL;
-  console.log("midnaUrl", midnaUrl);
 
   // 2. Send a notification to all your subscribers
   const body = JSON.stringify({
@@ -128,8 +126,6 @@ export async function connect({
 
   const githubUrl = getCommitLink();
 
-  console.log("githubUrl", githubUrl);
-
   const output = {
     contractName: contractName,
     contractHistoryId,
@@ -183,8 +179,6 @@ async function sendToServer(
         message: connectResult.message,
       },
     });
-    console.log("sending github url", connectResult.githubUrl);
-    console.log(`Sent contract to server successfully: ${response.status}`);
   } catch (error) {
     console.log(error);
   }

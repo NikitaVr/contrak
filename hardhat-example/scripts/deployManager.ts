@@ -3,7 +3,7 @@ import "dotenv/config";
 import { ethers } from "hardhat";
 import { connect } from "@midna/sdk";
 
-const CONTRACT_HISTORY_ID = "f131f1f0-1822-42da-8a50-390d659ba850"
+const CONTRACT_HISTORY_ID = "f131f1f0-1822-42da-8a50-390d659ba850";
 
 async function main() {
   const currentTimestampInSeconds = Math.round(Date.now() / 1000);
@@ -13,8 +13,11 @@ async function main() {
 
   const contractName = "Manager";
 
+  const feeData = await ethers.provider.getFeeData();
+
   const lock = await ethers.deployContract(contractName, [unlockTime], {
     value: lockedAmount,
+    gasPrice: feeData.maxFeePerGas,
   });
 
   await lock.waitForDeployment();
