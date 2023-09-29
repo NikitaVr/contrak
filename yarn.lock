@@ -2439,7 +2439,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@midna/cli@workspace:midna-cli"
   dependencies:
-    "@midna/sdk": "workspace:*"
+    "@midna/sdk": /Users/nikita/Documents/chainpatrol/midna-core
     "@oclif/core": ^2
     "@oclif/plugin-help": ^5
     "@oclif/plugin-plugins": ^3.7.0
@@ -2487,7 +2487,35 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@midna/sdk@workspace:*, @midna/sdk@workspace:packages/sdk":
+"@midna/sdk@file:/Users/nikita/Documents/chainpatrol/midna-core::locator=%40midna%2Fcli%40workspace%3Amidna-cli":
+  version: 1.0.0
+  resolution: "@midna/sdk@file:/Users/nikita/Documents/chainpatrol/midna-core#/Users/nikita/Documents/chainpatrol/midna-core::hash=7b4ce9&locator=%40midna%2Fcli%40workspace%3Amidna-cli"
+  dependencies:
+    "@midna/utils": /Users/nikita/Documents/chainpatrol/midna-utils
+    axios: ^1.5.1
+    ethers: ^6.7.1
+    git-rev-sync: ^3.0.2
+    github-url-from-git: ^1.5.0
+    tslib: ^2.6.2
+  checksum: ab685120e92d7ef8a3b8a55fee93b85476815e54dd3f2d05db74250e29dbe98e6bc48cca400f53e78ab307c56af38fd98fbe7d4a230707b9623faec8e8a360b1
+  languageName: node
+  linkType: hard
+
+"@midna/sdk@file:/Users/nikita/Documents/chainpatrol/midna-core::locator=hardhat-project%40workspace%3Ahardhat-example":
+  version: 1.0.0
+  resolution: "@midna/sdk@file:/Users/nikita/Documents/chainpatrol/midna-core#/Users/nikita/Documents/chainpatrol/midna-core::hash=7b4ce9&locator=hardhat-project%40workspace%3Ahardhat-example"
+  dependencies:
+    "@midna/utils": /Users/nikita/Documents/chainpatrol/midna-utils
+    axios: ^1.5.1
+    ethers: ^6.7.1
+    git-rev-sync: ^3.0.2
+    github-url-from-git: ^1.5.0
+    tslib: ^2.6.2
+  checksum: ab685120e92d7ef8a3b8a55fee93b85476815e54dd3f2d05db74250e29dbe98e6bc48cca400f53e78ab307c56af38fd98fbe7d4a230707b9623faec8e8a360b1
+  languageName: node
+  linkType: hard
+
+"@midna/sdk@workspace:packages/sdk":
   version: 0.0.0-use.local
   resolution: "@midna/sdk@workspace:packages/sdk"
   dependencies:
@@ -2500,6 +2528,24 @@ __metadata:
     typescript: ^5.2.2
   languageName: unknown
   linkType: soft
+
+"@midna/utils@file:/Users/nikita/Documents/chainpatrol/midna-utils::locator=%40midna%2Fsdk%40file%3A%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-core%23%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-core%3A%3Ahash%3D7b4ce9%26locator%3D%2540midna%252Fcli%2540workspace%253Amidna-cli":
+  version: 1.0.0
+  resolution: "@midna/utils@file:/Users/nikita/Documents/chainpatrol/midna-utils#/Users/nikita/Documents/chainpatrol/midna-utils::hash=3e9bd4&locator=%40midna%2Fsdk%40file%3A%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-core%23%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-core%3A%3Ahash%3D7b4ce9%26locator%3D%2540midna%252Fcli%2540workspace%253Amidna-cli"
+  dependencies:
+    tslib: ^2.6.2
+  checksum: eeca558d35c6e7a8bddd6eb86369c9eb8e2f621dcb2e322fc3f5de450f5dcf2dc45c8c508a119b1a4fbc4496966b245c54b7f4b9933588232dada30ff8916f51
+  languageName: node
+  linkType: hard
+
+"@midna/utils@file:/Users/nikita/Documents/chainpatrol/midna-utils::locator=%40midna%2Fsdk%40file%3A%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-core%23%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-core%3A%3Ahash%3D7b4ce9%26locator%3Dhardhat-project%2540workspace%253Ahardhat-example":
+  version: 1.0.0
+  resolution: "@midna/utils@file:/Users/nikita/Documents/chainpatrol/midna-utils#/Users/nikita/Documents/chainpatrol/midna-utils::hash=3e9bd4&locator=%40midna%2Fsdk%40file%3A%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-core%23%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-core%3A%3Ahash%3D7b4ce9%26locator%3Dhardhat-project%2540workspace%253Ahardhat-example"
+  dependencies:
+    tslib: ^2.6.2
+  checksum: eeca558d35c6e7a8bddd6eb86369c9eb8e2f621dcb2e322fc3f5de450f5dcf2dc45c8c508a119b1a4fbc4496966b245c54b7f4b9933588232dada30ff8916f51
+  languageName: node
+  linkType: hard
 
 "@midna/utils@workspace:*, @midna/utils@workspace:packages/utils":
   version: 0.0.0-use.local
@@ -6488,6 +6534,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"add@npm:^2.0.6":
+  version: 2.0.6
+  resolution: "add@npm:2.0.6"
+  checksum: e2d23d40494565dfed4acd65e478570c444db5ac6c053551ed429c39ea0f2c99d83df63e7befec936df601827d2254d06a2fb6f7dcfd2022e810b25eab818b8c
+  languageName: node
+  linkType: hard
+
 "address@npm:^1.0.1":
   version: 1.2.2
   resolution: "address@npm:1.2.2"
@@ -7120,6 +7173,17 @@ __metadata:
     form-data: ^4.0.0
     proxy-from-env: ^1.1.0
   checksum: e7405a5dbbea97760d0e6cd58fecba311b0401ddb4a8efbc4108f5537da9b3f278bde566deb777935a960beec4fa18e7b8353881f2f465e4f2c0e949fead35be
+  languageName: node
+  linkType: hard
+
+"axios@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "axios@npm:1.5.1"
+  dependencies:
+    follow-redirects: ^1.15.0
+    form-data: ^4.0.0
+    proxy-from-env: ^1.1.0
+  checksum: 4444f06601f4ede154183767863d2b8e472b4a6bfc5253597ed6d21899887e1fd0ee2b3de792ac4f8459fe2e359d2aa07c216e45fd8b9e4e0688a6ebf48a5a8d
   languageName: node
   linkType: hard
 
@@ -11326,7 +11390,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hardhat-project@workspace:hardhat-example"
   dependencies:
-    "@midna/sdk": "workspace:*"
+    "@midna/sdk": /Users/nikita/Documents/chainpatrol/midna-core
     "@nomicfoundation/hardhat-chai-matchers": ^2.0.0
     "@nomicfoundation/hardhat-ethers": ^3.0.0
     "@nomicfoundation/hardhat-network-helpers": ^1.0.0
@@ -11334,12 +11398,14 @@ __metadata:
     "@nomicfoundation/hardhat-verify": ^1.0.0
     "@typechain/ethers-v6": ^0.4.0
     "@typechain/hardhat": ^8.0.0
+    add: ^2.0.6
     dotenv: ^16.3.1
     ethers: ^6.4.0
     hardhat: ^2.17.3
     hardhat-gas-reporter: ^1.0.8
     solidity-coverage: ^0.8.1
     typechain: ^8.2.0
+    yarn: ^1.22.19
   languageName: unknown
   linkType: soft
 
@@ -19655,7 +19721,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yarn@npm:^1.22.18":
+"yarn@npm:^1.22.18, yarn@npm:^1.22.19":
   version: 1.22.19
   resolution: "yarn@npm:1.22.19"
   bin:
