@@ -1,13 +1,22 @@
 {
   "name": "@midna/rest",
-  "private": true,
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
-  "peerDependencies": {
-    "zod": "^3.22.2"
+  "version": "1.0.0",
+  "description": "Can log \"hello world\" and \"goodbye world\" to the console!",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
   },
+  "files": [
+    "/dist"
+  ],
   "dependencies": {
     "@midna/db": "workspace:*",
-    "@ts-rest/core": "^3.30.2"
+    "@ts-rest/core": "^3.30.2",
+    "tslib": "^2.6.2",
+    "zod": "^3.22.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.7.1"
   }
 }

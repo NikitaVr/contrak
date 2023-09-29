@@ -2439,7 +2439,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@midna/cli@workspace:midna-cli"
   dependencies:
-    "@midna/sdk": /Users/nikita/Documents/chainpatrol/midna-sdk
+    "@midna/sdk": "workspace:*"
     "@oclif/core": ^2
     "@oclif/plugin-help": ^5
     "@oclif/plugin-plugins": ^3.7.0
@@ -2461,21 +2461,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@midna/db@file:/Users/nikita/Documents/chainpatrol/midna-db::locator=%40midna%2Frest%40file%3A%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-rest%23%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-rest%3A%3Ahash%3Def2bca%26locator%3D%2540midna%252Fsdk%2540file%253A%252FUsers%252Fnikita%252FDocuments%252Fchainpatrol%252Fmidna-sdk%2523%252FUsers%252Fnikita%252FDocuments%252Fchainpatrol%252Fmidna-sdk%253A%253Ahash%253D835552%2526locator%253D%252540midna%25252Fcli%252540workspace%25253Amidna-cli":
-  version: 1.0.0
-  resolution: "@midna/db@file:/Users/nikita/Documents/chainpatrol/midna-db#/Users/nikita/Documents/chainpatrol/midna-db::hash=ca1452&locator=%40midna%2Frest%40file%3A%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-rest%23%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-rest%3A%3Ahash%3Def2bca%26locator%3D%2540midna%252Fsdk%2540file%253A%252FUsers%252Fnikita%252FDocuments%252Fchainpatrol%252Fmidna-sdk%2523%252FUsers%252Fnikita%252FDocuments%252Fchainpatrol%252Fmidna-sdk%253A%253Ahash%253D835552%2526locator%253D%252540midna%25252Fcli%252540workspace%25253Amidna-cli"
-  dependencies:
-    "@types/better-sqlite3": ^7.6.5
-    better-sqlite3: ^8.6.0
-    dotenv: ^16.3.1
-    drizzle-orm: ^0.28.6
-    drizzle-zod: ^0.5.1
-    tslib: ^2.6.2
-    zod: ^3.22.2
-  checksum: 9939a89daa675c616f54e4e9a926fec8c3e22c19dd9e119fa26755dfd5a22478ddee7c9b59300e21ea28220ee7fabbff44aca9391e811e14ded59ea03544627b
-  languageName: node
-  linkType: hard
-
 "@midna/db@file:/Users/nikita/Documents/chainpatrol/midna-db::locator=%40midna%2Frest%40file%3A%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-rest%23%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-rest%3A%3Ahash%3Def2bca%26locator%3D%2540midna%252Fsdk%2540file%253A%252FUsers%252Fnikita%252FDocuments%252Fchainpatrol%252Fmidna-sdk%2523%252FUsers%252Fnikita%252FDocuments%252Fchainpatrol%252Fmidna-sdk%253A%253Ahash%253D835552%2526locator%253Dhardhat-project%252540workspace%25253Ahardhat-example":
   version: 1.0.0
   resolution: "@midna/db@file:/Users/nikita/Documents/chainpatrol/midna-db#/Users/nikita/Documents/chainpatrol/midna-db::hash=ca1452&locator=%40midna%2Frest%40file%3A%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-rest%23%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-rest%3A%3Ahash%3Def2bca%26locator%3D%2540midna%252Fsdk%2540file%253A%252FUsers%252Fnikita%252FDocuments%252Fchainpatrol%252Fmidna-sdk%2523%252FUsers%252Fnikita%252FDocuments%252Fchainpatrol%252Fmidna-sdk%253A%253Ahash%253D835552%2526locator%253Dhardhat-project%252540workspace%25253Ahardhat-example"
@@ -2496,27 +2481,16 @@ __metadata:
   resolution: "@midna/db@workspace:packages/db"
   dependencies:
     "@types/better-sqlite3": ^7.6.5
+    "@types/node": ^20.7.1
     better-sqlite3: ^8.6.0
     dotenv: ^16.3.1
     drizzle-kit: ^0.19.13
     drizzle-orm: ^0.28.6
     drizzle-zod: ^0.5.1
-  peerDependencies:
+    tslib: ^2.6.2
     zod: ^3.22.2
   languageName: unknown
   linkType: soft
-
-"@midna/rest@file:/Users/nikita/Documents/chainpatrol/midna-rest::locator=%40midna%2Fsdk%40file%3A%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-sdk%23%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-sdk%3A%3Ahash%3D835552%26locator%3D%2540midna%252Fcli%2540workspace%253Amidna-cli":
-  version: 1.0.0
-  resolution: "@midna/rest@file:/Users/nikita/Documents/chainpatrol/midna-rest#/Users/nikita/Documents/chainpatrol/midna-rest::hash=ef2bca&locator=%40midna%2Fsdk%40file%3A%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-sdk%23%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-sdk%3A%3Ahash%3D835552%26locator%3D%2540midna%252Fcli%2540workspace%253Amidna-cli"
-  dependencies:
-    "@midna/db": /Users/nikita/Documents/chainpatrol/midna-db
-    "@ts-rest/core": ^3.30.2
-    tslib: ^2.6.2
-    zod: ^3.22.2
-  checksum: fff3ade24b55e8aea8f34bff6aaebdacf7d912f56e0384f312219c05f9e6290dd93abe865cc0df2c8a83ea5dba1586f4ea3ec2f55e3ac595f2516efeb9e60512
-  languageName: node
-  linkType: hard
 
 "@midna/rest@file:/Users/nikita/Documents/chainpatrol/midna-rest::locator=%40midna%2Fsdk%40file%3A%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-sdk%23%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-sdk%3A%3Ahash%3D835552%26locator%3Dhardhat-project%2540workspace%253Ahardhat-example":
   version: 1.0.0
@@ -2536,25 +2510,11 @@ __metadata:
   dependencies:
     "@midna/db": "workspace:*"
     "@ts-rest/core": ^3.30.2
-  peerDependencies:
+    "@types/node": ^20.7.1
+    tslib: ^2.6.2
     zod: ^3.22.2
   languageName: unknown
   linkType: soft
-
-"@midna/sdk@file:/Users/nikita/Documents/chainpatrol/midna-sdk::locator=%40midna%2Fcli%40workspace%3Amidna-cli":
-  version: 1.0.0
-  resolution: "@midna/sdk@file:/Users/nikita/Documents/chainpatrol/midna-sdk#/Users/nikita/Documents/chainpatrol/midna-sdk::hash=835552&locator=%40midna%2Fcli%40workspace%3Amidna-cli"
-  dependencies:
-    "@midna/rest": /Users/nikita/Documents/chainpatrol/midna-rest
-    "@midna/utils": /Users/nikita/Documents/chainpatrol/midna-utils
-    axios: ^1.5.1
-    ethers: ^6.7.1
-    git-rev-sync: ^3.0.2
-    github-url-from-git: ^1.5.0
-    tslib: ^2.6.2
-  checksum: 742cc8d4806b6632839b3cfb4b7585b0c4b284e20e07f5589e5ee9118c11677bda1e62d59452f7580635d5751d59b04e3f969a61d8702f4a60a8349d4e53780c
-  languageName: node
-  linkType: hard
 
 "@midna/sdk@file:/Users/nikita/Documents/chainpatrol/midna-sdk::locator=hardhat-project%40workspace%3Ahardhat-example":
   version: 1.0.0
@@ -2571,28 +2531,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@midna/sdk@workspace:packages/sdk":
+"@midna/sdk@workspace:*, @midna/sdk@workspace:packages/sdk":
   version: 0.0.0-use.local
   resolution: "@midna/sdk@workspace:packages/sdk"
   dependencies:
-    "@metamask/etherscan-link": ^2.2.0
     "@midna/rest": "workspace:*"
     "@midna/utils": "workspace:*"
-    axios: ^1.5.0
-    dotenv: ^16.3.1
+    "@types/axios": ^0.14.0
+    "@types/node": ^20.7.1
+    axios: ^1.5.1
     ethers: ^6.7.1
-    typescript: ^5.2.2
+    git-rev-sync: ^3.0.2
+    github-url-from-git: ^1.5.0
+    tslib: ^2.6.2
   languageName: unknown
   linkType: soft
-
-"@midna/utils@file:/Users/nikita/Documents/chainpatrol/midna-utils::locator=%40midna%2Fsdk%40file%3A%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-sdk%23%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-sdk%3A%3Ahash%3D835552%26locator%3D%2540midna%252Fcli%2540workspace%253Amidna-cli":
-  version: 1.0.0
-  resolution: "@midna/utils@file:/Users/nikita/Documents/chainpatrol/midna-utils#/Users/nikita/Documents/chainpatrol/midna-utils::hash=7d6c57&locator=%40midna%2Fsdk%40file%3A%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-sdk%23%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-sdk%3A%3Ahash%3D835552%26locator%3D%2540midna%252Fcli%2540workspace%253Amidna-cli"
-  dependencies:
-    tslib: ^2.6.2
-  checksum: 40fc5bea12a9039b50f57f5824c59e7414da5e3687b88d42f9afc046009fdd096934edbfc0a61a2ac1f172e4c39a1573849eea4e99012e7261077e09562bb527
-  languageName: node
-  linkType: hard
 
 "@midna/utils@file:/Users/nikita/Documents/chainpatrol/midna-utils::locator=%40midna%2Fsdk%40file%3A%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-sdk%23%2FUsers%2Fnikita%2FDocuments%2Fchainpatrol%2Fmidna-sdk%3A%3Ahash%3D835552%26locator%3Dhardhat-project%2540workspace%253Ahardhat-example":
   version: 1.0.0
@@ -2607,10 +2560,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@midna/utils@workspace:packages/utils"
   dependencies:
-    "@types/git-rev-sync": ^2.0.0
-    "@types/github-url-from-git": ^1.5.1
-    git-rev-sync: ^3.0.2
-    github-url-from-git: ^1.5.0
+    "@types/node": ^20.7.1
+    tslib: ^2.6.2
   languageName: unknown
   linkType: soft
 
@@ -5245,6 +5196,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/axios@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@types/axios@npm:0.14.0"
+  dependencies:
+    axios: "*"
+  checksum: 12a230b9404055d81804cb57fe4739b2317111b28a39e2477b2513250e8b85725e6f6ce509fc2a9494a6da60facb8d80df875fcd747f62f6c3abebc7db60ae66
+  languageName: node
+  linkType: hard
+
 "@types/better-sqlite3@npm:^7.6.5":
   version: 7.6.5
   resolution: "@types/better-sqlite3@npm:7.6.5"
@@ -5349,20 +5309,6 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: f0c283fdef2dd7191168a37b9cb2625af3cfbd7f72b5a514f938bea0a135669f79d736186d434b9e81150b47ef1bf20d97b188014a00583556fad6ce59fb9bbf
-  languageName: node
-  linkType: hard
-
-"@types/git-rev-sync@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@types/git-rev-sync@npm:2.0.0"
-  checksum: db70d3a58577cfc67431954f00af8fed4f38a1754872624998ffe6b524208c6491c278063ca2cbd08247e3b194bc74c6c85ec3e0e19a1aa8d1de987b50ad122c
-  languageName: node
-  linkType: hard
-
-"@types/github-url-from-git@npm:^1.5.1":
-  version: 1.5.1
-  resolution: "@types/github-url-from-git@npm:1.5.1"
-  checksum: 90eda3deefe55b9d2e31c3d4c28ed1c79f3178448f2c076496941d9b24a0449094bcb4588a3fe057e19bc4ccd7397cc592415fc29dd5a1d756d1d8b03157df71
   languageName: node
   linkType: hard
 
@@ -5503,6 +5449,13 @@ __metadata:
   version: 16.18.53
   resolution: "@types/node@npm:16.18.53"
   checksum: 26c05cde59664360c22e0dda70776ca6f1b35f0b94e4f84d2c21e2afa2e69ac3a2c99bbb57b43405f81df1b2598f6d707ccc7c4c31865f90e45c4625d8400518
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^20.7.1":
+  version: 20.7.2
+  resolution: "@types/node@npm:20.7.2"
+  checksum: 5baa09368c8daa50ad1eaa2499b988b2f4c06cacf8b251d1e63f68ad32df97b21d8104f1ac06889481f1d3e84056842732bb848dd1136164d823c1d4a6baf435
   languageName: node
   linkType: hard
 
@@ -7221,18 +7174,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.3.5, axios@npm:^1.4.0, axios@npm:^1.5.0":
-  version: 1.5.0
-  resolution: "axios@npm:1.5.0"
-  dependencies:
-    follow-redirects: ^1.15.0
-    form-data: ^4.0.0
-    proxy-from-env: ^1.1.0
-  checksum: e7405a5dbbea97760d0e6cd58fecba311b0401ddb4a8efbc4108f5537da9b3f278bde566deb777935a960beec4fa18e7b8353881f2f465e4f2c0e949fead35be
-  languageName: node
-  linkType: hard
-
-"axios@npm:^1.5.1":
+"axios@npm:*, axios@npm:^1.5.1":
   version: 1.5.1
   resolution: "axios@npm:1.5.1"
   dependencies:
@@ -7240,6 +7182,17 @@ __metadata:
     form-data: ^4.0.0
     proxy-from-env: ^1.1.0
   checksum: 4444f06601f4ede154183767863d2b8e472b4a6bfc5253597ed6d21899887e1fd0ee2b3de792ac4f8459fe2e359d2aa07c216e45fd8b9e4e0688a6ebf48a5a8d
+  languageName: node
+  linkType: hard
+
+"axios@npm:^1.3.5, axios@npm:^1.4.0":
+  version: 1.5.0
+  resolution: "axios@npm:1.5.0"
+  dependencies:
+    follow-redirects: ^1.15.0
+    form-data: ^4.0.0
+    proxy-from-env: ^1.1.0
+  checksum: e7405a5dbbea97760d0e6cd58fecba311b0401ddb4a8efbc4108f5537da9b3f278bde566deb777935a960beec4fa18e7b8353881f2f465e4f2c0e949fead35be
   languageName: node
   linkType: hard
 
@@ -18642,7 +18595,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.2.2, typescript@npm:^5.1.6, typescript@npm:^5.2.2":
+"typescript@npm:5.2.2, typescript@npm:^5.1.6":
   version: 5.2.2
   resolution: "typescript@npm:5.2.2"
   bin:
@@ -18662,7 +18615,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@5.2.2#~builtin<compat/typescript>, typescript@patch:typescript@^5.1.6#~builtin<compat/typescript>, typescript@patch:typescript@^5.2.2#~builtin<compat/typescript>":
+"typescript@patch:typescript@5.2.2#~builtin<compat/typescript>, typescript@patch:typescript@^5.1.6#~builtin<compat/typescript>":
   version: 5.2.2
   resolution: "typescript@patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=f3b441"
   bin:

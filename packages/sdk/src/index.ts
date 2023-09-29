@@ -5,7 +5,7 @@ import * as fs from "node:fs";
 import * as ethers from "ethers";
 import { createClient } from "@midna/rest";
 import { getChainName } from "@midna/utils";
-import { getCommitLink } from "./git";
+import { getCommitLink } from "./git.js";
 
 type ConnectOptions = {
   contractName: string;
@@ -97,6 +97,7 @@ export async function connect({
   orgPublicKey,
 }: ConnectOptions) {
   // Should we add contractName to the signed data too?
+  console.log("midna connect start");
   const messageData = {
     action: "connect",
     chainID: chainID,
@@ -149,6 +150,7 @@ export async function connect({
 
   // send output to server
   sendToServer(output, signer);
+  console.log("midna connect done");
 }
 
 export async function verify({ message, signature }: VerifyOptions) {
@@ -179,6 +181,7 @@ async function sendToServer(
         message: connectResult.message,
       },
     });
+    console.log("done sendToServer");
   } catch (error) {
     console.log(error);
   }

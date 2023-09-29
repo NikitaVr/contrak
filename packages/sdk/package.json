@@ -1,20 +1,26 @@
 {
   "name": "@midna/sdk",
-  "private": true,
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "version": "1.0.0",
+  "description": "Can log \"hello world\" and \"goodbye world\" to the console!",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
+  "files": [
+    "/dist"
+  ],
   "dependencies": {
-    "@metamask/etherscan-link": "^2.2.0",
     "@midna/rest": "workspace:*",
     "@midna/utils": "workspace:*",
-    "axios": "^1.5.0",
-    "dotenv": "^16.3.1",
-    "ethers": "^6.7.1"
+    "axios": "^1.5.1",
+    "ethers": "^6.7.1",
+    "git-rev-sync": "^3.0.2",
+    "github-url-from-git": "^1.5.0",
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "typescript": "^5.2.2"
+    "@types/axios": "^0.14.0",
+    "@types/node": "^20.7.1"
   }
 }

@@ -1,4 +1,4 @@
-import { createContractSchema } from "@midna/db/src/zod";
+import * as db from "@midna/db";
 import { initContract } from "@ts-rest/core";
 import { z } from "zod";
 
@@ -21,7 +21,7 @@ export const contract = c.router({
     responses: {
       201: ContractSchema,
     },
-    body: createContractSchema.omit({
+    body: db.createContractSchema.omit({
       id: true,
       createdAt: true,
     }),

@@ -1,12 +1,19 @@
 {
   "name": "@midna/utils",
-  "private": true,
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "version": "1.0.0",
+  "description": "Can log \"hello world\" and \"goodbye world\" to the console!",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "files": [
+    "/dist"
+  ],
   "dependencies": {
-    "@types/git-rev-sync": "^2.0.0",
-    "@types/github-url-from-git": "^1.5.1",
-    "git-rev-sync": "^3.0.2",
-    "github-url-from-git": "^1.5.0"
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.7.1"
   }
 }
