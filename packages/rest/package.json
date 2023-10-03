@@ -1,7 +1,7 @@
 {
   "name": "@midna/rest",
-  "version": "1.0.0",
-  "description": "Can log \"hello world\" and \"goodbye world\" to the console!",
+  "version": "0.0.1",
+  "description": "Client for the Midna server",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

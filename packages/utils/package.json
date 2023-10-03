@@ -1,7 +1,7 @@
 {
   "name": "@midna/utils",
   "version": "1.0.0",
-  "description": "Can log \"hello world\" and \"goodbye world\" to the console!",
+  "description": "Utilities used by Midna",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

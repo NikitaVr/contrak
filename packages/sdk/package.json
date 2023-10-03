@@ -1,7 +1,7 @@
 {
   "name": "@midna/sdk",
   "version": "1.0.0",
-  "description": "Can log \"hello world\" and \"goodbye world\" to the console!",
+  "description": "Midna core SDK",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
