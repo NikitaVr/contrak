@@ -2,7 +2,6 @@
   "name": "@midna/rest",
   "version": "0.0.1",
   "description": "Client for the Midna server",
-  "private": "true",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

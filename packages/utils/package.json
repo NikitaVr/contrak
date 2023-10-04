@@ -2,7 +2,6 @@
   "name": "@midna/utils",
   "version": "1.0.0",
   "description": "Utilities used by Midna",
-  "private": "true",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -11,9 +10,6 @@
   "files": [
     "/dist"
   ],
-  "dependencies": {
-    "tslib": "^2.6.2"
-  },
   "devDependencies": {
     "@types/node": "^20.7.1"
   }

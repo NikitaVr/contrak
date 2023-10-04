@@ -2509,7 +2509,6 @@ __metadata:
   resolution: "@midna/utils@workspace:packages/utils"
   dependencies:
     "@types/node": ^20.7.1
-    tslib: ^2.6.2
   languageName: unknown
   linkType: soft
 

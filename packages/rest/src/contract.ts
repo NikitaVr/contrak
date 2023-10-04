@@ -9,8 +9,14 @@ const ContractSchema = z.object({
   createdAt: z.date(),
   contractHistoryId: z.string(),
   contractAddress: z.string(),
+  deploymentTransactionHash: z.string(),
+  deployerAddress: z.string(),
   chainId: z.string(),
   githubUrl: z.string().nullable(),
+  deployerSignature: z.string(),
+  orgPublicKey: z.string().nullable(),
+  orgSignature: z.string().nullable(),
+  message: z.string(),
 });
 
 export const contract = c.router({

@@ -97,7 +97,6 @@ export async function connect({
   orgPublicKey,
 }: ConnectOptions) {
   // Should we add contractName to the signed data too?
-  console.log("midna connect start");
   const messageData = {
     action: "connect",
     chainID: chainID,
@@ -150,7 +149,7 @@ export async function connect({
 
   // send output to server
   sendToServer(output, signer);
-  console.log("midna connect done");
+  console.log("Midna: Contract Connected");
 }
 
 export async function verify({ message, signature }: VerifyOptions) {
@@ -181,7 +180,6 @@ async function sendToServer(
         message: connectResult.message,
       },
     });
-    console.log("done sendToServer");
   } catch (error) {
     console.log(error);
   }
