@@ -21,6 +21,7 @@ output.json
 !.yarn/versions
 
 *.db
+**/*.db
 
 lib-cov
 *.seed
