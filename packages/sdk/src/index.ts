@@ -5,7 +5,7 @@ import * as fs from "node:fs";
 import * as ethers from "ethers";
 import { createClient } from "@midna/rest";
 import { getChainName } from "@midna/utils";
-import { getCommitLink } from "./git.js";
+import { getCommitLink } from "./git";
 
 type ConnectOptions = {
   contractName: string;
