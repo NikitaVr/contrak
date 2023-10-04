@@ -2471,6 +2471,7 @@ __metadata:
     drizzle-kit: ^0.19.13
     drizzle-orm: ^0.28.6
     drizzle-zod: ^0.5.1
+  peerDependencies:
     zod: ^3.22.2
   languageName: unknown
   linkType: soft
@@ -2481,6 +2482,7 @@ __metadata:
   dependencies:
     "@ts-rest/core": ^3.30.2
     "@types/node": ^20.7.1
+  peerDependencies:
     zod: ^3.22.2
   languageName: unknown
   linkType: soft

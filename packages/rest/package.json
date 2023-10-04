@@ -10,9 +10,11 @@
   "files": [
     "/dist"
   ],
-  "dependencies": {
-    "@ts-rest/core": "^3.30.2",
+  "peerDependencies": {
     "zod": "^3.22.2"
+  },
+  "dependencies": {
+    "@ts-rest/core": "^3.30.2"
   },
   "devDependencies": {
     "@types/node": "^20.7.1"
