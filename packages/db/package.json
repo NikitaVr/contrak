@@ -1,11 +1,15 @@
 {
   "name": "@midna/db",
-  "private": true,
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "version": "0.0.1",
+  "description": "Interact with the Midna database",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "push": "drizzle-kit push:sqlite"
+    "build": "tsc"
   },
+  "files": [
+    "/dist"
+  ],
   "peerDependencies": {
     "zod": "^3.22.2"
   },
@@ -17,6 +21,7 @@
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.5",
+    "@types/node": "^20.7.1",
     "drizzle-kit": "^0.19.13"
   }
 }

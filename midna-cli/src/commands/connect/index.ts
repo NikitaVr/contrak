@@ -40,6 +40,7 @@ export default class Connect extends Command {
 
     connect({
       contractName: args.contractName,
+      contractHistoryId: args.contractName, //CONTRACT_HISTORY_ID,
       chainID: args.chainID,
       contractAddress: args.contractAddress,
       contractDeploymentTransactionHash: args.contractDeploymentTransactionHash,
