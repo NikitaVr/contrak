@@ -8,8 +8,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.SITE_URL!),
-  title: "Midna",
-  description: "Midna helps teams track track their smart contract deployments",
+  title: "Contrak",
+  description: "Contrak helps teams track track their smart contract deployments",
 };
 
 export default function RootLayout({

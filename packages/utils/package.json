@@ -1,7 +1,7 @@
 {
   "name": "@midna/utils",
   "version": "1.0.0",
-  "description": "Utilities used by Midna",
+  "description": "Utilities used by Contrak",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

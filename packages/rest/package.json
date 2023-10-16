@@ -1,7 +1,7 @@
 {
   "name": "@midna/rest",
   "version": "0.0.1",
-  "description": "Client for the Midna server",
+  "description": "Client for the Contrak server",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

@@ -13,8 +13,8 @@ export async function GET() {
   const contracts = await getAllContracts();
 
   const feed = new Rss({
-    title: "Midna RSS Feed",
-    description: "Midna RSS Feed",
+    title: "Contrak RSS Feed",
+    description: "Contrak RSS Feed",
     feed_url: `${SITE_URL}/rss.xml`,
     site_url: SITE_URL,
     language: "en",
@@ -37,7 +37,7 @@ export async function GET() {
       contract.contractAddress
     }</p><br /><p><b>Transaction Hash:</b> ${
       contract.deploymentTransactionHash
-    }</p><br /><p><a href="${midnaUrl}">View on Midna</a> | <a href="${etherscanUrl}">Open contract on Etherscan</a></p>`;
+    }</p><br /><p><a href="${midnaUrl}">View on Contrak</a> | <a href="${etherscanUrl}">Open contract on Etherscan</a></p>`;
     feed.item({
       title,
       description,

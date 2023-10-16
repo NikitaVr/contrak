@@ -71,7 +71,7 @@ async function notifyWeb3Inbox(connectResult: ConnectOutput) {
       title: `Contract Deployed - ${connectResult.contractName}`,
       body: `${
         connectResult.contractAddress
-      } Deployed by Midna Team to chain ${getChainName(
+      } Deployed by Contrak Team to chain ${getChainName(
         connectResult.chainID
       )} - ${connectResult.chainID}`,
       icon: "https://avatars.githubusercontent.com/u/37784886?s=48&v=4",
@@ -149,7 +149,7 @@ export async function connect({
 
   // send output to server
   sendToServer(output, signer);
-  console.log("Midna: Contract Connected");
+  console.log("Contrak: Contract Connected");
 }
 
 export async function verify({ message, signature }: VerifyOptions) {

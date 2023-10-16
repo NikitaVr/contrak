@@ -1,7 +1,7 @@
 {
   "name": "@midna/db",
   "version": "0.0.1",
-  "description": "Interact with the Midna database",
+  "description": "Interact with the Contrak database",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

@@ -1,7 +1,7 @@
 {
   "name": "@midna/sdk",
   "version": "1.0.0",
-  "description": "Midna core SDK",
+  "description": "Contrak core SDK",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

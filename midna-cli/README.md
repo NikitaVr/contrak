@@ -14,11 +14,11 @@ oclif example Hello World CLI
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g midna
+$ npm install -g @midna/cli
 $ midna COMMAND
 running command...
 $ midna (--version)
-midna/0.0.0 darwin-arm64 node-v16.17.1
+@midna/cli/0.0.0 darwin-arm64 node-v18.16.1
 $ midna --help [COMMAND]
 USAGE
   $ midna COMMAND
@@ -27,8 +27,8 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`midna hello PERSON`](#midna-hello-person)
-* [`midna hello world`](#midna-hello-world)
+* [`midna connect CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`](#midna-connect-contractname-chainid-contractaddress-contractdeploymenttransactionhash-orgpublickey)
+* [`midna connect-foundry CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`](#midna-connect-foundry-contractname-chainid-contractaddress-contractdeploymenttransactionhash-orgpublickey)
 * [`midna help [COMMANDS]`](#midna-help-commands)
 * [`midna plugins`](#midna-plugins)
 * [`midna plugins:install PLUGIN...`](#midna-pluginsinstall-plugin)
@@ -39,48 +39,49 @@ USAGE
 * [`midna plugins:uninstall PLUGIN...`](#midna-pluginsuninstall-plugin-1)
 * [`midna plugins:uninstall PLUGIN...`](#midna-pluginsuninstall-plugin-2)
 * [`midna plugins update`](#midna-plugins-update)
+* [`midna verify MESSAGE SIGNATURE TRANSACTIONHASH`](#midna-verify-message-signature-transactionhash)
 
-## `midna hello PERSON`
+## `midna connect CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`
 
-Say hello
+Sign a message that says a contract belongs to an organization
 
 ```
 USAGE
-  $ midna hello PERSON -f <value>
+  $ midna connect CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY
 
 ARGUMENTS
-  PERSON  Person to say hello to
-
-FLAGS
-  -f, --from=<value>  (required) Who is saying hello
+  CONTRACTNAME                       Name of the deployed contract
+  CHAINID                            ID of the Chain that the contract is deployed on
+  CONTRACTADDRESS                    Address of the Contract that will be owned by the organization
+  CONTRACTDEPLOYMENTTRANSACTIONHASH  Transaction Hash that deployed the contract that will be owned by the organization
+  ORGPUBLICKEY                       Public Key of the Organization that owns the contract
 
 DESCRIPTION
-  Say hello
-
-EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
+  Sign a message that says a contract belongs to an organization
 ```
 
-_See code: [dist/commands/hello/index.ts](https://github.com/NikitaVr/midna/blob/v0.0.0/dist/commands/hello/index.ts)_
+_See code: [dist/commands/connect/index.ts](https://github.com/NikitaVr/midna/blob/v0.0.0/dist/commands/connect/index.ts)_
 
-## `midna hello world`
+## `midna connect-foundry CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`
 
-Say hello world
+Sign a message that says a contract belongs to an organization
 
 ```
 USAGE
-  $ midna hello world
+  $ midna connect-foundry CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY
+
+ARGUMENTS
+  CONTRACTNAME                       Name of the deployed contract
+  CHAINID                            ID of the Chain that the contract is deployed on
+  CONTRACTADDRESS                    Address of the Contract that will be owned by the organization
+  CONTRACTDEPLOYMENTTRANSACTIONHASH  Transaction Hash that deployed the contract that will be owned by the organization
+  ORGPUBLICKEY                       Public Key of the Organization that owns the contract
 
 DESCRIPTION
-  Say hello world
-
-EXAMPLES
-  $ midna hello world
-  hello world! (./src/commands/hello/world.ts)
+  Sign a message that says a contract belongs to an organization
 ```
 
-_See code: [dist/commands/hello/world.ts](https://github.com/NikitaVr/midna/blob/v0.0.0/dist/commands/hello/world.ts)_
+_See code: [dist/commands/connect-foundry/index.ts](https://github.com/NikitaVr/midna/blob/v0.0.0/dist/commands/connect-foundry/index.ts)_
 
 ## `midna help [COMMANDS]`
 
@@ -123,7 +124,7 @@ EXAMPLES
   $ midna plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.7.0/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.8.0/src/commands/plugins/index.ts)_
 
 ## `midna plugins:install PLUGIN...`
 
@@ -188,7 +189,7 @@ EXAMPLES
   $ midna plugins:inspect myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.7.0/src/commands/plugins/inspect.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.8.0/src/commands/plugins/inspect.ts)_
 
 ## `midna plugins:install PLUGIN...`
 
@@ -228,7 +229,7 @@ EXAMPLES
   $ midna plugins:install someuser/someplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.7.0/src/commands/plugins/install.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.8.0/src/commands/plugins/install.ts)_
 
 ## `midna plugins:link PLUGIN`
 
@@ -257,7 +258,7 @@ EXAMPLES
   $ midna plugins:link myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.7.0/src/commands/plugins/link.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.8.0/src/commands/plugins/link.ts)_
 
 ## `midna plugins:uninstall PLUGIN...`
 
@@ -305,7 +306,7 @@ ALIASES
   $ midna plugins remove
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.7.0/src/commands/plugins/uninstall.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.8.0/src/commands/plugins/uninstall.ts)_
 
 ## `midna plugins:uninstall PLUGIN...`
 
@@ -346,5 +347,24 @@ DESCRIPTION
   Update installed plugins.
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.7.0/src/commands/plugins/update.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.8.0/src/commands/plugins/update.ts)_
+
+## `midna verify MESSAGE SIGNATURE TRANSACTIONHASH`
+
+Sign a message that says a contract belongs to an organization
+
+```
+USAGE
+  $ midna verify MESSAGE SIGNATURE TRANSACTIONHASH
+
+ARGUMENTS
+  MESSAGE          The raw message
+  SIGNATURE        The signature of the message
+  TRANSACTIONHASH  The transaction hash where the contract was deployed
+
+DESCRIPTION
+  Sign a message that says a contract belongs to an organization
+```
+
+_See code: [dist/commands/verify/index.ts](https://github.com/NikitaVr/midna/blob/v0.0.0/dist/commands/verify/index.ts)_
 <!-- commandsstop -->
