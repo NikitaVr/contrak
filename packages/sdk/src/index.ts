@@ -3,8 +3,8 @@ import axios from "axios";
 
 import * as fs from "node:fs";
 import * as ethers from "ethers";
-import { createClient } from "@midna/rest";
-import { getChainName } from "@midna/utils";
+import { createClient } from "@contrak/rest";
+import { getChainName } from "@contrak/utils";
 import { getCommitLink } from "./git";
 
 type ConnectOptions = {
@@ -62,7 +62,7 @@ async function notifyWeb3Inbox(connectResult: ConnectOutput) {
   //   connectResult.contractAddress
   // );
 
-  const midnaUrl = process.env.MIDNA_URL;
+  const contrakUrl = process.env.CONTRAK_URL;
 
   // 2. Send a notification to all your subscribers
   const body = JSON.stringify({
@@ -75,7 +75,7 @@ async function notifyWeb3Inbox(connectResult: ConnectOutput) {
         connectResult.chainID
       )} - ${connectResult.chainID}`,
       icon: "https://avatars.githubusercontent.com/u/37784886?s=48&v=4",
-      url: `${midnaUrl}/contracts/history/${connectResult.contractHistoryId}?contractAddress=${connectResult.contractAddress}`,
+      url: `${contrakUrl}/contracts/history/${connectResult.contractHistoryId}?contractAddress=${connectResult.contractAddress}`,
       type: "alerts",
     },
   });
@@ -163,7 +163,7 @@ async function sendToServer(
   signer: ethers.ethers.Wallet
 ) {
   try {
-    const client = createClient({ baseUrl: process.env.MIDNA_API_URL });
+    const client = createClient({ baseUrl: process.env.CONTRAK_API_URL });
     const response = await client.createContract({
       body: {
         name: connectResult.contractName,

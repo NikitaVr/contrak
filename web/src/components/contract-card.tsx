@@ -5,7 +5,7 @@ import {
   LapTimerIcon,
 } from "@radix-ui/react-icons";
 import { DateTime } from "luxon";
-import { getExplorerUrl, getChainName } from "@midna/utils";
+import { getExplorerUrl, getChainName } from "@contrak/utils";
 
 import {
   Tooltip,

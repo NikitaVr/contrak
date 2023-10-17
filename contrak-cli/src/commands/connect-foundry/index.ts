@@ -1,5 +1,5 @@
 import { Args, Command } from "@oclif/core";
-import { connect, verify } from "@midna/sdk";
+import { connect, verify } from "@contrak/sdk";
 import "dotenv/config";
 
 export default class Connect extends Command {
@@ -38,13 +38,15 @@ export default class Connect extends Command {
   async run(): Promise<void> {
     const { args } = await this.parse(Connect);
 
-    connect({
-      contractName: args.contractName,
-      contractHistoryId: args.contractName, //CONTRACT_HISTORY_ID,
-      chainID: args.chainID,
-      contractAddress: args.contractAddress,
-      contractDeploymentTransactionHash: args.contractDeploymentTransactionHash,
-      orgPublicKey: args.orgPublicKey,
-    });
+    console.log("args", args);
+
+    // connect({
+    //   contractName: args.contractName,
+    //   contractHistoryId: args.contractName, //CONTRACT_HISTORY_ID,
+    //   chainID: args.chainID,
+    //   contractAddress: args.contractAddress,
+    //   contractDeploymentTransactionHash: args.contractDeploymentTransactionHash,
+    //   orgPublicKey: args.orgPublicKey,
+    // });
   }
 }

@@ -1,18 +1,18 @@
 {
-  "name": "midna",
+  "name": "contrak",
   "private": true,
   "workspaces": [
     "packages/*",
     "web",
-    "midna-cli",
+    "contrak-cli",
     "hardhat-example",
     "web3inbox"
   ],
   "scripts": {
     "dev:web": "yarn workspace web dev",
-    "build:web": "yarn && yarn workspace @midna/utils build && yarn workspace @midna/db build && yarn workspace @midna/rest build && yarn workspace @midna/sdk build && yarn workspace web build",
+    "build:web": "yarn && yarn workspace @contrak/utils build && yarn workspace @contrak/db build && yarn workspace @contrak/rest build && yarn workspace @contrak/sdk build && yarn workspace web build",
     "start:web": "yarn workspace web start",
-    "db:push": "yarn workspace @midna/db push"
+    "db:push": "yarn workspace @contrak/db push"
   },
   "packageManager": "yarn@3.6.3",
   "engines": {

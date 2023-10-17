@@ -1,5 +1,5 @@
 {
-  "name": "@midna/utils",
+  "name": "@contrak/utils",
   "version": "1.0.0",
   "description": "Utilities used by Contrak",
   "main": "dist/index.js",

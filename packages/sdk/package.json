@@ -1,5 +1,5 @@
 {
-  "name": "@midna/sdk",
+  "name": "@contrak/sdk",
   "version": "1.0.0",
   "description": "Contrak core SDK",
   "main": "dist/index.js",
@@ -11,8 +11,8 @@
     "/dist"
   ],
   "dependencies": {
-    "@midna/rest": "workspace:*",
-    "@midna/utils": "workspace:*",
+    "@contrak/rest": "workspace:*",
+    "@contrak/utils": "workspace:*",
     "axios": "^1.5.1",
     "ethers": "^6.7.1",
     "git-rev-sync": "^3.0.2",

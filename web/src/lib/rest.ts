@@ -1,5 +1,5 @@
-import * as db from "@midna/db";
-import { contract } from "@midna/rest";
+import * as db from "@contrak/db";
+import { contract } from "@contrak/rest";
 import { createNextRoute } from "@ts-rest/next";
 
 export const router = createNextRoute(contract, {

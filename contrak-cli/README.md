@@ -1,5 +1,4 @@
-oclif-hello-world
-=================
+# oclif-hello-world
 
 oclif example Hello World CLI
 
@@ -8,46 +7,54 @@ oclif example Hello World CLI
 [![GitHub license](https://img.shields.io/github/license/oclif/hello-world)](https://github.com/oclif/hello-world/blob/main/LICENSE)
 
 <!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
+
 # Usage
+
 <!-- usage -->
+
 ```sh-session
-$ npm install -g @midna/cli
-$ midna COMMAND
+$ npm install -g @contrak/cli
+$ contrak COMMAND
 running command...
-$ midna (--version)
-@midna/cli/0.0.0 darwin-arm64 node-v18.16.1
-$ midna --help [COMMAND]
+$ contrak (--version)
+@contrak/cli/0.0.0 darwin-arm64 node-v18.16.1
+$ contrak --help [COMMAND]
 USAGE
-  $ midna COMMAND
+  $ contrak COMMAND
 ...
 ```
+
 <!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
-* [`midna connect CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`](#midna-connect-contractname-chainid-contractaddress-contractdeploymenttransactionhash-orgpublickey)
-* [`midna connect-foundry CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`](#midna-connect-foundry-contractname-chainid-contractaddress-contractdeploymenttransactionhash-orgpublickey)
-* [`midna help [COMMANDS]`](#midna-help-commands)
-* [`midna plugins`](#midna-plugins)
-* [`midna plugins:install PLUGIN...`](#midna-pluginsinstall-plugin)
-* [`midna plugins:inspect PLUGIN...`](#midna-pluginsinspect-plugin)
-* [`midna plugins:install PLUGIN...`](#midna-pluginsinstall-plugin-1)
-* [`midna plugins:link PLUGIN`](#midna-pluginslink-plugin)
-* [`midna plugins:uninstall PLUGIN...`](#midna-pluginsuninstall-plugin)
-* [`midna plugins:uninstall PLUGIN...`](#midna-pluginsuninstall-plugin-1)
-* [`midna plugins:uninstall PLUGIN...`](#midna-pluginsuninstall-plugin-2)
-* [`midna plugins update`](#midna-plugins-update)
-* [`midna verify MESSAGE SIGNATURE TRANSACTIONHASH`](#midna-verify-message-signature-transactionhash)
 
-## `midna connect CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`
+- [`contrak connect CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`](#contrak-connect-contractname-chainid-contractaddress-contractdeploymenttransactionhash-orgpublickey)
+- [`contrak connect-foundry CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`](#contrak-connect-foundry-contractname-chainid-contractaddress-contractdeploymenttransactionhash-orgpublickey)
+- [`contrak help [COMMANDS]`](#contrak-help-commands)
+- [`contrak plugins`](#contrak-plugins)
+- [`contrak plugins:install PLUGIN...`](#contrak-pluginsinstall-plugin)
+- [`contrak plugins:inspect PLUGIN...`](#contrak-pluginsinspect-plugin)
+- [`contrak plugins:install PLUGIN...`](#contrak-pluginsinstall-plugin-1)
+- [`contrak plugins:link PLUGIN`](#contrak-pluginslink-plugin)
+- [`contrak plugins:uninstall PLUGIN...`](#contrak-pluginsuninstall-plugin)
+- [`contrak plugins:uninstall PLUGIN...`](#contrak-pluginsuninstall-plugin-1)
+- [`contrak plugins:uninstall PLUGIN...`](#contrak-pluginsuninstall-plugin-2)
+- [`contrak plugins update`](#contrak-plugins-update)
+- [`contrak verify MESSAGE SIGNATURE TRANSACTIONHASH`](#contrak-verify-message-signature-transactionhash)
+
+## `contrak connect CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`
 
 Sign a message that says a contract belongs to an organization
 
 ```
 USAGE
-  $ midna connect CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY
+  $ contrak connect CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY
 
 ARGUMENTS
   CONTRACTNAME                       Name of the deployed contract
@@ -60,15 +67,15 @@ DESCRIPTION
   Sign a message that says a contract belongs to an organization
 ```
 
-_See code: [dist/commands/connect/index.ts](https://github.com/NikitaVr/midna/blob/v0.0.0/dist/commands/connect/index.ts)_
+_See code: [dist/commands/connect/index.ts](https://github.com/NikitaVr/contrak/blob/v0.0.0/dist/commands/connect/index.ts)_
 
-## `midna connect-foundry CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`
+## `contrak connect-foundry CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`
 
 Sign a message that says a contract belongs to an organization
 
 ```
 USAGE
-  $ midna connect-foundry CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY
+  $ contrak connect-foundry CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY
 
 ARGUMENTS
   CONTRACTNAME                       Name of the deployed contract
@@ -81,15 +88,15 @@ DESCRIPTION
   Sign a message that says a contract belongs to an organization
 ```
 
-_See code: [dist/commands/connect-foundry/index.ts](https://github.com/NikitaVr/midna/blob/v0.0.0/dist/commands/connect-foundry/index.ts)_
+_See code: [dist/commands/connect-foundry/index.ts](https://github.com/NikitaVr/contrak/blob/v0.0.0/dist/commands/connect-foundry/index.ts)_
 
-## `midna help [COMMANDS]`
+## `contrak help [COMMANDS]`
 
-Display help for midna.
+Display help for contrak.
 
 ```
 USAGE
-  $ midna help [COMMANDS] [-n]
+  $ contrak help [COMMANDS] [-n]
 
 ARGUMENTS
   COMMANDS  Command to show help for.
@@ -98,18 +105,18 @@ FLAGS
   -n, --nested-commands  Include all nested commands in the output.
 
 DESCRIPTION
-  Display help for midna.
+  Display help for contrak.
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.2.19/src/commands/help.ts)_
 
-## `midna plugins`
+## `contrak plugins`
 
 List installed plugins.
 
 ```
 USAGE
-  $ midna plugins [--json] [--core]
+  $ contrak plugins [--json] [--core]
 
 FLAGS
   --core  Show core plugins.
@@ -121,18 +128,18 @@ DESCRIPTION
   List installed plugins.
 
 EXAMPLES
-  $ midna plugins
+  $ contrak plugins
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.8.0/src/commands/plugins/index.ts)_
 
-## `midna plugins:install PLUGIN...`
+## `contrak plugins:install PLUGIN...`
 
 Installs a plugin into the CLI.
 
 ```
 USAGE
-  $ midna plugins:install PLUGIN...
+  $ contrak plugins:install PLUGIN...
 
 ARGUMENTS
   PLUGIN  Plugin to install.
@@ -154,23 +161,23 @@ DESCRIPTION
 
 
 ALIASES
-  $ midna plugins add
+  $ contrak plugins add
 
 EXAMPLES
-  $ midna plugins:install myplugin 
+  $ contrak plugins:install myplugin
 
-  $ midna plugins:install https://github.com/someuser/someplugin
+  $ contrak plugins:install https://github.com/someuser/someplugin
 
-  $ midna plugins:install someuser/someplugin
+  $ contrak plugins:install someuser/someplugin
 ```
 
-## `midna plugins:inspect PLUGIN...`
+## `contrak plugins:inspect PLUGIN...`
 
 Displays installation properties of a plugin.
 
 ```
 USAGE
-  $ midna plugins:inspect PLUGIN...
+  $ contrak plugins:inspect PLUGIN...
 
 ARGUMENTS
   PLUGIN  [default: .] Plugin to inspect.
@@ -186,18 +193,18 @@ DESCRIPTION
   Displays installation properties of a plugin.
 
 EXAMPLES
-  $ midna plugins:inspect myplugin
+  $ contrak plugins:inspect myplugin
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.8.0/src/commands/plugins/inspect.ts)_
 
-## `midna plugins:install PLUGIN...`
+## `contrak plugins:install PLUGIN...`
 
 Installs a plugin into the CLI.
 
 ```
 USAGE
-  $ midna plugins:install PLUGIN...
+  $ contrak plugins:install PLUGIN...
 
 ARGUMENTS
   PLUGIN  Plugin to install.
@@ -219,25 +226,25 @@ DESCRIPTION
 
 
 ALIASES
-  $ midna plugins add
+  $ contrak plugins add
 
 EXAMPLES
-  $ midna plugins:install myplugin 
+  $ contrak plugins:install myplugin
 
-  $ midna plugins:install https://github.com/someuser/someplugin
+  $ contrak plugins:install https://github.com/someuser/someplugin
 
-  $ midna plugins:install someuser/someplugin
+  $ contrak plugins:install someuser/someplugin
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.8.0/src/commands/plugins/install.ts)_
 
-## `midna plugins:link PLUGIN`
+## `contrak plugins:link PLUGIN`
 
 Links a plugin into the CLI for development.
 
 ```
 USAGE
-  $ midna plugins:link PLUGIN
+  $ contrak plugins:link PLUGIN
 
 ARGUMENTS
   PATH  [default: .] path to plugin
@@ -255,18 +262,18 @@ DESCRIPTION
 
 
 EXAMPLES
-  $ midna plugins:link myplugin
+  $ contrak plugins:link myplugin
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.8.0/src/commands/plugins/link.ts)_
 
-## `midna plugins:uninstall PLUGIN...`
+## `contrak plugins:uninstall PLUGIN...`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ midna plugins:uninstall PLUGIN...
+  $ contrak plugins:uninstall PLUGIN...
 
 ARGUMENTS
   PLUGIN  plugin to uninstall
@@ -279,17 +286,17 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ midna plugins unlink
-  $ midna plugins remove
+  $ contrak plugins unlink
+  $ contrak plugins remove
 ```
 
-## `midna plugins:uninstall PLUGIN...`
+## `contrak plugins:uninstall PLUGIN...`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ midna plugins:uninstall PLUGIN...
+  $ contrak plugins:uninstall PLUGIN...
 
 ARGUMENTS
   PLUGIN  plugin to uninstall
@@ -302,19 +309,19 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ midna plugins unlink
-  $ midna plugins remove
+  $ contrak plugins unlink
+  $ contrak plugins remove
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.8.0/src/commands/plugins/uninstall.ts)_
 
-## `midna plugins:uninstall PLUGIN...`
+## `contrak plugins:uninstall PLUGIN...`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ midna plugins:uninstall PLUGIN...
+  $ contrak plugins:uninstall PLUGIN...
 
 ARGUMENTS
   PLUGIN  plugin to uninstall
@@ -327,17 +334,17 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ midna plugins unlink
-  $ midna plugins remove
+  $ contrak plugins unlink
+  $ contrak plugins remove
 ```
 
-## `midna plugins update`
+## `contrak plugins update`
 
 Update installed plugins.
 
 ```
 USAGE
-  $ midna plugins update [-h] [-v]
+  $ contrak plugins update [-h] [-v]
 
 FLAGS
   -h, --help     Show CLI help.
@@ -349,13 +356,13 @@ DESCRIPTION
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.8.0/src/commands/plugins/update.ts)_
 
-## `midna verify MESSAGE SIGNATURE TRANSACTIONHASH`
+## `contrak verify MESSAGE SIGNATURE TRANSACTIONHASH`
 
 Sign a message that says a contract belongs to an organization
 
 ```
 USAGE
-  $ midna verify MESSAGE SIGNATURE TRANSACTIONHASH
+  $ contrak verify MESSAGE SIGNATURE TRANSACTIONHASH
 
 ARGUMENTS
   MESSAGE          The raw message
@@ -366,5 +373,6 @@ DESCRIPTION
   Sign a message that says a contract belongs to an organization
 ```
 
-_See code: [dist/commands/verify/index.ts](https://github.com/NikitaVr/midna/blob/v0.0.0/dist/commands/verify/index.ts)_
+_See code: [dist/commands/verify/index.ts](https://github.com/NikitaVr/contrak/blob/v0.0.0/dist/commands/verify/index.ts)_
+
 <!-- commandsstop -->

@@ -1,7 +1,7 @@
 import "dotenv/config";
 
 import { ethers } from "hardhat";
-import { connect } from "@midna/sdk";
+import { connect } from "@contrak/sdk";
 
 const CONTRACT_HISTORY_ID = "f131f1f0-1822-42da-8a50-390d659ba850";
 
@@ -28,7 +28,7 @@ async function main() {
     )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
   );
 
-  // NEW MIDNA CODE
+  // NEW CONTRAK CODE
 
   const deploymentTransaction = lock.deploymentTransaction();
 

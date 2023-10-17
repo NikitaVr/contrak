@@ -1,5 +1,5 @@
 {
-  "name": "@midna/rest",
+  "name": "@contrak/rest",
   "version": "0.0.1",
   "description": "Client for the Contrak server",
   "main": "dist/index.js",

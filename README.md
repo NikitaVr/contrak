@@ -32,7 +32,7 @@ Contrak helps teams track track their smart contract deployments.
 ### Directory Structure
 
 - `hardhat-example`: Contains a [Hardhat](https://hardhat.org/) project with a sample contract
-- `midna-cli`: Contains a Node.js CLI for interacting with Contrak
+- `contrak-cli`: Contains a Node.js CLI for interacting with Contrak
 - `packages/db`: Contains the database schema using [Drizzle ORM](https://orm.drizzle.team/)
 - `packages/rest`: Contains the REST API client for Contrak
 - `packages/sdk`: Contains the TypeScript SDK for Contrak

@@ -1,14 +1,14 @@
 import { NextResponse } from "next/server";
 import Rss from "rss";
 
-const SITE_URL = process.env.SITE_URL ?? "https://midna.io";
+const SITE_URL = process.env.SITE_URL ?? "https://contrak.xyz";
 
 export const revalidate = 0;
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const { getAllContracts } = await import("@midna/db");
+  const { getAllContracts } = await import("@contrak/db");
 
   const contracts = await getAllContracts();
 
@@ -22,7 +22,7 @@ export async function GET() {
   });
 
   contracts.forEach((contract) => {
-    const midnaUrl = new URL(
+    const contrakUrl = new URL(
       `/contracts/history/${contract.contractHistoryId}?contractId=${contract.id}`,
       SITE_URL
     ).toString();
@@ -37,11 +37,11 @@ export async function GET() {
       contract.contractAddress
     }</p><br /><p><b>Transaction Hash:</b> ${
       contract.deploymentTransactionHash
-    }</p><br /><p><a href="${midnaUrl}">View on Contrak</a> | <a href="${etherscanUrl}">Open contract on Etherscan</a></p>`;
+    }</p><br /><p><a href="${contrakUrl}">View on Contrak</a> | <a href="${etherscanUrl}">Open contract on Etherscan</a></p>`;
     feed.item({
       title,
       description,
-      url: midnaUrl,
+      url: contrakUrl,
       guid: `${contract.id}`,
       date: contract.createdAt,
       author: contract.deployerAddress ?? "Unknown",
