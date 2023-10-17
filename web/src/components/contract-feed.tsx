@@ -62,7 +62,7 @@ export function ContractsFeed() {
   }
 
   const filteredContracts = contracts?.body?.filter((contract) =>
-    contract.contractAddress.includes(searchTerm)
+    contract.contractAddress!.includes(searchTerm)
   );
 
   return (
@@ -81,13 +81,13 @@ export function ContractsFeed() {
       {filteredContracts?.map((contract) => (
         <motion.div layout key={contract.id} variants={childVariants}>
           <ContractCard
-            name={contract.name}
-            createdAt={new Date(contract.createdAt)}
-            contractHistoryId={contract.contractHistoryId}
-            id={contract.id}
-            contractAddress={contract.contractAddress}
-            chainId={contract.chainId}
-            githubUrl={contract.githubUrl}
+            name={contract.name!}
+            createdAt={new Date(contract.createdAt!)}
+            contractHistoryId={contract.contractHistoryId!}
+            id={contract.id!}
+            contractAddress={contract.contractAddress!}
+            chainId={contract.chainId!}
+            githubUrl={contract.githubUrl!}
           />
         </motion.div>
       ))}
