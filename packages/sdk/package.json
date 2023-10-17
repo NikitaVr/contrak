@@ -1,25 +1,26 @@
 {
   "name": "@contrak/sdk",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Contrak core SDK",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "tsup ./src/index.ts"
   },
   "files": [
     "/dist"
   ],
   "dependencies": {
-    "@contrak/rest": "workspace:*",
-    "@contrak/utils": "workspace:*",
     "axios": "^1.5.1",
     "ethers": "^6.7.1",
     "git-rev-sync": "^3.0.2",
     "github-url-from-git": "^1.5.0"
   },
   "devDependencies": {
+    "@contrak/rest": "workspace:*",
+    "@contrak/utils": "workspace:*",
     "@types/axios": "^0.14.0",
-    "@types/node": "^20.7.1"
+    "@types/node": "^20.7.1",
+    "tsup": "^7.2.0"
   }
 }
