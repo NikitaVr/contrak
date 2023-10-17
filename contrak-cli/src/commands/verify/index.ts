@@ -1,5 +1,5 @@
 import { Args, Command } from "@oclif/core";
-import { verify } from "@midna/sdk";
+import { verify } from "@contrak/sdk";
 
 export default class Verify extends Command {
   static description =

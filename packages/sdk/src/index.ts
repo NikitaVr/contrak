@@ -3,8 +3,8 @@ import axios from "axios";
 
 import * as fs from "node:fs";
 import * as ethers from "ethers";
-import { createClient } from "@midna/rest";
-import { getChainName } from "@midna/utils";
+import { createClient } from "@contrak/rest";
+import { getChainName } from "@contrak/utils";
 import { getCommitLink } from "./git";
 
 type ConnectOptions = {
@@ -36,7 +36,6 @@ type VerifyOptions = {
 };
 
 async function notifyWeb3Inbox(connectResult: ConnectOutput) {
-  console.log("notifyWeb3Inbox");
   // Your project ID from WalletConnect Cloud
   const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
   // notify_api_secret generated in WalletConnect Cloud
@@ -63,8 +62,7 @@ async function notifyWeb3Inbox(connectResult: ConnectOutput) {
   //   connectResult.contractAddress
   // );
 
-  const midnaUrl = process.env.MIDNA_URL;
-  console.log("midnaUrl", midnaUrl);
+  const contrakUrl = process.env.CONTRAK_URL;
 
   // 2. Send a notification to all your subscribers
   const body = JSON.stringify({
@@ -73,11 +71,11 @@ async function notifyWeb3Inbox(connectResult: ConnectOutput) {
       title: `Contract Deployed - ${connectResult.contractName}`,
       body: `${
         connectResult.contractAddress
-      } Deployed by Midna Team to chain ${getChainName(
+      } Deployed by Contrak Team to chain ${getChainName(
         connectResult.chainID
       )} - ${connectResult.chainID}`,
       icon: "https://avatars.githubusercontent.com/u/37784886?s=48&v=4",
-      url: `${midnaUrl}/contracts/history/${connectResult.contractHistoryId}?contractAddress=${connectResult.contractAddress}`,
+      url: `${contrakUrl}/contracts/history/${connectResult.contractHistoryId}?contractAddress=${connectResult.contractAddress}`,
       type: "alerts",
     },
   });
@@ -128,8 +126,6 @@ export async function connect({
 
   const githubUrl = getCommitLink();
 
-  console.log("githubUrl", githubUrl);
-
   const output = {
     contractName: contractName,
     contractHistoryId,
@@ -153,6 +149,7 @@ export async function connect({
 
   // send output to server
   sendToServer(output, signer);
+  console.log("Contrak: Contract Connected");
 }
 
 export async function verify({ message, signature }: VerifyOptions) {
@@ -166,7 +163,7 @@ async function sendToServer(
   signer: ethers.ethers.Wallet
 ) {
   try {
-    const client = createClient({ baseUrl: process.env.MIDNA_API_URL });
+    const client = createClient({ baseUrl: process.env.CONTRAK_API_URL });
     const response = await client.createContract({
       body: {
         name: connectResult.contractName,
@@ -183,8 +180,6 @@ async function sendToServer(
         message: connectResult.message,
       },
     });
-    console.log("sending github url", connectResult.githubUrl);
-    console.log(`Sent contract to server successfully: ${response.status}`);
   } catch (error) {
     console.log(error);
   }

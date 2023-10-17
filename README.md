@@ -1,15 +1,15 @@
-# Midna
+# Contrak
 
-Midna helps teams track track their smart contract deployments.
+Contrak helps teams track track their smart contract deployments.
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/qc4V0T?referralCode=kMU60t)
 
 ## 🚀 Getting Started
 
-### Deploying Midna
+### Deploying Contrak
 
 1. Click the "Deploy on Railway" button above
-3. Fill in the environment variables:
+2. Fill in the environment variables:
 
 | Variable       | Description                                          |
 | -------------- | ---------------------------------------------------- |
@@ -32,10 +32,10 @@ Midna helps teams track track their smart contract deployments.
 ### Directory Structure
 
 - `hardhat-example`: Contains a [Hardhat](https://hardhat.org/) project with a sample contract
-- `midna-cli`: Contains a Node.js CLI for interacting with Midna
+- `contrak-cli`: Contains a Node.js CLI for interacting with Contrak
 - `packages/db`: Contains the database schema using [Drizzle ORM](https://orm.drizzle.team/)
-- `packages/rest`: Contains the REST API client for Midna
-- `packages/sdk`: Contains the TypeScript SDK for Midna
+- `packages/rest`: Contains the REST API client for Contrak
+- `packages/sdk`: Contains the TypeScript SDK for Contrak
 - `packages/utils`: Contains utility functions used across the project
-- `web`: Contains the Next.js web app for Midna
-- `web3inbox`: Contains an example deployment of [Web3Inbox](https://web3inbox.com/) with Midna notifications
+- `web`: Contains the Next.js web app for Contrak
+- `web3inbox`: Contains an example deployment of [Web3Inbox](https://web3inbox.com/) with Contrak notifications

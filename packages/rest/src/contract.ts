@@ -1,4 +1,3 @@
-import { createContractSchema } from "@midna/db/src/zod";
 import { initContract } from "@ts-rest/core";
 import { z } from "zod";
 
@@ -10,8 +9,14 @@ const ContractSchema = z.object({
   createdAt: z.date(),
   contractHistoryId: z.string(),
   contractAddress: z.string(),
+  deploymentTransactionHash: z.string(),
+  deployerAddress: z.string(),
   chainId: z.string(),
   githubUrl: z.string().nullable(),
+  deployerSignature: z.string(),
+  orgPublicKey: z.string().nullable(),
+  orgSignature: z.string().nullable(),
+  message: z.string(),
 });
 
 export const contract = c.router({
@@ -21,7 +26,7 @@ export const contract = c.router({
     responses: {
       201: ContractSchema,
     },
-    body: createContractSchema.omit({
+    body: ContractSchema.omit({
       id: true,
       createdAt: true,
     }),

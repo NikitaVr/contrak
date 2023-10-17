@@ -48,7 +48,7 @@ export function ContractsHistory({ historyId }: { historyId: string }) {
 
   const selectedContract = contracts.body?.find(
     (contract) =>
-      contract.id.toString() === selectedContractId ||
+      contract.id!.toString() === selectedContractId ||
       contract.contractAddress === selectedContractAddress
   );
 
@@ -61,14 +61,14 @@ export function ContractsHistory({ historyId }: { historyId: string }) {
       {contracts?.body?.map((contract) => (
         <ContractCard
           key={contract.id}
-          name={contract.name}
-          createdAt={new Date(contract.createdAt)}
-          contractHistoryId={contract.contractHistoryId}
-          id={contract.id}
-          contractAddress={contract.contractAddress}
-          chainId={contract.chainId}
+          name={contract.name!}
+          createdAt={new Date(contract.createdAt!)}
+          contractHistoryId={contract.contractHistoryId!}
+          id={contract.id!}
+          contractAddress={contract.contractAddress!}
+          chainId={contract.chainId!}
           selected={selectedContract?.id === contract.id}
-          githubUrl={contract.githubUrl}
+          githubUrl={contract.githubUrl!}
         />
       ))}
     </>

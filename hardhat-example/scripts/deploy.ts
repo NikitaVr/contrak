@@ -1,9 +1,9 @@
 import "dotenv/config";
 
 import { ethers } from "hardhat";
-import { connect } from "@midna/sdk";
+import { connect } from "@contrak/sdk";
 
-const CONTRACT_HISTORY_ID = "143d0bde-5383-427d-8ea4-3b8178b11fac"
+const CONTRACT_HISTORY_ID = "143d0bde-5383-427d-8ea4-3b8178b11fac";
 
 async function main() {
   const currentTimestampInSeconds = Math.round(Date.now() / 1000);
@@ -13,8 +13,11 @@ async function main() {
 
   const contractName = "Lock";
 
+  const feeData = await ethers.provider.getFeeData();
+
   const lock = await ethers.deployContract(contractName, [unlockTime], {
     value: lockedAmount,
+    gasPrice: feeData.maxFeePerGas,
   });
 
   await lock.waitForDeployment();
@@ -25,7 +28,7 @@ async function main() {
     )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
   );
 
-  // NEW MIDNA CODE
+  // NEW CONTRAK CODE
 
   const deploymentTransaction = lock.deploymentTransaction();
 

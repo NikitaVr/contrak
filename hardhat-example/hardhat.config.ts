@@ -8,6 +8,8 @@ const config: HardhatUserConfig = {
     baseGoerli: {
       url: `https://base-goerli.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`,
       accounts: [process.env.BASE_PRIVATE_KEY || ""],
+      gas: "auto",
+      gasPrice: "auto",
     },
   },
 };

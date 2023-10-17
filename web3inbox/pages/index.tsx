@@ -125,7 +125,7 @@ const Home: NextPage = () => {
         }
       />
       <Heading alignSelf={"center"} textAlign={"center"} mb={6}>
-        Midna Contract Deployments Feed
+        Contrak Contract Deployments Feed
       </Heading>
 
       <Flex flexDirection="column" gap={4}>
