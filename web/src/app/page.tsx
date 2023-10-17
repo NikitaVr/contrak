@@ -9,7 +9,7 @@ export default async function Home() {
     <main className="py-16">
       <div className="px-4 mx-auto w-full max-w-screen-md flex flex-col items-start gap-8">
         <div className="relative w-full flex flex-col gap-4 items-start">
-          <h1 className="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-4xl tracking-[.25em]">
+          <h1 className="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-4xl tracking-[.3em]">
             <i>CONTRAK</i>
           </h1>
           <p className="leading-7 [&:not(:first-child)]:mt-2">
