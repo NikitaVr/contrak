@@ -11,7 +11,7 @@ export const router = createNextRoute(contract, {
       body: newContract,
     };
   },
-  
+
   getAllContracts: async () => {
     const contracts = await db.getAllContracts();
 
@@ -22,6 +22,7 @@ export const router = createNextRoute(contract, {
   },
 
   getContractsByHistory: async (args) => {
+    if (!args.params.historyId) throw new Error("Missing history id");
     const contracts = await db.getContractsByHistory(args.params.historyId);
 
     return {
@@ -31,6 +32,7 @@ export const router = createNextRoute(contract, {
   },
 
   getContract: async (args) => {
+    if (!args.params.id) throw new Error("Missing contract id");
     const contract = await db.getContractById(args.params.id);
 
     return {
