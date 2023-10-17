@@ -7,46 +7,43 @@ oclif example Hello World CLI
 [![GitHub license](https://img.shields.io/github/license/oclif/hello-world)](https://github.com/oclif/hello-world/blob/main/LICENSE)
 
 <!-- toc -->
-
-- [Usage](#usage)
-- [Commands](#commands)
+* [oclif-hello-world](#oclif-hello-world)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g @contrak/cli
 $ contrak COMMAND
 running command...
 $ contrak (--version)
-@contrak/cli/0.0.0 darwin-arm64 node-v18.16.1
+@contrak/cli/0.0.1 darwin-arm64 node-v18.16.1
 $ contrak --help [COMMAND]
 USAGE
   $ contrak COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`contrak connect CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`](#contrak-connect-contractname-chainid-contractaddress-contractdeploymenttransactionhash-orgpublickey)
-- [`contrak connect-foundry CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`](#contrak-connect-foundry-contractname-chainid-contractaddress-contractdeploymenttransactionhash-orgpublickey)
-- [`contrak help [COMMANDS]`](#contrak-help-commands)
-- [`contrak plugins`](#contrak-plugins)
-- [`contrak plugins:install PLUGIN...`](#contrak-pluginsinstall-plugin)
-- [`contrak plugins:inspect PLUGIN...`](#contrak-pluginsinspect-plugin)
-- [`contrak plugins:install PLUGIN...`](#contrak-pluginsinstall-plugin-1)
-- [`contrak plugins:link PLUGIN`](#contrak-pluginslink-plugin)
-- [`contrak plugins:uninstall PLUGIN...`](#contrak-pluginsuninstall-plugin)
-- [`contrak plugins:uninstall PLUGIN...`](#contrak-pluginsuninstall-plugin-1)
-- [`contrak plugins:uninstall PLUGIN...`](#contrak-pluginsuninstall-plugin-2)
-- [`contrak plugins update`](#contrak-plugins-update)
-- [`contrak verify MESSAGE SIGNATURE TRANSACTIONHASH`](#contrak-verify-message-signature-transactionhash)
+* [`contrak connect CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`](#contrak-connect-contractname-chainid-contractaddress-contractdeploymenttransactionhash-orgpublickey)
+* [`contrak connect-foundry CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`](#contrak-connect-foundry-contractname-chainid-contractaddress-contractdeploymenttransactionhash-orgpublickey)
+* [`contrak help [COMMANDS]`](#contrak-help-commands)
+* [`contrak plugins`](#contrak-plugins)
+* [`contrak plugins:install PLUGIN...`](#contrak-pluginsinstall-plugin)
+* [`contrak plugins:inspect PLUGIN...`](#contrak-pluginsinspect-plugin)
+* [`contrak plugins:install PLUGIN...`](#contrak-pluginsinstall-plugin-1)
+* [`contrak plugins:link PLUGIN`](#contrak-pluginslink-plugin)
+* [`contrak plugins:uninstall PLUGIN...`](#contrak-pluginsuninstall-plugin)
+* [`contrak plugins:uninstall PLUGIN...`](#contrak-pluginsuninstall-plugin-1)
+* [`contrak plugins:uninstall PLUGIN...`](#contrak-pluginsuninstall-plugin-2)
+* [`contrak plugins update`](#contrak-plugins-update)
+* [`contrak verify MESSAGE SIGNATURE TRANSACTIONHASH`](#contrak-verify-message-signature-transactionhash)
 
 ## `contrak connect CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`
 
@@ -67,7 +64,7 @@ DESCRIPTION
   Sign a message that says a contract belongs to an organization
 ```
 
-_See code: [dist/commands/connect/index.ts](https://github.com/NikitaVr/contrak/blob/v0.0.0/dist/commands/connect/index.ts)_
+_See code: [src/commands/connect/index.ts](https://github.com/NikitaVr/contrak/blob/v0.0.1/src/commands/connect/index.ts)_
 
 ## `contrak connect-foundry CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`
 
@@ -88,7 +85,7 @@ DESCRIPTION
   Sign a message that says a contract belongs to an organization
 ```
 
-_See code: [dist/commands/connect-foundry/index.ts](https://github.com/NikitaVr/contrak/blob/v0.0.0/dist/commands/connect-foundry/index.ts)_
+_See code: [src/commands/connect-foundry/index.ts](https://github.com/NikitaVr/contrak/blob/v0.0.1/src/commands/connect-foundry/index.ts)_
 
 ## `contrak help [COMMANDS]`
 
@@ -108,7 +105,7 @@ DESCRIPTION
   Display help for contrak.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.2.19/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.2.20/src/commands/help.ts)_
 
 ## `contrak plugins`
 
@@ -131,7 +128,7 @@ EXAMPLES
   $ contrak plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.8.0/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.9.1/src/commands/plugins/index.ts)_
 
 ## `contrak plugins:install PLUGIN...`
 
@@ -164,7 +161,7 @@ ALIASES
   $ contrak plugins add
 
 EXAMPLES
-  $ contrak plugins:install myplugin
+  $ contrak plugins:install myplugin 
 
   $ contrak plugins:install https://github.com/someuser/someplugin
 
@@ -196,7 +193,7 @@ EXAMPLES
   $ contrak plugins:inspect myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.8.0/src/commands/plugins/inspect.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.9.1/src/commands/plugins/inspect.ts)_
 
 ## `contrak plugins:install PLUGIN...`
 
@@ -229,14 +226,14 @@ ALIASES
   $ contrak plugins add
 
 EXAMPLES
-  $ contrak plugins:install myplugin
+  $ contrak plugins:install myplugin 
 
   $ contrak plugins:install https://github.com/someuser/someplugin
 
   $ contrak plugins:install someuser/someplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.8.0/src/commands/plugins/install.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.9.1/src/commands/plugins/install.ts)_
 
 ## `contrak plugins:link PLUGIN`
 
@@ -250,8 +247,9 @@ ARGUMENTS
   PATH  [default: .] path to plugin
 
 FLAGS
-  -h, --help     Show CLI help.
+  -h, --help      Show CLI help.
   -v, --verbose
+  --[no-]install  Install dependencies after linking the plugin.
 
 DESCRIPTION
   Links a plugin into the CLI for development.
@@ -265,7 +263,7 @@ EXAMPLES
   $ contrak plugins:link myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.8.0/src/commands/plugins/link.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.9.1/src/commands/plugins/link.ts)_
 
 ## `contrak plugins:uninstall PLUGIN...`
 
@@ -313,7 +311,7 @@ ALIASES
   $ contrak plugins remove
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.8.0/src/commands/plugins/uninstall.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.9.1/src/commands/plugins/uninstall.ts)_
 
 ## `contrak plugins:uninstall PLUGIN...`
 
@@ -354,7 +352,7 @@ DESCRIPTION
   Update installed plugins.
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.8.0/src/commands/plugins/update.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.9.1/src/commands/plugins/update.ts)_
 
 ## `contrak verify MESSAGE SIGNATURE TRANSACTIONHASH`
 
@@ -373,6 +371,5 @@ DESCRIPTION
   Sign a message that says a contract belongs to an organization
 ```
 
-_See code: [dist/commands/verify/index.ts](https://github.com/NikitaVr/contrak/blob/v0.0.0/dist/commands/verify/index.ts)_
-
+_See code: [src/commands/verify/index.ts](https://github.com/NikitaVr/contrak/blob/v0.0.1/src/commands/verify/index.ts)_
 <!-- commandsstop -->
