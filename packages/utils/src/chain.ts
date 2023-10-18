@@ -17,7 +17,7 @@ export function getExplorerUrl(
   chainId: string,
   contractAddress: string
 ): string {
-  console.log("getExplorerUrl", chainId, contractAddress);
+  console.log("getExplorerUrl: ", chainId, contractAddress);
   const contractExplorerUrl = `${
     chainIdMap[chainId as keyof typeof chainIdMap].explorerUrl
   }${contractAddress}`;
