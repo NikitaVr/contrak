@@ -30,6 +30,7 @@ export async function getContractById(id: number) {
 export async function createContract(
   contract: Omit<CreateContractSchemaType, "createdAt">
 ) {
+  console.log("createContract", contract);
   const [row] = await db
     .insert(schema.contracts)
     .values({

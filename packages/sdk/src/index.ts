@@ -180,6 +180,7 @@ async function sendToServer(
         message: connectResult.message,
       },
     });
+    console.log("Sent Contract Details to: ", process.env.CONTRAK_API_URL);
   } catch (error) {
     console.log(error);
   }

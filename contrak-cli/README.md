@@ -32,7 +32,7 @@ USAGE
 
 <!-- commands -->
 * [`contrak connect CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`](#contrak-connect-contractname-chainid-contractaddress-contractdeploymenttransactionhash-orgpublickey)
-* [`contrak connect-foundry CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`](#contrak-connect-foundry-contractname-chainid-contractaddress-contractdeploymenttransactionhash-orgpublickey)
+* [`contrak connect-foundry CONTRACTNAME CHAINID ORGPUBLICKEY`](#contrak-connect-foundry-contractname-chainid-orgpublickey)
 * [`contrak help [COMMANDS]`](#contrak-help-commands)
 * [`contrak plugins`](#contrak-plugins)
 * [`contrak plugins:install PLUGIN...`](#contrak-pluginsinstall-plugin)
@@ -66,20 +66,18 @@ DESCRIPTION
 
 _See code: [src/commands/connect/index.ts](https://github.com/NikitaVr/contrak/blob/v0.0.1/src/commands/connect/index.ts)_
 
-## `contrak connect-foundry CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`
+## `contrak connect-foundry CONTRACTNAME CHAINID ORGPUBLICKEY`
 
 Sign a message that says a contract belongs to an organization
 
 ```
 USAGE
-  $ contrak connect-foundry CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY
+  $ contrak connect-foundry CONTRACTNAME CHAINID ORGPUBLICKEY
 
 ARGUMENTS
-  CONTRACTNAME                       Name of the deployed contract
-  CHAINID                            ID of the Chain that the contract is deployed on
-  CONTRACTADDRESS                    Address of the Contract that will be owned by the organization
-  CONTRACTDEPLOYMENTTRANSACTIONHASH  Transaction Hash that deployed the contract that will be owned by the organization
-  ORGPUBLICKEY                       Public Key of the Organization that owns the contract
+  CONTRACTNAME  Name of the deployed contract
+  CHAINID       ID of the Chain that the contract is deployed on
+  ORGPUBLICKEY  Public Key of the Organization that owns the contract
 
 DESCRIPTION
   Sign a message that says a contract belongs to an organization
