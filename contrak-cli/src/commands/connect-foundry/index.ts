@@ -78,7 +78,7 @@ export default class Connect extends Command {
     }),
     orgPublicKey: Args.string({
       description: "Public Key of the Organization that owns the contract",
-      required: true,
+      required: false,
     }),
   };
 

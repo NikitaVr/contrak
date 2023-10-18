@@ -14,7 +14,7 @@ type ConnectOptions = {
   chainID: string;
   contractAddress: string;
   contractDeploymentTransactionHash: string;
-  orgPublicKey: string;
+  orgPublicKey?: string;
 };
 
 type ConnectOutput = {
@@ -23,7 +23,7 @@ type ConnectOutput = {
   chainID: string;
   contractAddress: string;
   contractDeploymentTransactionHash: string;
-  orgPublicKey: string;
+  orgPublicKey?: string;
   message: string;
   deployerSignature: string;
   orgSignature: string | null;

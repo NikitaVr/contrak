@@ -32,7 +32,7 @@ USAGE
 
 <!-- commands -->
 * [`contrak connect CONTRACTNAME CHAINID CONTRACTADDRESS CONTRACTDEPLOYMENTTRANSACTIONHASH ORGPUBLICKEY`](#contrak-connect-contractname-chainid-contractaddress-contractdeploymenttransactionhash-orgpublickey)
-* [`contrak connect-foundry CONTRACTNAME CHAINID ORGPUBLICKEY`](#contrak-connect-foundry-contractname-chainid-orgpublickey)
+* [`contrak connect-foundry CONTRACTNAME CHAINID [ORGPUBLICKEY]`](#contrak-connect-foundry-contractname-chainid-orgpublickey)
 * [`contrak help [COMMANDS]`](#contrak-help-commands)
 * [`contrak plugins`](#contrak-plugins)
 * [`contrak plugins:install PLUGIN...`](#contrak-pluginsinstall-plugin)
@@ -66,13 +66,13 @@ DESCRIPTION
 
 _See code: [src/commands/connect/index.ts](https://github.com/NikitaVr/contrak/blob/v0.0.1/src/commands/connect/index.ts)_
 
-## `contrak connect-foundry CONTRACTNAME CHAINID ORGPUBLICKEY`
+## `contrak connect-foundry CONTRACTNAME CHAINID [ORGPUBLICKEY]`
 
 Sign a message that says a contract belongs to an organization
 
 ```
 USAGE
-  $ contrak connect-foundry CONTRACTNAME CHAINID ORGPUBLICKEY
+  $ contrak connect-foundry CONTRACTNAME CHAINID [ORGPUBLICKEY]
 
 ARGUMENTS
   CONTRACTNAME  Name of the deployed contract
