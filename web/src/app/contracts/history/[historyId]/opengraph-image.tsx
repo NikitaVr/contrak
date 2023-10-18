@@ -22,7 +22,7 @@ export default async function Image() {
         <span tw="text-lg text-blue-500">Contrak</span>
         <h1 tw="leading-tight text-4xl font-bold mb-0 mt-3">{contract.name}</h1>
         <p tw="mt-3 mb-6 text-xl text-gray-300">
-          Hardhat Local - 0x9A676e781A523b5d0C0e43731313A708CB607508
+          Local Network - 0x9A676e781A523b5d0C0e43731313A708CB607508
         </p>
         <div tw="flex items-center text-gray-500">
           <svg

@@ -1,5 +1,6 @@
 import "dotenv/config";
 import axios from "axios";
+import util from "util";
 
 import * as fs from "node:fs";
 import * as ethers from "ethers";
@@ -181,6 +182,14 @@ async function sendToServer(
       },
     });
     console.log("Sent Contract Details to: ", process.env.CONTRAK_API_URL);
+    // console.log(
+    //   "Create Contract Response",
+    //   util.inspect(response.body, {
+    //     showHidden: false,
+    //     depth: null,
+    //     colors: true,
+    //   })
+    // );
   } catch (error) {
     console.log(error);
   }

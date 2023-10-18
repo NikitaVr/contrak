@@ -12,10 +12,10 @@ const ContractSchema = z.object({
   deploymentTransactionHash: z.string(),
   deployerAddress: z.string(),
   chainId: z.string(),
-  githubUrl: z.string().nullable(),
+  githubUrl: z.string().optional(),
   deployerSignature: z.string(),
-  orgPublicKey: z.string().nullable(),
-  orgSignature: z.string().nullable(),
+  orgPublicKey: z.string().optional(),
+  orgSignature: z.string().optional(),
   message: z.string(),
 });
 

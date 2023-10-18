@@ -8,7 +8,7 @@ const chainIdMap: { [key: string]: { name: string; explorerUrl: string } } = {
     explorerUrl: "https://goerli.basescan.org/address/",
   },
   "31337": {
-    name: "Hardhat Local",
+    name: "Local Network",
     explorerUrl: "https://hardhat.org/",
   },
 };

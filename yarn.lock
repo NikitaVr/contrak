@@ -1392,7 +1392,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@contrak/cli@workspace:contrak-cli"
   dependencies:
-    "@contrak/sdk": 0.0.6
+    "@contrak/sdk": 0.0.9
     "@oclif/core": ^2
     "@oclif/plugin-help": ^5
     "@oclif/plugin-plugins": ^3.7.0
@@ -1440,7 +1440,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@contrak/sdk@0.0.6, @contrak/sdk@workspace:*, @contrak/sdk@workspace:packages/sdk":
+"@contrak/sdk@npm:0.0.9":
+  version: 0.0.9
+  resolution: "@contrak/sdk@npm:0.0.9"
+  dependencies:
+    axios: ^1.5.1
+    ethers: ^6.7.1
+    git-rev-sync: ^3.0.2
+    github-url-from-git: ^1.5.0
+  checksum: 52aa9506d1e9d6bce6759452f634b327c2e0c3c9a7dbf837190bdd442d7ff151083ec9bd5c41d72f04796433bba1a01368a36171766395351bf7f6b448ee3597
+  languageName: node
+  linkType: hard
+
+"@contrak/sdk@workspace:*, @contrak/sdk@workspace:packages/sdk":
   version: 0.0.0-use.local
   resolution: "@contrak/sdk@workspace:packages/sdk"
   dependencies:
