@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "push:sqlite": "DATABASE_URL=../../data.db drizzle-kit push:sqlite",
-    "push:postgres": "drizzle-kit push:postgres"
+    "push:pg": "drizzle-kit push:pg"
   },
   "files": [
     "/dist"
@@ -16,6 +16,7 @@
     "zod": "^3.22.2"
   },
   "dependencies": {
+    "@contrak/utils": "workspace:*",
     "better-sqlite3": "^8.6.0",
     "dotenv": "^16.3.1",
     "drizzle-orm": "^0.28.6",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.5",
     "@types/node": "^20.7.1",
-    "drizzle-kit": "^0.19.13"
+    "drizzle-kit": "^0.19.13",
+    "typescript": "^5.2.2"
   }
 }

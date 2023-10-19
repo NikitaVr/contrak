@@ -1417,6 +1417,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@contrak/db@workspace:packages/db"
   dependencies:
+    "@contrak/utils": "workspace:*"
     "@types/better-sqlite3": ^7.6.5
     "@types/node": ^20.7.1
     better-sqlite3: ^8.6.0
@@ -1425,6 +1426,7 @@ __metadata:
     drizzle-orm: ^0.28.6
     drizzle-zod: ^0.5.1
     postgres: ^3.4.0
+    typescript: ^5.2.2
   peerDependencies:
     zod: ^3.22.2
   languageName: unknown
@@ -1462,6 +1464,7 @@ __metadata:
   resolution: "@contrak/utils@workspace:packages/utils"
   dependencies:
     "@types/node": ^20.7.1
+    typescript: ^5.2.2
   languageName: unknown
   linkType: soft
 

@@ -1,10 +1,7 @@
 import "dotenv/config";
 
 import type { Config } from "drizzle-kit";
-
-const raise = (message: string): never => {
-  throw new Error(message);
-};
+import { raise } from "@contrak/utils";
 
 const sqliteConfig = {
   schema: "./src/sqlite/schema.ts",
