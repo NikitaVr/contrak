@@ -1,6 +1,6 @@
 {
   "name": "@contrak/cli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Tracking smart contract deployments for teams",
   "author": "@NikitaVr",
   "bin": {
@@ -64,7 +64,7 @@
   },
   "bugs": "https://github.com/NikitaVr/contrak/issues",
   "keywords": [
-    "oclif"
+    "contract"
   ],
   "types": "dist/index.d.ts"
 }
