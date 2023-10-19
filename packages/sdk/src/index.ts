@@ -6,7 +6,7 @@ import * as fs from "node:fs";
 import * as ethers from "ethers";
 import { createClient } from "@contrak/rest";
 import { getChainName } from "@contrak/utils";
-import { getCommitLink } from "./git";
+import { getCommitLink, getGitUsername } from "./git";
 
 type ConnectOptions = {
   contractName: string;
@@ -27,7 +27,8 @@ type ConnectOutput = {
   message: string;
   deployerSignature: string;
   orgSignature: string | null;
-  githubUrl: string | undefined;
+  githubUrl?: string;
+  gitUsername?: string;
 };
 
 type VerifyOptions = {
@@ -126,6 +127,7 @@ export async function connect({
   }
 
   const githubUrl = getCommitLink();
+  const gitUsername = await getGitUsername();
 
   const output = {
     contractName: contractName,
@@ -138,6 +140,7 @@ export async function connect({
     deployerSignature: signature,
     orgSignature: orgSignature,
     githubUrl: githubUrl,
+    gitUsername: gitUsername,
   };
 
   // write output to file
@@ -178,6 +181,7 @@ async function sendToServer(
         orgPublicKey: connectResult.orgPublicKey,
         orgSignature: connectResult.orgSignature,
         githubUrl: connectResult.githubUrl,
+        gitUsername: connectResult.gitUsername,
         message: connectResult.message,
       },
     });

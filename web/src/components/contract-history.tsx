@@ -66,9 +66,11 @@ export function ContractsHistory({ historyId }: { historyId: string }) {
           contractHistoryId={contract.contractHistoryId!}
           id={contract.id!}
           contractAddress={contract.contractAddress!}
+          deployerAddress={contract.deployerAddress!}
           chainId={contract.chainId!}
           selected={selectedContract?.id === contract.id}
           githubUrl={contract.githubUrl!}
+          gitUsername={contract.gitUsername!}
         />
       ))}
     </>
