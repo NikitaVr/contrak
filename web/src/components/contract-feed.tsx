@@ -86,8 +86,10 @@ export function ContractsFeed() {
             contractHistoryId={contract.contractHistoryId!}
             id={contract.id!}
             contractAddress={contract.contractAddress!}
+            deployerAddress={contract.deployerAddress!}
             chainId={contract.chainId!}
             githubUrl={contract.githubUrl!}
+            gitUsername={contract.gitUsername!}
           />
         </motion.div>
       ))}

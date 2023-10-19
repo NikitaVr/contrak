@@ -50,6 +50,7 @@ export async function createContract(
       deployerSignature: contract.deployerSignature,
       orgSignature: contract.orgSignature,
       githubUrl: contract.githubUrl,
+      gitUsername: contract.gitUsername,
       createdAt: new Date(),
     })
     .returning();

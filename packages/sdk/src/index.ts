@@ -6,13 +6,14 @@ import * as fs from "node:fs";
 import * as ethers from "ethers";
 import { createClient } from "@contrak/rest";
 import { getChainName } from "@contrak/utils";
-import { getCommitLink } from "./git";
+import { getCommitLink, getGitUsername } from "./git";
 
 type ConnectOptions = {
   contractName: string;
   contractHistoryId: string;
   chainID: string;
   contractAddress: string;
+  deployerAddress;
   contractDeploymentTransactionHash: string;
   orgPublicKey?: string;
 };
@@ -22,12 +23,14 @@ type ConnectOutput = {
   contractHistoryId: string;
   chainID: string;
   contractAddress: string;
+  deployerAddress: string;
   contractDeploymentTransactionHash: string;
   orgPublicKey?: string;
   message: string;
   deployerSignature: string;
   orgSignature: string | null;
-  githubUrl: string | undefined;
+  githubUrl?: string;
+  gitUsername?: string;
 };
 
 type VerifyOptions = {
@@ -94,6 +97,7 @@ export async function connect({
   contractHistoryId,
   chainID,
   contractAddress,
+  deployerAddress,
   contractDeploymentTransactionHash,
   orgPublicKey,
 }: ConnectOptions) {
@@ -108,14 +112,15 @@ export async function connect({
   // bas64 encode the message
   const message = Buffer.from(JSON.stringify(messageData)).toString("base64");
 
+  let deployerSignature: string | null = null;
+
   // public key is 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 for private key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
   const deployerPrivateKey = process.env.DEPLOYER_PRIVATE_KEY;
-  if (!deployerPrivateKey) {
-    throw new Error("Private key not found in environment variables");
-  }
 
-  const signer = new ethers.ethers.Wallet(deployerPrivateKey);
-  const signature = await signer.signMessage(message);
+  if (deployerPrivateKey) {
+    const signer = new ethers.ethers.Wallet(deployerPrivateKey);
+    deployerSignature = await signer.signMessage(message);
+  }
 
   let orgSignature: string | null = null;
 
@@ -126,30 +131,31 @@ export async function connect({
   }
 
   const githubUrl = getCommitLink();
+  const gitUsername = await getGitUsername();
 
   const output = {
     contractName: contractName,
     contractHistoryId,
     chainID: chainID,
     contractAddress: contractAddress,
+    deployerAddress: deployerAddress,
     contractDeploymentTransactionHash,
     orgPublicKey: orgPublicKey,
     message: message,
-    deployerSignature: signature,
+    deployerSignature: deployerSignature,
     orgSignature: orgSignature,
     githubUrl: githubUrl,
+    gitUsername: gitUsername,
   };
 
   // write output to file
   fs.writeFileSync("output.json", JSON.stringify(output, null, 2));
 
-  notifyWeb3Inbox(output);
-
   // log output file location
   //   console.log("output file location: ", __dirname + "/output.json");
 
   // send output to server
-  sendToServer(output, signer);
+  sendToServer(output);
   console.log("Contrak: Contract Connected");
 }
 
@@ -159,10 +165,7 @@ export async function verify({ message, signature }: VerifyOptions) {
   console.log(`Signer: ${signer}`);
 }
 
-async function sendToServer(
-  connectResult: ConnectOutput,
-  signer: ethers.ethers.Wallet
-) {
+async function sendToServer(connectResult: ConnectOutput) {
   try {
     const client = createClient({ baseUrl: process.env.CONTRAK_API_URL });
     const response = await client.createContract({
@@ -173,11 +176,12 @@ async function sendToServer(
         contractAddress: connectResult.contractAddress,
         deploymentTransactionHash:
           connectResult.contractDeploymentTransactionHash,
-        deployerAddress: signer.address,
+        deployerAddress: connectResult.deployerAddress,
         deployerSignature: connectResult.deployerSignature,
         orgPublicKey: connectResult.orgPublicKey,
         orgSignature: connectResult.orgSignature,
         githubUrl: connectResult.githubUrl,
+        gitUsername: connectResult.gitUsername,
         message: connectResult.message,
       },
     });
