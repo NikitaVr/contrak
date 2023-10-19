@@ -82,18 +82,6 @@ export function ContractCard({
           </CardDescription>
         </div>
         <div className="flex gap-2">
-          {chainId !== "31337" && (
-            <Link
-              href={getExplorerUrl(chainId, contractAddress)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button variant="secondary">
-                <CodeIcon className="mr-2 h-4 w-4" />
-                Explorer
-              </Button>
-            </Link>
-          )}
           {githubUrl && (
             <TooltipProvider>
               <Tooltip>
