@@ -1,6 +1,6 @@
 {
   "name": "@contrak/cli",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Tracking smart contract deployments for teams",
   "author": "@NikitaVr",
   "bin": {
@@ -17,7 +17,7 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
-    "@contrak/sdk": "0.0.10",
+    "@contrak/sdk": "0.0.13",
     "@oclif/core": "^2",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^3.7.0",
