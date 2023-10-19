@@ -51,6 +51,7 @@ async function main() {
     contractHistoryId: CONTRACT_HISTORY_ID,
     chainID: deploymentTransaction.chainId.toString(),
     contractAddress: contractAddress,
+    deployerAddress: deploymentTransaction.from,
     contractDeploymentTransactionHash: deploymentTransaction.hash,
     orgPublicKey: orgPublicKey,
   });

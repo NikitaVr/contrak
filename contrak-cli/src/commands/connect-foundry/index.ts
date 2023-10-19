@@ -22,30 +22,6 @@ const readPipe: () => Promise<string | undefined> = () => {
   });
 };
 
-// function extractData(text: string): {
-//   deployer: string;
-//   deployedTo: string;
-//   transactionHash: string;
-// } {
-//   const deployerRegex = /Deployer: (\w+)/;
-//   const deployedToRegex = /Deployed to: (\w+)/;
-//   const transactionHashRegex = /Transaction hash: (\w+)/;
-
-//   const deployerMatch = text.match(deployerRegex);
-//   const deployedToMatch = text.match(deployedToRegex);
-//   const transactionHashMatch = text.match(transactionHashRegex);
-
-//   if (!deployerMatch || !deployedToMatch || !transactionHashMatch) {
-//     throw new Error("Could not extract data from text");
-//   }
-
-//   return {
-//     deployer: deployerMatch[1],
-//     deployedTo: deployedToMatch[1],
-//     transactionHash: transactionHashMatch[1],
-//   };
-// }
-
 const parsePipe = (
   pipeString: string,
 ): {
@@ -69,15 +45,19 @@ export default class Connect extends Command {
 
   static args = {
     contractName: Args.string({
+      name: "contractName",
       description: "Name of the deployed contract",
       required: true,
     }),
     chainID: Args.string({
+      name: "chainID",
       description: "ID of the Chain that the contract is deployed on",
       required: true,
     }),
     orgPublicKey: Args.string({
-      description: "Public Key of the Organization that owns the contract",
+      name: "orgPublicKey",
+      description:
+        "Public Key of the Organization that owns the contract (optional)",
       required: false,
     }),
   };
@@ -85,14 +65,9 @@ export default class Connect extends Command {
   async run(): Promise<void> {
     const { args } = await this.parse(Connect);
 
-    // console.log("args", args);
-
     const pipeString = await readPipe();
 
     if (pipeString) {
-      // blah blah blah
-      console.log("PIPED", pipeString);
-
       const forgeOutput = parsePipe(pipeString);
 
       console.log("forgeOutput", forgeOutput);
@@ -103,7 +78,7 @@ export default class Connect extends Command {
         chainID: args.chainID,
         contractAddress: forgeOutput.deployedTo,
         contractDeploymentTransactionHash: forgeOutput.transactionHash,
-        //contractDeployer: forgeOutput.deployer,
+        deployerAddress: forgeOutput.deployer,
         orgPublicKey: args.orgPublicKey,
       });
     } else {
