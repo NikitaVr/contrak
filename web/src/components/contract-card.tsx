@@ -2,6 +2,7 @@ import {
   CircleIcon,
   CodeIcon,
   GitHubLogoIcon,
+  ListBulletIcon,
   LapTimerIcon,
 } from "@radix-ui/react-icons";
 import { DateTime } from "luxon";
@@ -32,8 +33,10 @@ export function ContractCard({
   contractHistoryId,
   id,
   contractAddress,
+  deployerAddress,
   chainId,
   githubUrl,
+  gitUsername,
   selected,
 }: {
   name: string;
@@ -41,8 +44,10 @@ export function ContractCard({
   contractHistoryId: string;
   id: number;
   contractAddress: string;
+  deployerAddress: string;
   chainId: string;
-  githubUrl: string | null;
+  githubUrl?: string;
+  gitUsername?: string;
   selected?: boolean;
 }) {
   return (
@@ -51,7 +56,29 @@ export function ContractCard({
         <div className="space-y-1">
           <CardTitle className="leading-tight">{name}</CardTitle>
           <CardDescription>
-            {getChainName(chainId)} - {contractAddress}
+            <div className="flex flex-col">
+              Deployed to {getChainName(chainId)} - {chainId}
+            </div>
+            <div>
+              Contract Address{" "}
+              <Link
+                href={getExplorerUrl(chainId, contractAddress)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {contractAddress}
+              </Link>
+            </div>
+            <div>
+              Deployer Address{" "}
+              <Link
+                href={getExplorerUrl(chainId, deployerAddress)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {deployerAddress}
+              </Link>
+            </div>
           </CardDescription>
         </div>
         <div className="flex gap-2">
@@ -88,19 +115,36 @@ export function ContractCard({
               </Tooltip>
             </TooltipProvider>
           )}
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <Link
+                  href={`/contracts/history/${contractHistoryId}?contractId=${id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button>
+                    <ListBulletIcon className="mr-2 h-4 w-4" />
+                    History
+                  </Button>
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>View Deployments of this Contract</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
       </CardHeader>
       <CardContent>
-        <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+        <div className="flex flex-col gap-1 text-sm text-muted-foreground">
+          {/* <Spacer /> */}
+
           <Link
             href={`/contracts/history/${contractHistoryId}?contractId=${id}`}
           >
-            <Avatar className="w-5 h-5 inline-block align-middle mb-0.5">
-              <AvatarImage src="https://github.com/nikitavr.png" />
-              <AvatarFallback>NV</AvatarFallback>
-            </Avatar>{" "}
             <strong className="text-accent-foreground font-medium">
-              Nikita V.
+              {gitUsername}
             </strong>{" "}
             deployed{" "}
             <TooltipProvider>
@@ -120,20 +164,8 @@ export function ContractCard({
                   </p>
                 </TooltipContent>
               </Tooltip>
-            </TooltipProvider>
+            </TooltipProvider>{" "}
           </Link>
-
-          <Spacer />
-
-          <div className="flex items-center">
-            <CircleIcon className="mr-1 h-3 w-3 fill-orange-400 text-orange-400" />
-            Solidity
-          </div>
-
-          <div className="flex items-center">
-            <LapTimerIcon className="mr-1 h-3 w-3" />
-            20k tx/s
-          </div>
         </div>
       </CardContent>
     </Card>

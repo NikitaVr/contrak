@@ -13,6 +13,7 @@ const ContractSchema = z.object({
   deployerAddress: z.string(),
   chainId: z.string(),
   githubUrl: z.string().optional(),
+  gitUsername: z.string().optional(),
   deployerSignature: z.string(),
   orgPublicKey: z.string().optional(),
   orgSignature: z.string().optional(),
