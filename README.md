@@ -2,21 +2,17 @@
 
 Contrak helps teams track track their smart contract deployments.
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/qc4V0T?referralCode=kMU60t)
+## 🚀 Deployment
 
-## 🚀 Getting Started
+### Railway
 
-### Deploying Contrak
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/AEqvSh?referralCode=kMU60t)
+
+Follow the steps below to deploy Contrak to Railway with a Postgres database:
 
 1. Click the "Deploy on Railway" button above
-2. Fill in the environment variables:
-
-| Variable       | Description                                          |
-| -------------- | ---------------------------------------------------- |
-| `SITE_URL`     | Set this to `https://${{RAILWAY_PUBLIC_DOMAIN}}/`    |
-| `DATABASE_URL` | Set this to `${{RAILWAY_VOLUME_MOUNT_PATH}}/data.db` |
-
-4. Click "Deploy"
+2. Click "Deploy Now"
+3. (Optional) Add a custom domain and update the `SITE_URL` environment variable
 
 ## 👷 Contributing
 
