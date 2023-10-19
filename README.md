@@ -25,9 +25,10 @@ Contrak helps teams track track their smart contract deployments.
 1. Install Node 18 and Yarn
 2. Run `yarn install`
 3. Run `yarn db:push` to generate the database
-4. Run `yarn dev:web` to start the web server
-5. Run `cd hardhat-example && npx hardhat node` to start the hardhat node
-6. Run `npx hardhat run --network localhost scripts/deploy.ts` to deploy the contract
+4. Run `yarn build:web` to build all the sub packages
+5. Run `yarn dev:web` to start the web server
+6. Run `cd hardhat-example && npx hardhat node` to start the hardhat node
+7. Run `npx hardhat run --network localhost scripts/deploy.ts` to deploy the contract
 
 ### Directory Structure
 
