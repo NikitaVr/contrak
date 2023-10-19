@@ -1,12 +1,7 @@
-import {
-  sqliteTable,
-  text,
-  integer,
-  uniqueIndex,
-} from "drizzle-orm/sqlite-core";
+import { text, serial, pgTable, timestamp } from "drizzle-orm/pg-core";
 
-export const contracts = sqliteTable("contracts", {
-  id: integer("id").primaryKey({ autoIncrement: true }),
+export const contracts = pgTable("contracts", {
+  id: serial("id").primaryKey(),
   name: text("name").notNull(),
   contractHistoryId: text("contract_history_id").notNull(),
   chainId: text("chain_id").notNull(),
@@ -17,6 +12,6 @@ export const contracts = sqliteTable("contracts", {
   message: text("message"),
   deployerSignature: text("deployer_signature"),
   orgSignature: text("org_signature"),
-  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
+  createdAt: timestamp("created_at").notNull(),
   githubUrl: text("github_url"),
 });

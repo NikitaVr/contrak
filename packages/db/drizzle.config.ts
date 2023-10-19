@@ -1,13 +1,34 @@
+import "dotenv/config";
+
 import type { Config } from "drizzle-kit";
-import * as dotenv from "dotenv";
-dotenv.config();
 
-console.log(process.env.DATABASE_URL);
+const raise = (message: string): never => {
+  throw new Error(message);
+};
 
-export default {
-  schema: "./src/schema.ts",
+const sqliteConfig = {
+  schema: "./src/sqlite/schema.ts",
   driver: "better-sqlite",
   dbCredentials: {
-    url: process.env.DATABASE_URL ?? "../../data.db",
+    url: process.env.DATABASE_URL ?? raise("DATABASE_URL is not set"),
   },
 } satisfies Config;
+
+const pgConfig = {
+  schema: "./src/postgres/schema.ts",
+  driver: "pg",
+  dbCredentials: {
+    connectionString:
+      process.env.DATABASE_URL ?? raise("DATABASE_URL is not set"),
+  },
+} satisfies Config;
+
+const config = (() => {
+  if (process.env.DATABASE_URL?.startsWith("postgres://")) {
+    return pgConfig;
+  }
+
+  return sqliteConfig;
+})();
+
+export default config;

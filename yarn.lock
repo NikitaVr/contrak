@@ -1424,6 +1424,7 @@ __metadata:
     drizzle-kit: ^0.19.13
     drizzle-orm: ^0.28.6
     drizzle-zod: ^0.5.1
+    postgres: ^3.4.0
   peerDependencies:
     zod: ^3.22.2
   languageName: unknown
@@ -15238,6 +15239,13 @@ __metadata:
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
   checksum: 1d8611341b073143ad90486fcdfeab49edd243377b1f51834dc4f6d028e82ce5190e4f11bb2633276864503654fb7cab28e67abdc0fbf9d1f88cad4a0ff0beea
+  languageName: node
+  linkType: hard
+
+"postgres@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "postgres@npm:3.4.0"
+  checksum: b512a352103d95aa7c92188da024e7ee4b95937345903b4d5be59f7a0d21464735e4d45f8ce26601d15026c9a6061b18fb5a96c027ca56cbc5fc0f3b95f05d54
   languageName: node
   linkType: hard
 

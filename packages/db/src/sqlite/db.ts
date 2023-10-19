@@ -3,9 +3,7 @@ import Database from "better-sqlite3";
 
 import * as schema from "./schema";
 
-const databasePath = process.env.DATABASE_URL ?? "../../data.db";
-
-console.log("DATABASE PATH", databasePath);
+const databasePath = process.env.DATABASE_URL ?? "sqlite://../../../data.db";
 
 const sqlite = new Database(databasePath);
 

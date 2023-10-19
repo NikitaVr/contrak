@@ -6,7 +6,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "push": "drizzle-kit push:sqlite"
+    "push:sqlite": "DATABASE_URL=../../data.db drizzle-kit push:sqlite",
+    "push:postgres": "drizzle-kit push:postgres"
   },
   "files": [
     "/dist"
@@ -18,7 +19,8 @@
     "better-sqlite3": "^8.6.0",
     "dotenv": "^16.3.1",
     "drizzle-orm": "^0.28.6",
-    "drizzle-zod": "^0.5.1"
+    "drizzle-zod": "^0.5.1",
+    "postgres": "^3.4.0"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.5",

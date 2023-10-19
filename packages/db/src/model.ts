@@ -1,8 +1,14 @@
 import { desc, eq } from "drizzle-orm";
 
-import * as schema from "./schema";
-import { db } from "./db";
-import { CreateContractSchemaType } from "./zod";
+// UNCOMMENT FOR SQLITE
+// import { db } from "./sqlite/db";
+// import * as schema from "./sqlite/schema";
+
+// UNCOMMENT FOR POSTGRES
+import { db } from "./postgres/db";
+import * as schema from "./postgres/schema";
+
+import { CreateContractSchemaType } from "./sqlite/zod";
 
 export async function getAllContracts() {
   return db
@@ -30,7 +36,6 @@ export async function getContractById(id: number) {
 export async function createContract(
   contract: Omit<CreateContractSchemaType, "createdAt">
 ) {
-  console.log("createContract", contract);
   const [row] = await db
     .insert(schema.contracts)
     .values({
