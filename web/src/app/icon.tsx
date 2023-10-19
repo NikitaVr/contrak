@@ -21,7 +21,7 @@ export default async function Icon() {
           color: "white",
         }}
       >
-        M
+        C
       </div>
     ),
     {
