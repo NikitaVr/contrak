@@ -15,7 +15,7 @@
   "scripts": {
     "build": "tsup",
     "push:sqlite": "DATABASE_URL=../../data.db drizzle-kit push:sqlite",
-    "push:pg": "drizzle-kit push:pg"
+    "push:postgres": "drizzle-kit push:pg"
   },
   "files": [
     "/dist"
