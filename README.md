@@ -6,7 +6,7 @@ Contrak helps teams track track their smart contract deployments.
 
 ### Railway
 
-#### SQLite
+#### Option 1: SQLite
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/qc4V0T?referralCode=kMU60t)
 
@@ -16,7 +16,7 @@ Follow the steps below to deploy Contrak to Railway with a persistent volume to 
 2. Click "Deploy Now"
 3. (Optional) Add a custom domain and update the `SITE_URL` environment variable
 
-#### Postgres
+#### Option 2: Postgres
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/AEqvSh?referralCode=kMU60t)
 
