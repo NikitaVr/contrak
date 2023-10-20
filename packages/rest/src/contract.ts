@@ -3,21 +3,36 @@ import { z } from "zod";
 
 const c = initContract();
 
+const ContractCreateSchema = z.object({
+  name: z.string(),
+  contractHistoryId: z.string(),
+  contractAddress: z.string(),
+  deploymentTransactionHash: z.string().nullable(),
+  deployerAddress: z.string().nullable(),
+  chainId: z.string(),
+  githubUrl: z.string().optional(),
+  gitUsername: z.string().optional(),
+  deployerSignature: z.string().nullable(),
+  orgPublicKey: z.string().optional(),
+  orgSignature: z.string().optional(),
+  message: z.string().nullable(),
+});
+
 const ContractSchema = z.object({
   id: z.number(),
   name: z.string(),
   createdAt: z.date(),
+  chainId: z.string(),
   contractHistoryId: z.string(),
   contractAddress: z.string(),
-  deploymentTransactionHash: z.string(),
-  deployerAddress: z.string(),
-  chainId: z.string(),
-  githubUrl: z.string().optional(),
-  gitUsername: z.string().optional(),
-  deployerSignature: z.string(),
-  orgPublicKey: z.string().optional(),
-  orgSignature: z.string().optional(),
-  message: z.string(),
+  deploymentTransactionHash: z.string().nullable(),
+  deployerAddress: z.string().nullable(),
+  githubUrl: z.string().nullable(),
+  gitUsername: z.string().nullable(),
+  deployerSignature: z.string().nullable(),
+  orgPublicKey: z.string().nullable(),
+  orgSignature: z.string().nullable(),
+  message: z.string().nullable(),
 });
 
 export const contract = c.router({
@@ -27,10 +42,7 @@ export const contract = c.router({
     responses: {
       201: ContractSchema,
     },
-    body: ContractSchema.omit({
-      id: true,
-      createdAt: true,
-    }),
+    body: ContractCreateSchema,
     summary: "Create a contract",
   },
   getAllContracts: {

@@ -2,21 +2,29 @@
 
 Contrak helps teams track track their smart contract deployments.
 
+## 🚀 Deployment
+
+### Railway
+
+#### Option 1: SQLite
+
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/qc4V0T?referralCode=kMU60t)
 
-## 🚀 Getting Started
-
-### Deploying Contrak
+Follow the steps below to deploy Contrak to Railway with a persistent volume to store the SQLite database:
 
 1. Click the "Deploy on Railway" button above
-2. Fill in the environment variables:
+2. Click "Deploy Now"
+3. (Optional) Add a custom domain and update the `SITE_URL` environment variable
 
-| Variable       | Description                                          |
-| -------------- | ---------------------------------------------------- |
-| `SITE_URL`     | Set this to `https://${{RAILWAY_PUBLIC_DOMAIN}}/`    |
-| `DATABASE_URL` | Set this to `${{RAILWAY_VOLUME_MOUNT_PATH}}/data.db` |
+#### Option 2: Postgres
 
-4. Click "Deploy"
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/AEqvSh?referralCode=kMU60t)
+
+Follow the steps below to deploy Contrak to Railway with a Postgres database:
+
+1. Click the "Deploy on Railway" button above
+2. Click "Deploy Now"
+3. (Optional) Add a custom domain and update the `SITE_URL` environment variable
 
 ## 👷 Contributing
 
@@ -39,4 +47,3 @@ Contrak helps teams track track their smart contract deployments.
 - `packages/sdk`: Contains the TypeScript SDK for Contrak
 - `packages/utils`: Contains utility functions used across the project
 - `web`: Contains the Next.js web app for Contrak
-- `web3inbox`: Contains an example deployment of [Web3Inbox](https://web3inbox.com/) with Contrak notifications

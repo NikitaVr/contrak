@@ -1,10 +1,10 @@
-import * as db from "@contrak/db";
-import { contract } from "@contrak/rest";
+import { Database } from "@contrak/db";
+import { contract as apiContract } from "@contrak/rest";
 import { createNextRoute } from "@ts-rest/next";
 
-export const router = createNextRoute(contract, {
+export const router = createNextRoute(apiContract, {
   createContract: async (args) => {
-    const newContract = await db.createContract(args.body);
+    const newContract = await Database.fromEnv().createContract(args.body);
 
     return {
       status: 201,
@@ -13,7 +13,7 @@ export const router = createNextRoute(contract, {
   },
 
   getAllContracts: async () => {
-    const contracts = await db.getAllContracts();
+    const contracts = await Database.fromEnv().getAllContracts();
 
     return {
       status: 200,
@@ -22,8 +22,9 @@ export const router = createNextRoute(contract, {
   },
 
   getContractsByHistory: async (args) => {
-    if (!args.params.historyId) throw new Error("Missing history id");
-    const contracts = await db.getContractsByHistory(args.params.historyId);
+    const contracts = await Database.fromEnv().getContractsByHistory(
+      args.params.historyId
+    );
 
     return {
       status: 200,
@@ -32,8 +33,7 @@ export const router = createNextRoute(contract, {
   },
 
   getContract: async (args) => {
-    if (!args.params.id) throw new Error("Missing contract id");
-    const contract = await db.getContractById(args.params.id);
+    const contract = await Database.fromEnv().getContractById(args.params.id);
 
     return {
       status: 200,

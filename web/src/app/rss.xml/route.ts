@@ -8,9 +8,9 @@ export const revalidate = 0;
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const { getAllContracts } = await import("@contrak/db");
+  const { Database } = await import("@contrak/db");
 
-  const contracts = await getAllContracts();
+  const contracts = await Database.fromEnv().getAllContracts();
 
   const feed = new Rss({
     title: "Contrak RSS Feed",
