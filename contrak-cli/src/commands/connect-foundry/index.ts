@@ -1,4 +1,4 @@
-import { Args, Command } from "@oclif/core";
+import { Args, Command, Flags } from "@oclif/core";
 import { connect, verify } from "@contrak/sdk";
 import "dotenv/config";
 
@@ -35,13 +35,19 @@ const parsePipe = (
   return data;
 };
 
-export default class Connect extends Command {
+export default class ConnectFoundry extends Command {
   static description =
     "Sign a message that says a contract belongs to an organization";
 
   static examples = [];
 
-  static flags = {};
+  static flags = {
+    verbose: Flags.boolean({
+      name: "verbose",
+      description: "Verbose output",
+      required: false,
+    }),
+  };
 
   static args = {
     contractName: Args.string({
@@ -63,7 +69,8 @@ export default class Connect extends Command {
   };
 
   async run(): Promise<void> {
-    const { args } = await this.parse(Connect);
+    const { args } = await this.parse(ConnectFoundry);
+    const { flags } = await this.parse(ConnectFoundry);
 
     const pipeString = await readPipe();
 
@@ -72,15 +79,18 @@ export default class Connect extends Command {
 
       console.log("forgeOutput", forgeOutput);
 
-      connect({
-        contractName: args.contractName,
-        contractHistoryId: args.contractName, //CONTRACT_HISTORY_ID,
-        chainID: args.chainID,
-        contractAddress: forgeOutput.deployedTo,
-        contractDeploymentTransactionHash: forgeOutput.transactionHash,
-        deployerAddress: forgeOutput.deployer,
-        orgPublicKey: args.orgPublicKey,
-      });
+      connect(
+        {
+          contractName: args.contractName,
+          contractHistoryId: args.contractName, //CONTRACT_HISTORY_ID,
+          chainID: args.chainID,
+          contractAddress: forgeOutput.deployedTo,
+          contractDeploymentTransactionHash: forgeOutput.transactionHash,
+          deployerAddress: forgeOutput.deployer,
+          orgPublicKey: args.orgPublicKey,
+        },
+        { verbose: flags.verbose },
+      );
     } else {
       // blah blah blah
       console.log("NO PIPE");

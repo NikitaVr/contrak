@@ -33,6 +33,10 @@ type ConnectOutput = {
   gitUsername?: string;
 };
 
+type ConnectConfig = {
+  verbose?: boolean;
+};
+
 type VerifyOptions = {
   message: string;
   signature: string;
@@ -92,15 +96,18 @@ async function notifyWeb3Inbox(connectResult: ConnectOutput) {
   const result = await notifyRes.data;
 }
 
-export async function connect({
-  contractName,
-  contractHistoryId,
-  chainID,
-  contractAddress,
-  deployerAddress,
-  contractDeploymentTransactionHash,
-  orgPublicKey,
-}: ConnectOptions) {
+export async function connect(
+  {
+    contractName,
+    contractHistoryId,
+    chainID,
+    contractAddress,
+    deployerAddress,
+    contractDeploymentTransactionHash,
+    orgPublicKey,
+  }: ConnectOptions,
+  config?: ConnectConfig
+) {
   // Should we add contractName to the signed data too?
   const messageData = {
     action: "connect",
@@ -112,7 +119,7 @@ export async function connect({
   // bas64 encode the message
   const message = Buffer.from(JSON.stringify(messageData)).toString("base64");
 
-  let deployerSignature: string | null = null;
+  let deployerSignature: string | undefined = undefined;
 
   // public key is 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 for private key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
   const deployerPrivateKey = process.env.DEPLOYER_PRIVATE_KEY;
@@ -122,7 +129,7 @@ export async function connect({
     deployerSignature = await signer.signMessage(message);
   }
 
-  let orgSignature: string | null = null;
+  let orgSignature: string | undefined = undefined;
 
   const orgPrivateKey = process.env.TEAM_PRIVATE_KEY;
   if (orgPrivateKey) {
@@ -155,7 +162,7 @@ export async function connect({
   //   console.log("output file location: ", __dirname + "/output.json");
 
   // send output to server
-  sendToServer(output);
+  sendToServer(output, config);
   console.log("Contrak: Contract Connected");
 }
 
@@ -165,7 +172,10 @@ export async function verify({ message, signature }: VerifyOptions) {
   console.log(`Signer: ${signer}`);
 }
 
-async function sendToServer(connectResult: ConnectOutput) {
+async function sendToServer(
+  connectResult: ConnectOutput,
+  config?: ConnectConfig
+) {
   try {
     const client = createClient({ baseUrl: process.env.CONTRAK_API_URL });
     const response = await client.createContract({
@@ -186,14 +196,16 @@ async function sendToServer(connectResult: ConnectOutput) {
       },
     });
     console.log("Sent Contract Details to: ", process.env.CONTRAK_API_URL);
-    // console.log(
-    //   "Create Contract Response",
-    //   util.inspect(response.body, {
-    //     showHidden: false,
-    //     depth: null,
-    //     colors: true,
-    //   })
-    // );
+    if (config?.verbose) {
+      console.log(
+        "Create Contract Response",
+        util.inspect(response.body, {
+          showHidden: false,
+          depth: null,
+          colors: true,
+        })
+      );
+    }
   } catch (error) {
     console.log(error);
   }
