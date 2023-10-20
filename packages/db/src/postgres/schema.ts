@@ -14,4 +14,5 @@ export const contracts = pgTable("contracts", {
   orgSignature: text("org_signature"),
   createdAt: timestamp("created_at").notNull(),
   githubUrl: text("github_url"),
+  gitUsername: text("git_username"),
 });

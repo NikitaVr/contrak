@@ -19,7 +19,10 @@
       }
     ],
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "@contrak/db": ["../packages/db/src/sqlite/index.ts"],
+      "@contrak/rest": ["../packages/rest/src/index.ts"],
+      "@contrak/utils": ["../packages/utils/src/index.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
