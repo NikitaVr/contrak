@@ -47,4 +47,3 @@ Follow the steps below to deploy Contrak to Railway with a Postgres database:
 - `packages/sdk`: Contains the TypeScript SDK for Contrak
 - `packages/utils`: Contains utility functions used across the project
 - `web`: Contains the Next.js web app for Contrak
-- `web3inbox`: Contains an example deployment of [Web3Inbox](https://web3inbox.com/) with Contrak notifications
