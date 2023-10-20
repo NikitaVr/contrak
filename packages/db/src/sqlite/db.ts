@@ -5,22 +5,24 @@ import { raise } from "@contrak/utils";
 
 import * as schema from "./schema";
 export class Database {
-  private db: BetterSQLite3Database<typeof schema>;
+  private static db: BetterSQLite3Database<typeof schema>;
 
-  constructor(databasePath: string) {
-    const sqlite = new SQLiteDatabase(databasePath);
-    this.db = drizzle(sqlite, { schema });
+  private constructor(databasePath: string) {
+    if (!Database.db) {
+      const sqlite = new SQLiteDatabase(databasePath);
+      Database.db = drizzle(sqlite, { schema });
+    }
   }
 
   async getAllContracts() {
-    return this.db
+    return Database.db
       .select()
       .from(schema.contracts)
       .orderBy(desc(schema.contracts.createdAt));
   }
 
   async getContractsByHistory(historyId: string) {
-    return this.db
+    return Database.db
       .select()
       .from(schema.contracts)
       .where(eq(schema.contracts.contractHistoryId, historyId))
@@ -28,7 +30,7 @@ export class Database {
   }
 
   async getContractById(id: number) {
-    const [first] = await this.db
+    const [first] = await Database.db
       .select()
       .from(schema.contracts)
       .where(eq(schema.contracts.id, id));
@@ -38,7 +40,7 @@ export class Database {
   async createContract(
     contract: Omit<typeof schema.contracts.$inferInsert, "id" | "createdAt">
   ) {
-    const [row] = await this.db
+    const [row] = await Database.db
       .insert(schema.contracts)
       .values({
         ...contract,
