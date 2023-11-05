@@ -1,6 +1,6 @@
 # Contrak
 
-Contrak helps teams track track their smart contract deployments.
+Contrak helps teams track their smart contract deployments.
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/qc4V0T?referralCode=kMU60t)
 
