@@ -33,10 +33,9 @@ Contrak helps teams track their smart contract deployments.
 ### Directory Structure
 
 - `hardhat-example`: Contains a [Hardhat](https://hardhat.org/) project with a sample contract
-- `contrak-cli`: Contains a Node.js CLI for interacting with Contrak
+- `web`: Contains the Next.js web app for Contrak
+- `cli`: Contains a Node.js CLI for interacting with Contrak
 - `packages/db`: Contains the database schema using [Drizzle ORM](https://orm.drizzle.team/)
 - `packages/rest`: Contains the REST API client for Contrak
 - `packages/sdk`: Contains the TypeScript SDK for Contrak
 - `packages/utils`: Contains utility functions used across the project
-- `web`: Contains the Next.js web app for Contrak
-- `web3inbox`: Contains an example deployment of [Web3Inbox](https://web3inbox.com/) with Contrak notifications
