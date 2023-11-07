@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "lib": ["es2022"],
+    "sourceMap": true,
+    "composite": true,
+    "declarationMap": true,
+    "declaration": true,
+    "types": ["node"],
+    "allowSyntheticDefaultImports": true
+  }
+}

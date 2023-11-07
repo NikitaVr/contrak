@@ -1,8 +1,8 @@
 import { desc, eq } from "drizzle-orm";
 
-import * as schema from "./schema";
-import { db } from "./db";
-import { CreateContractSchemaType } from "./zod";
+import * as schema from "./schema.js";
+import { db } from "./db.js";
+import type { CreateContractSchemaType } from "./zod.js";
 
 export async function getAllContracts() {
   return db

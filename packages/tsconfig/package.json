@@ -1,0 +1,9 @@
+{
+  "name": "@contrak/tsconfig",
+  "version": "0.0.1",
+  "private": true,
+  "files": [
+    "base.json",
+    "nodelib.json"
+  ]
+}

@@ -1,7 +1,6 @@
 import "dotenv/config";
 import axios from "axios";
-import util from "util";
-
+import * as util from "node:util";
 import * as fs from "node:fs";
 import * as ethers from "ethers";
 import { createClient } from "@contrak/rest";
@@ -13,7 +12,7 @@ type ConnectOptions = {
   contractHistoryId: string;
   chainID: string;
   contractAddress: string;
-  deployerAddress;
+  deployerAddress: string;
   contractDeploymentTransactionHash: string;
   orgPublicKey?: string;
 };
@@ -27,8 +26,8 @@ type ConnectOutput = {
   contractDeploymentTransactionHash: string;
   orgPublicKey?: string;
   message: string;
-  deployerSignature: string;
-  orgSignature: string | null;
+  deployerSignature?: string;
+  orgSignature?: string;
   githubUrl?: string;
   gitUsername?: string;
 };
@@ -153,7 +152,7 @@ export async function connect(
     orgSignature: orgSignature,
     githubUrl: githubUrl,
     gitUsername: gitUsername,
-  };
+  } satisfies ConnectOutput;
 
   // write output to file
   fs.writeFileSync("output.json", JSON.stringify(output, null, 2));

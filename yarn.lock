@@ -136,6 +136,7 @@ __metadata:
     shx: ^0.3.4
     ts-node: ^10.9.1
     typescript: ^4.9.5
+    zod: ^3.22.4
   bin:
     contrak: ./bin/run
   languageName: unknown
@@ -145,6 +146,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@contrak/db@workspace:packages/db"
   dependencies:
+    "@contrak/tsconfig": "workspace:*"
     "@types/better-sqlite3": ^7.6.5
     "@types/node": ^20.7.1
     better-sqlite3: ^8.6.0
@@ -152,6 +154,7 @@ __metadata:
     drizzle-kit: ^0.19.13
     drizzle-orm: ^0.28.6
     drizzle-zod: ^0.5.1
+    typescript: 5.2.2
   peerDependencies:
     zod: ^3.22.2
   languageName: unknown
@@ -163,6 +166,7 @@ __metadata:
   dependencies:
     "@ts-rest/core": ^3.30.2
     "@types/node": ^20.7.1
+    typescript: 5.2.2
   peerDependencies:
     zod: ^3.22.2
   languageName: unknown
@@ -175,12 +179,23 @@ __metadata:
     "@contrak/rest": "workspace:*"
     "@contrak/utils": "workspace:*"
     "@types/axios": ^0.14.0
+    "@types/git-rev-sync": ^2.0.2
+    "@types/github-url-from-git": ^1.5.3
     "@types/node": ^20.7.1
     axios: ^1.5.1
     ethers: ^6.7.1
     git-rev-sync: ^3.0.2
     github-url-from-git: ^1.5.0
     tsup: ^7.2.0
+    typescript: 5.2.2
+  peerDependencies:
+    zod: ^3.20.2
+  languageName: unknown
+  linkType: soft
+
+"@contrak/tsconfig@workspace:*, @contrak/tsconfig@workspace:packages/tsconfig":
+  version: 0.0.0-use.local
+  resolution: "@contrak/tsconfig@workspace:packages/tsconfig"
   languageName: unknown
   linkType: soft
 
@@ -189,6 +204,7 @@ __metadata:
   resolution: "@contrak/utils@workspace:packages/utils"
   dependencies:
     "@types/node": ^20.7.1
+    typescript: 5.2.2
   languageName: unknown
   linkType: soft
 
@@ -3181,6 +3197,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/git-rev-sync@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@types/git-rev-sync@npm:2.0.2"
+  checksum: 24d8e9573cffad57b6809b0e60917f01d70d1577d5cc027ef1fe557ae2968f827e38836750dd9acbe2339ec9d9d7faa05584b8a162665706085943ade2601a7b
+  languageName: node
+  linkType: hard
+
+"@types/github-url-from-git@npm:^1.5.3":
+  version: 1.5.3
+  resolution: "@types/github-url-from-git@npm:1.5.3"
+  checksum: 9b3f1964ffad643a5069c65f86b08557e904e2e118e770938420aa0d08b50328a4465e930649765c2da0affa751d4a8d36853a641ab5a26cf4a4751963664ad7
+  languageName: node
+  linkType: hard
+
 "@types/glob@npm:^7.1.1":
   version: 7.2.0
   resolution: "@types/glob@npm:7.2.0"
@@ -5237,6 +5267,7 @@ __metadata:
   resolution: "contrak@workspace:."
   dependencies:
     prettier: ^3.0.3
+    turbo: ^1.10.16
     typescript: ^5.2.2
   languageName: unknown
   linkType: soft
@@ -13595,6 +13626,77 @@ __metadata:
   languageName: node
   linkType: hard
 
+"turbo-darwin-64@npm:1.10.16":
+  version: 1.10.16
+  resolution: "turbo-darwin-64@npm:1.10.16"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"turbo-darwin-arm64@npm:1.10.16":
+  version: 1.10.16
+  resolution: "turbo-darwin-arm64@npm:1.10.16"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"turbo-linux-64@npm:1.10.16":
+  version: 1.10.16
+  resolution: "turbo-linux-64@npm:1.10.16"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"turbo-linux-arm64@npm:1.10.16":
+  version: 1.10.16
+  resolution: "turbo-linux-arm64@npm:1.10.16"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"turbo-windows-64@npm:1.10.16":
+  version: 1.10.16
+  resolution: "turbo-windows-64@npm:1.10.16"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"turbo-windows-arm64@npm:1.10.16":
+  version: 1.10.16
+  resolution: "turbo-windows-arm64@npm:1.10.16"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"turbo@npm:^1.10.16":
+  version: 1.10.16
+  resolution: "turbo@npm:1.10.16"
+  dependencies:
+    turbo-darwin-64: 1.10.16
+    turbo-darwin-arm64: 1.10.16
+    turbo-linux-64: 1.10.16
+    turbo-linux-arm64: 1.10.16
+    turbo-windows-64: 1.10.16
+    turbo-windows-arm64: 1.10.16
+  dependenciesMeta:
+    turbo-darwin-64:
+      optional: true
+    turbo-darwin-arm64:
+      optional: true
+    turbo-linux-64:
+      optional: true
+    turbo-linux-arm64:
+      optional: true
+    turbo-windows-64:
+      optional: true
+    turbo-windows-arm64:
+      optional: true
+  bin:
+    turbo: bin/turbo
+  checksum: 69d1892593449b264e0bd48b851317a743016ab62cf470e7293b2cc3781240e863c48232c89f65a5a4ce97eb791ca550b201593449350da073db07703a19cfa5
+  languageName: node
+  linkType: hard
+
 "tweetnacl-util@npm:^0.15.1":
   version: 0.15.1
   resolution: "tweetnacl-util@npm:0.15.1"
@@ -14737,7 +14839,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^3.20.2, zod@npm:^3.22.2":
+"zod@npm:^3.20.2, zod@npm:^3.22.2, zod@npm:^3.22.4":
   version: 3.22.4
   resolution: "zod@npm:3.22.4"
   checksum: 80bfd7f8039b24fddeb0718a2ec7c02aa9856e4838d6aa4864335a047b6b37a3273b191ef335bf0b2002e5c514ef261ffcda5a589fb084a48c336ffc4cdbab7f

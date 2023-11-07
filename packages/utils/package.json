@@ -1,16 +1,20 @@
 {
   "name": "@contrak/utils",
   "version": "1.0.0",
+  "private": true,
   "description": "Utilities used by Contrak",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "dev": "tsc --watch",
     "build": "tsc"
   },
   "files": [
-    "/dist"
+    "dist"
   ],
   "devDependencies": {
-    "@types/node": "^20.7.1"
+    "@types/node": "^20.7.1",
+    "typescript": "5.2.2"
   }
 }

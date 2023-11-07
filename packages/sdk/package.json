@@ -2,15 +2,23 @@
   "name": "@contrak/sdk",
   "version": "0.0.20",
   "description": "Contrak core SDK",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsup ./src/index.ts"
+    "dev": "tsup --watch",
+    "build": "tsup"
   },
   "files": [
-    "/dist"
+    "dist/**",
+    "!dist/**/*.d.ts.map"
   ],
+  "peerDependencies": {
+    "zod": "^3.20.2"
+  },
   "dependencies": {
+    "@types/git-rev-sync": "^2.0.2",
+    "@types/github-url-from-git": "^1.5.3",
     "axios": "^1.5.1",
     "ethers": "^6.7.1",
     "git-rev-sync": "^3.0.2",
@@ -21,6 +29,7 @@
     "@contrak/utils": "workspace:*",
     "@types/axios": "^0.14.0",
     "@types/node": "^20.7.1",
-    "tsup": "^7.2.0"
+    "tsup": "^7.2.0",
+    "typescript": "5.2.2"
   }
 }
