@@ -9,7 +9,7 @@
     "web3inbox"
   ],
   "scripts": {
-    "dev": "turbo run dev",
+    "dev": "turbo dev --parallel",
     "dev:web": "yarn workspace web dev",
     "build:web": "yarn && yarn workspace @contrak/utils build && yarn workspace @contrak/db build && yarn workspace @contrak/rest build && yarn workspace @contrak/sdk build && yarn workspace web build",
     "start:web": "yarn workspace web start",
