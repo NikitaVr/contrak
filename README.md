@@ -23,12 +23,12 @@ Contrak helps teams track their smart contract deployments.
 ### Setup
 
 1. Install Node 18 and Yarn
-2. Run `yarn install`
-3. Run `yarn db:push` to generate the database
-4. Run `yarn build:web` to build all the sub packages
+2. Run `cp .env.example .env` and fill in any missing environment variables
+3. Run `yarn install`
+4. Run `yarn db:push` to generate the database
 5. Run `yarn dev:web` to start the web server
 6. Run `yarn hardhat:node` to start the hardhat node
-7. Run `yarn hardhat:deploy` to deploy the contract
+7. Run `yarn hardhat:deploy` to deploy a contract
 
 ### Directory Structure
 
