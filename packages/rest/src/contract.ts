@@ -9,6 +9,23 @@ const ContractSchema = z.object({
   createdAt: z.date(),
   contractHistoryId: z.string(),
   contractAddress: z.string(),
+  deploymentTransactionHash: z.string().nullable(),
+  deployerAddress: z.string().nullable(),
+  chainId: z.string(),
+  githubUrl: z.string().nullable(),
+  gitUsername: z.string().nullable(),
+  deployerSignature: z.string().nullable(),
+  orgPublicKey: z.string().nullable(),
+  orgSignature: z.string().nullable(),
+  message: z.string().nullable(),
+});
+
+const CreateContractSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  createdAt: z.date(),
+  contractHistoryId: z.string(),
+  contractAddress: z.string(),
   deploymentTransactionHash: z.string(),
   deployerAddress: z.string(),
   chainId: z.string(),
@@ -27,10 +44,7 @@ export const contract = c.router({
     responses: {
       201: ContractSchema,
     },
-    body: ContractSchema.omit({
-      id: true,
-      createdAt: true,
-    }),
+    body: CreateContractSchema,
     summary: "Create a contract",
   },
   getAllContracts: {
