@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "rimraf .next .turbo"
   },
   "dependencies": {
     "@contrak/db": "workspace:*",
@@ -47,6 +48,7 @@
   },
   "devDependencies": {
     "@types/luxon": "^3.3.2",
-    "@types/rss": "^0.0.30"
+    "@types/rss": "^0.0.30",
+    "rimraf": "^5.0.5"
   }
 }

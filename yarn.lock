@@ -108,6 +108,7 @@ __metadata:
     drizzle-kit: ^0.19.13
     drizzle-orm: ^0.28.6
     drizzle-zod: ^0.5.1
+    rimraf: ^5.0.5
     typescript: 5.2.2
   peerDependencies:
     zod: ^3.22.2
@@ -120,6 +121,7 @@ __metadata:
   dependencies:
     "@ts-rest/core": ^3.30.2
     "@types/node": ^20.7.1
+    rimraf: ^5.0.5
     typescript: 5.2.2
   peerDependencies:
     zod: ^3.22.2
@@ -140,6 +142,7 @@ __metadata:
     ethers: ^6.7.1
     git-rev-sync: ^3.0.2
     github-url-from-git: ^1.5.0
+    rimraf: ^5.0.5
     tsup: ^7.2.0
     typescript: 5.2.2
   peerDependencies:
@@ -158,6 +161,7 @@ __metadata:
   resolution: "@contrak/utils@workspace:packages/utils"
   dependencies:
     "@types/node": ^20.7.1
+    rimraf: ^5.0.5
     typescript: 5.2.2
   languageName: unknown
   linkType: soft
@@ -197,6 +201,7 @@ __metadata:
     postcss: 8.4.30
     react: 18.2.0
     react-dom: 18.2.0
+    rimraf: ^5.0.5
     rss: ^1.2.2
     tailwind-merge: ^1.14.0
     tailwindcss: 3.3.3
@@ -5517,7 +5522,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^10.2.2, glob@npm:^10.2.7":
+"glob@npm:^10.2.2, glob@npm:^10.2.7, glob@npm:^10.3.7":
   version: 10.3.10
   resolution: "glob@npm:10.3.10"
   dependencies:
@@ -9389,6 +9394,17 @@ __metadata:
   bin:
     rimraf: bin.js
   checksum: 87f4164e396f0171b0a3386cc1877a817f572148ee13a7e113b238e48e8a9f2f31d009a92ec38a591ff1567d9662c6b67fd8818a2dbbaed74bc26a87a2a4a9a0
+  languageName: node
+  linkType: hard
+
+"rimraf@npm:^5.0.5":
+  version: 5.0.5
+  resolution: "rimraf@npm:5.0.5"
+  dependencies:
+    glob: ^10.3.7
+  bin:
+    rimraf: dist/esm/bin.mjs
+  checksum: d66eef829b2e23b16445f34e73d75c7b7cf4cbc8834b04720def1c8f298eb0753c3d76df77325fad79d0a2c60470525d95f89c2475283ad985fd7441c32732d1
   languageName: node
   linkType: hard
 
