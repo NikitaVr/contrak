@@ -12,6 +12,7 @@
     "build:web": "yarn with-env turbo build --filter='@contrak/web...'",
     "start:web": "yarn with-env yarn workspace @contrak/web start",
     "db:push": "yarn with-env yarn workspace @contrak/db push",
+    "lint": "turbo run lint",
     "clean": "turbo run clean",
     "with-env": "dotenv -e ./.env --"
   },
