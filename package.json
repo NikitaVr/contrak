@@ -4,8 +4,7 @@
   "workspaces": [
     "packages/*",
     "web",
-    "cli",
-    "hardhat-example"
+    "cli"
   ],
   "scripts": {
     "dev": "yarn with-env turbo dev --parallel",
@@ -13,8 +12,6 @@
     "build:web": "yarn with-env turbo build --filter='@contrak/web...'",
     "start:web": "yarn with-env yarn workspace web start",
     "db:push": "yarn with-env yarn workspace @contrak/db push",
-    "hardhat:node": "yarn workspace hardhat-project hardhat node",
-    "hardhat:deploy": "yarn workspace hardhat-project hardhat run --network localhost scripts/deploy.ts",
     "with-env": "dotenv -e ../.env --"
   },
   "packageManager": "yarn@3.6.3",
