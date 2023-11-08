@@ -15,11 +15,11 @@
     "db:push": "yarn with-env yarn workspace @contrak/db push",
     "lint": "turbo run lint",
     "clean": "turbo run clean",
-    "with-env": "yarn dotenv -e ./.env --"
+    "with-env": "dotenv -e ./.env --"
   },
   "packageManager": "yarn@3.6.3",
   "engines": {
-    "node": ">=18.0.0"
+    "node": "^18.0.0"
   },
   "devDependencies": {
     "dotenv-cli": "^7.3.0",
