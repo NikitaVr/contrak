@@ -9,8 +9,7 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "push": "yarn with-env drizzle-kit push:sqlite",
-    "with-env": "dotenv -e ../../.env --"
+    "push": "drizzle-kit push:sqlite"
   },
   "files": [
     "dist"
@@ -28,7 +27,6 @@
     "@contrak/tsconfig": "workspace:*",
     "@types/better-sqlite3": "^7.6.5",
     "@types/node": "^20.7.1",
-    "dotenv-cli": "^7.3.0",
     "drizzle-kit": "^0.19.13",
     "typescript": "5.2.2"
   }

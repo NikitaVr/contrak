@@ -8,19 +8,21 @@
     "hardhat-example"
   ],
   "scripts": {
-    "dev": "turbo dev --parallel",
-    "dev:web": "turbo dev --parallel --filter='@contrak/web...'",
-    "build:web": "turbo build --filter='@contrak/web...'",
-    "start:web": "yarn workspace web start",
-    "db:push": "yarn workspace @contrak/db push",
+    "dev": "yarn with-env turbo dev --parallel",
+    "dev:web": "yarn with-env turbo dev --parallel --filter='@contrak/web...'",
+    "build:web": "yarn with-env turbo build --filter='@contrak/web...'",
+    "start:web": "yarn with-env yarn workspace web start",
+    "db:push": "yarn with-env yarn workspace @contrak/db push",
     "hardhat:node": "yarn workspace hardhat-project hardhat node",
-    "hardhat:deploy": "yarn workspace hardhat-project hardhat run --network localhost scripts/deploy.ts"
+    "hardhat:deploy": "yarn workspace hardhat-project hardhat run --network localhost scripts/deploy.ts",
+    "with-env": "dotenv -e ../.env --"
   },
   "packageManager": "yarn@3.6.3",
   "engines": {
     "node": ">=18.0.0"
   },
   "devDependencies": {
+    "dotenv-cli": "^7.3.0",
     "prettier": "^3.0.3",
     "turbo": "^1.10.16",
     "typescript": "^5.2.2"

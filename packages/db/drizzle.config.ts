@@ -9,6 +9,8 @@ if (!process.env.DATABASE_URL) {
   throw new Error("DATABASE_URL is not set");
 }
 
+console.log("DATABASE PATH", process.env.DATABASE_URL);
+
 export default {
   schema: "./src/schema.ts",
   driver: "better-sqlite",
