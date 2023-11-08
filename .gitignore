@@ -51,3 +51,4 @@ Thumbs.db
 # Ignore built ts files
 /**/dist/**/*
 tsconfig.tsbuildinfo
+.turbo
