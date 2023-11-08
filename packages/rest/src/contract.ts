@@ -21,9 +21,7 @@ const ContractSchema = z.object({
 });
 
 const CreateContractSchema = z.object({
-  id: z.number(),
   name: z.string(),
-  createdAt: z.date(),
   contractHistoryId: z.string(),
   contractAddress: z.string(),
   deploymentTransactionHash: z.string(),

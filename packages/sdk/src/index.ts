@@ -1,10 +1,8 @@
 import "dotenv/config";
-import axios from "axios";
 import * as util from "node:util";
 import * as fs from "node:fs";
 import * as ethers from "ethers";
 import { createClient } from "@contrak/rest";
-import { getChainName } from "@contrak/utils";
 import { getCommitLink, getGitUsername } from "./git";
 
 type ConnectOptions = {
@@ -24,8 +22,8 @@ type ConnectOutput = {
   contractAddress: string;
   deployerAddress: string;
   contractDeploymentTransactionHash: string;
-  orgPublicKey?: string;
   message: string;
+  orgPublicKey?: string;
   deployerSignature?: string;
   orgSignature?: string;
   githubUrl?: string;
@@ -41,59 +39,6 @@ type VerifyOptions = {
   signature: string;
   //   contractDeploymentTransactionHash: string;
 };
-
-async function notifyWeb3Inbox(connectResult: ConnectOutput) {
-  // Your project ID from WalletConnect Cloud
-  const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
-  // notify_api_secret generated in WalletConnect Cloud
-  const notifyApiSecret = process.env.NOTIFY_API_SECRET;
-
-  if (!projectId || !notifyApiSecret) {
-    return;
-  }
-
-  const headers = {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${notifyApiSecret}`,
-  };
-
-  // 1. Get the list of subscribers for your project
-  const subscribersRes = await axios.get(
-    `https://notify.walletconnect.com/${projectId}/subscribers`,
-    { headers }
-  );
-  const subscribers = await subscribersRes.data;
-
-  // const contractExplorerUrl = getExplorerUrl(
-  //   connectResult.chainID,
-  //   connectResult.contractAddress
-  // );
-
-  const contrakUrl = process.env.CONTRAK_URL;
-
-  // 2. Send a notification to all your subscribers
-  const body = JSON.stringify({
-    accounts: subscribers,
-    notification: {
-      title: `Contract Deployed - ${connectResult.contractName}`,
-      body: `${
-        connectResult.contractAddress
-      } Deployed by Contrak Team to chain ${getChainName(
-        connectResult.chainID
-      )} - ${connectResult.chainID}`,
-      icon: "https://avatars.githubusercontent.com/u/37784886?s=48&v=4",
-      url: `${contrakUrl}/contracts/history/${connectResult.contractHistoryId}?contractAddress=${connectResult.contractAddress}`,
-      type: "alerts",
-    },
-  });
-
-  const notifyRes = await axios.post(
-    `https://notify.walletconnect.com/${projectId}/notify`,
-    body,
-    { headers }
-  );
-  const result = await notifyRes.data;
-}
 
 export async function connect(
   {

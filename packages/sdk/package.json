@@ -18,17 +18,15 @@
     "zod": "^3.20.2"
   },
   "dependencies": {
-    "@types/git-rev-sync": "^2.0.2",
-    "@types/github-url-from-git": "^1.5.3",
-    "axios": "^1.5.1",
     "ethers": "^6.7.1",
     "git-rev-sync": "^3.0.2",
     "github-url-from-git": "^1.5.0"
   },
   "devDependencies": {
     "@contrak/rest": "workspace:*",
-    "@contrak/utils": "workspace:*",
     "@types/axios": "^0.14.0",
+    "@types/git-rev-sync": "^2.0.2",
+    "@types/github-url-from-git": "^1.5.3",
     "@types/node": "^20.7.1",
     "rimraf": "^5.0.5",
     "tsup": "^7.2.0",
