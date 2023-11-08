@@ -27,16 +27,12 @@ Contrak helps teams track their smart contract deployments.
 3. Run `yarn db:push` to generate the database
 4. Run `yarn build:web` to build all the sub packages
 5. Run `yarn dev:web` to start the web server
-6. Run `yarn hardhat:node` to start the hardhat node
-7. Run `yarn hardhat:deploy` to deploy the contract
 
 ### Directory Structure
 
-- `hardhat-example`: Contains a [Hardhat](https://hardhat.org/) project with a sample contract
+- `web`: Contains the Next.js web app for Contrak
 - `contrak-cli`: Contains a Node.js CLI for interacting with Contrak
 - `packages/db`: Contains the database schema using [Drizzle ORM](https://orm.drizzle.team/)
 - `packages/rest`: Contains the REST API client for Contrak
 - `packages/sdk`: Contains the TypeScript SDK for Contrak
 - `packages/utils`: Contains utility functions used across the project
-- `web`: Contains the Next.js web app for Contrak
-- `web3inbox`: Contains an example deployment of [Web3Inbox](https://web3inbox.com/) with Contrak notifications

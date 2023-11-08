@@ -5,16 +5,13 @@
     "packages/*",
     "web",
     "contrak-cli",
-    "hardhat-example",
     "web3inbox"
   ],
   "scripts": {
     "dev:web": "yarn workspace web dev",
     "build:web": "yarn && yarn workspace @contrak/utils build && yarn workspace @contrak/db build && yarn workspace @contrak/rest build && yarn workspace @contrak/sdk build && yarn workspace web build",
     "start:web": "yarn workspace web start",
-    "db:push": "yarn workspace @contrak/db push",
-    "hardhat:node": "yarn workspace hardhat-project hardhat node",
-    "hardhat:deploy": "yarn workspace hardhat-project hardhat run --network localhost scripts/deploy.ts"
+    "db:push": "yarn workspace @contrak/db push"
   },
   "packageManager": "yarn@3.6.3",
   "engines": {
