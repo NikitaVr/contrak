@@ -15,7 +15,7 @@
     "db:push": "yarn with-env yarn workspace @contrak/db push",
     "lint": "turbo run lint",
     "clean": "turbo run clean",
-    "with-env": "dotenv -e ./.env --"
+    "with-env": "yarn dotenv -e ./.env --"
   },
   "packageManager": "yarn@3.6.3",
   "engines": {
