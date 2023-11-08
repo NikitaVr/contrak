@@ -23,15 +23,15 @@ Contrak helps teams track their smart contract deployments.
 ### Setup
 
 1. Install Node 18 and Yarn
-2. Run `yarn install`
-3. Run `yarn db:push` to generate the database
-4. Run `yarn build:web` to build all the sub packages
+2. Run `cp .env.example .env` and fill in any missing environment variables
+3. Run `yarn install`
+4. Run `yarn db:push` to generate the database
 5. Run `yarn dev:web` to start the web server
 
 ### Directory Structure
 
 - `web`: Contains the Next.js web app for Contrak
-- `contrak-cli`: Contains a Node.js CLI for interacting with Contrak
+- `cli`: Contains a Node.js CLI for interacting with Contrak
 - `packages/db`: Contains the database schema using [Drizzle ORM](https://orm.drizzle.team/)
 - `packages/rest`: Contains the REST API client for Contrak
 - `packages/sdk`: Contains the TypeScript SDK for Contrak

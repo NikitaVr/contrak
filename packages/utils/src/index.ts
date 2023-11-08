@@ -1,1 +1,1 @@
-export { getExplorerUrl, getChainName } from "./chain";
+export { getExplorerUrl, getChainName } from "./chain.js";

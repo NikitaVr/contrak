@@ -1,3 +1,3 @@
-export { db } from "./db";
-export * from "./model";
-export * from "./zod";
+export { db } from "./db.js";
+export * from "./model.js";
+export * from "./zod.js";

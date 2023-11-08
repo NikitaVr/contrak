@@ -1,5 +1,5 @@
 import { initClient } from "@ts-rest/core";
-import { contract } from "./contract";
+import { contract } from "./contract.js";
 
 export function createClient(options: { baseUrl?: string } = {}) {
   const baseUrl = new URL(

@@ -4,21 +4,27 @@
   "workspaces": [
     "packages/*",
     "web",
-    "contrak-cli",
-    "web3inbox"
+    "cli"
   ],
   "scripts": {
-    "dev:web": "yarn workspace web dev",
-    "build:web": "yarn && yarn workspace @contrak/utils build && yarn workspace @contrak/db build && yarn workspace @contrak/rest build && yarn workspace @contrak/sdk build && yarn workspace web build",
-    "start:web": "yarn workspace web start",
-    "db:push": "yarn workspace @contrak/db push"
+    "dev": "yarn with-env turbo dev --parallel",
+    "dev:web": "yarn with-env turbo dev --parallel --filter='@contrak/web...'",
+    "build:web": "yarn with-env turbo build --filter='@contrak/web...'",
+    "start:web": "yarn with-env yarn workspace @contrak/web start",
+    "build:sdk": "yarn with-env turbo build --filter='@contrak/sdk...'",
+    "db:push": "yarn with-env yarn workspace @contrak/db push",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "with-env": "dotenv -e ./.env --"
   },
   "packageManager": "yarn@3.6.3",
   "engines": {
     "node": ">=18.0.0"
   },
   "devDependencies": {
+    "dotenv-cli": "^7.3.0",
     "prettier": "^3.0.3",
+    "turbo": "^1.10.16",
     "typescript": "^5.2.2"
   }
 }

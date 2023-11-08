@@ -1,13 +1,20 @@
 import type { Config } from "drizzle-kit";
 import * as dotenv from "dotenv";
-dotenv.config();
 
-console.log(process.env.DATABASE_URL);
+dotenv.config({
+  path: "../../.env",
+});
+
+if (!process.env.DATABASE_URL) {
+  throw new Error("DATABASE_URL is not set");
+}
+
+console.log("DATABASE PATH", process.env.DATABASE_URL);
 
 export default {
   schema: "./src/schema.ts",
   driver: "better-sqlite",
   dbCredentials: {
-    url: process.env.DATABASE_URL ?? "../../data.db",
+    url: process.env.DATABASE_URL,
   },
 } satisfies Config;

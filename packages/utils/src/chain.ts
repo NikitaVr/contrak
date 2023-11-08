@@ -1,4 +1,4 @@
-const chainIdMap: { [key: string]: { name: string; explorerUrl: string } } = {
+const chainIdMap = {
   "1": {
     name: "mainnet",
     explorerUrl: "https://etherscan.io/address/",
@@ -11,13 +11,12 @@ const chainIdMap: { [key: string]: { name: string; explorerUrl: string } } = {
     name: "Local Network",
     explorerUrl: "https://hardhat.org/",
   },
-};
+} as const;
 
 export function getExplorerUrl(
   chainId: string,
   contractAddress: string
 ): string {
-  console.log("getExplorerUrl: ", chainId, contractAddress);
   const contractExplorerUrl = `${
     chainIdMap[chainId as keyof typeof chainIdMap].explorerUrl
   }${contractAddress}`;

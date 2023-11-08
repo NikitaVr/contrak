@@ -35,6 +35,13 @@ export const router = createNextRoute(contract, {
     if (!args.params.id) throw new Error("Missing contract id");
     const contract = await db.getContractById(args.params.id);
 
+    if (!contract) {
+      return {
+        status: 404,
+        body: null,
+      };
+    }
+
     return {
       status: 200,
       body: contract,

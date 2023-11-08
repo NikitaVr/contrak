@@ -3,8 +3,9 @@ import { defineConfig } from "tsup";
 const isProduction = process.env.NODE_ENV === "production";
 
 export default defineConfig({
+  name: "sdk",
   entry: ["src/index.ts"],
-  target: "es2019",
+  format: ["cjs", "esm"],
   minify: isProduction,
   sourcemap: true,
   bundle: true,

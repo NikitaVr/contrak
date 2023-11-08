@@ -1,7 +1,7 @@
 import gitRev from "git-rev-sync";
 import githubUrlFromGit from "github-url-from-git";
-import { promisify } from "util";
-import { exec } from "child_process";
+import { promisify } from "node:util";
+import { exec } from "node:child_process";
 
 const execAsync = promisify(exec);
 

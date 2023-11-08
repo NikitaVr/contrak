@@ -1,8 +1,8 @@
 import { desc, eq } from "drizzle-orm";
 
-import * as schema from "./schema";
-import { db } from "./db";
-import { CreateContractSchemaType } from "./zod";
+import * as schema from "./schema.js";
+import { db } from "./db.js";
+import type { CreateContractSchemaType } from "./zod.js";
 
 export async function getAllContracts() {
   return db
@@ -20,18 +20,17 @@ export async function getContractsByHistory(historyId: string) {
 }
 
 export async function getContractById(id: number) {
-  const [first] = await db
+  return db
     .select()
     .from(schema.contracts)
-    .where(eq(schema.contracts.id, id));
-  return first;
+    .where(eq(schema.contracts.id, id))
+    .get();
 }
 
 export async function createContract(
   contract: Omit<CreateContractSchemaType, "createdAt">
 ) {
-  console.log("createContract", contract);
-  const [row] = await db
+  return db
     .insert(schema.contracts)
     .values({
       name: contract.name,
@@ -48,6 +47,6 @@ export async function createContract(
       gitUsername: contract.gitUsername,
       createdAt: new Date(),
     })
-    .returning();
-  return row;
+    .returning()
+    .get();
 }

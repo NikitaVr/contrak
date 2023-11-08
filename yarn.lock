@@ -70,9 +70,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contrak/cli@workspace:contrak-cli":
+"@contrak/cli@workspace:cli":
   version: 0.0.0-use.local
-  resolution: "@contrak/cli@workspace:contrak-cli"
+  resolution: "@contrak/cli@workspace:cli"
   dependencies:
     "@contrak/sdk": 0.0.20
     "@oclif/core": ^2
@@ -90,6 +90,7 @@ __metadata:
     shx: ^0.3.4
     ts-node: ^10.9.1
     typescript: ^4.9.5
+    zod: ^3.22.4
   bin:
     contrak: ./bin/run
   languageName: unknown
@@ -99,6 +100,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@contrak/db@workspace:packages/db"
   dependencies:
+    "@contrak/tsconfig": "workspace:*"
     "@types/better-sqlite3": ^7.6.5
     "@types/node": ^20.7.1
     better-sqlite3: ^8.6.0
@@ -106,6 +108,8 @@ __metadata:
     drizzle-kit: ^0.19.13
     drizzle-orm: ^0.28.6
     drizzle-zod: ^0.5.1
+    rimraf: ^5.0.5
+    typescript: 5.2.2
   peerDependencies:
     zod: ^3.22.2
   languageName: unknown
@@ -117,6 +121,8 @@ __metadata:
   dependencies:
     "@ts-rest/core": ^3.30.2
     "@types/node": ^20.7.1
+    rimraf: ^5.0.5
+    typescript: 5.2.2
   peerDependencies:
     zod: ^3.22.2
   languageName: unknown
@@ -127,14 +133,24 @@ __metadata:
   resolution: "@contrak/sdk@workspace:packages/sdk"
   dependencies:
     "@contrak/rest": "workspace:*"
-    "@contrak/utils": "workspace:*"
     "@types/axios": ^0.14.0
+    "@types/git-rev-sync": ^2.0.2
+    "@types/github-url-from-git": ^1.5.3
     "@types/node": ^20.7.1
-    axios: ^1.5.1
     ethers: ^6.7.1
     git-rev-sync: ^3.0.2
     github-url-from-git: ^1.5.0
+    rimraf: ^5.0.5
     tsup: ^7.2.0
+    typescript: 5.2.2
+  peerDependencies:
+    zod: ^3.20.2
+  languageName: unknown
+  linkType: soft
+
+"@contrak/tsconfig@workspace:*, @contrak/tsconfig@workspace:packages/tsconfig":
+  version: 0.0.0-use.local
+  resolution: "@contrak/tsconfig@workspace:packages/tsconfig"
   languageName: unknown
   linkType: soft
 
@@ -143,6 +159,53 @@ __metadata:
   resolution: "@contrak/utils@workspace:packages/utils"
   dependencies:
     "@types/node": ^20.7.1
+    rimraf: ^5.0.5
+    typescript: 5.2.2
+  languageName: unknown
+  linkType: soft
+
+"@contrak/web@workspace:web":
+  version: 0.0.0-use.local
+  resolution: "@contrak/web@workspace:web"
+  dependencies:
+    "@contrak/db": "workspace:*"
+    "@contrak/rest": "workspace:*"
+    "@contrak/utils": "workspace:*"
+    "@radix-ui/react-avatar": ^1.0.3
+    "@radix-ui/react-dropdown-menu": ^2.0.5
+    "@radix-ui/react-icons": ^1.3.0
+    "@radix-ui/react-separator": ^1.0.3
+    "@radix-ui/react-slot": ^1.0.2
+    "@radix-ui/react-tooltip": ^1.0.6
+    "@tanstack/react-query": ^4.35.3
+    "@ts-rest/core": ^3.30.2
+    "@ts-rest/next": ^3.30.2
+    "@ts-rest/react-query": ^3.30.2
+    "@types/luxon": ^3.3.2
+    "@types/node": 20.6.3
+    "@types/react": 18.2.22
+    "@types/react-dom": 18.2.7
+    "@types/rss": ^0.0.30
+    autoprefixer: 10.4.16
+    class-variance-authority: ^0.7.0
+    clsx: ^2.0.0
+    eslint: 8.50.0
+    eslint-config-next: 13.5.2
+    framer-motion: ^10.16.4
+    lucide-react: ^0.279.0
+    luxon: ^3.4.3
+    next: 13.5.2
+    next-themes: ^0.2.1
+    postcss: 8.4.30
+    react: 18.2.0
+    react-dom: 18.2.0
+    rimraf: ^5.0.5
+    rss: ^1.2.2
+    tailwind-merge: ^1.14.0
+    tailwindcss: 3.3.3
+    tailwindcss-animate: ^1.0.7
+    typescript: 5.2.2
+    zod: ^3.22.2
   languageName: unknown
   linkType: soft
 
@@ -2089,6 +2152,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/git-rev-sync@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@types/git-rev-sync@npm:2.0.2"
+  checksum: 24d8e9573cffad57b6809b0e60917f01d70d1577d5cc027ef1fe557ae2968f827e38836750dd9acbe2339ec9d9d7faa05584b8a162665706085943ade2601a7b
+  languageName: node
+  linkType: hard
+
+"@types/github-url-from-git@npm:^1.5.3":
+  version: 1.5.3
+  resolution: "@types/github-url-from-git@npm:1.5.3"
+  checksum: 9b3f1964ffad643a5069c65f86b08557e904e2e118e770938420aa0d08b50328a4465e930649765c2da0affa751d4a8d36853a641ab5a26cf4a4751963664ad7
+  languageName: node
+  linkType: hard
+
 "@types/http-cache-semantics@npm:*":
   version: 4.0.2
   resolution: "@types/http-cache-semantics@npm:4.0.2"
@@ -2826,7 +2903,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:*, axios@npm:^1.5.1":
+"axios@npm:*":
   version: 1.5.1
   resolution: "axios@npm:1.5.1"
   dependencies:
@@ -3676,7 +3753,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "contrak@workspace:."
   dependencies:
+    dotenv-cli: ^7.3.0
     prettier: ^3.0.3
+    turbo: ^1.10.16
     typescript: ^5.2.2
   languageName: unknown
   linkType: soft
@@ -4002,7 +4081,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^16.3.1":
+"dotenv-cli@npm:^7.3.0":
+  version: 7.3.0
+  resolution: "dotenv-cli@npm:7.3.0"
+  dependencies:
+    cross-spawn: ^7.0.3
+    dotenv: ^16.3.0
+    dotenv-expand: ^10.0.0
+    minimist: ^1.2.6
+  bin:
+    dotenv: cli.js
+  checksum: bc48e9872ed451aa7633cfde0079f5e4b40837d49dca4eab947682c80f524bd1e63ec31ff69b7cf955ff969185a05a343dd5d754dd5569e4ae31f8e9a790ab1b
+  languageName: node
+  linkType: hard
+
+"dotenv-expand@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "dotenv-expand@npm:10.0.0"
+  checksum: 2a38b470efe0abcb1ac8490421a55e1d764dc9440fd220942bce40965074f3fb00b585f4346020cb0f0f219966ee6b4ee5023458b3e2953fe5b3214de1b314ee
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^16.3.0, dotenv@npm:^16.3.1":
   version: 16.3.1
   resolution: "dotenv@npm:16.3.1"
   checksum: 15d75e7279018f4bafd0ee9706593dd14455ddb71b3bcba9c52574460b7ccaf67d5cf8b2c08a5af1a9da6db36c956a04a1192b101ee102a3e0cf8817bbcf3dfd
@@ -5420,7 +5520,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^10.2.2, glob@npm:^10.2.7":
+"glob@npm:^10.2.2, glob@npm:^10.2.7, glob@npm:^10.3.7":
   version: 10.3.10
   resolution: "glob@npm:10.3.10"
   dependencies:
@@ -9295,6 +9395,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rimraf@npm:^5.0.5":
+  version: 5.0.5
+  resolution: "rimraf@npm:5.0.5"
+  dependencies:
+    glob: ^10.3.7
+  bin:
+    rimraf: dist/esm/bin.mjs
+  checksum: d66eef829b2e23b16445f34e73d75c7b7cf4cbc8834b04720def1c8f298eb0753c3d76df77325fad79d0a2c60470525d95f89c2475283ad985fd7441c32732d1
+  languageName: node
+  linkType: hard
+
 "rollup@npm:^3.2.5":
   version: 3.29.4
   resolution: "rollup@npm:3.29.4"
@@ -10371,6 +10482,77 @@ __metadata:
   languageName: node
   linkType: hard
 
+"turbo-darwin-64@npm:1.10.16":
+  version: 1.10.16
+  resolution: "turbo-darwin-64@npm:1.10.16"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"turbo-darwin-arm64@npm:1.10.16":
+  version: 1.10.16
+  resolution: "turbo-darwin-arm64@npm:1.10.16"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"turbo-linux-64@npm:1.10.16":
+  version: 1.10.16
+  resolution: "turbo-linux-64@npm:1.10.16"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"turbo-linux-arm64@npm:1.10.16":
+  version: 1.10.16
+  resolution: "turbo-linux-arm64@npm:1.10.16"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"turbo-windows-64@npm:1.10.16":
+  version: 1.10.16
+  resolution: "turbo-windows-64@npm:1.10.16"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"turbo-windows-arm64@npm:1.10.16":
+  version: 1.10.16
+  resolution: "turbo-windows-arm64@npm:1.10.16"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"turbo@npm:^1.10.16":
+  version: 1.10.16
+  resolution: "turbo@npm:1.10.16"
+  dependencies:
+    turbo-darwin-64: 1.10.16
+    turbo-darwin-arm64: 1.10.16
+    turbo-linux-64: 1.10.16
+    turbo-linux-arm64: 1.10.16
+    turbo-windows-64: 1.10.16
+    turbo-windows-arm64: 1.10.16
+  dependenciesMeta:
+    turbo-darwin-64:
+      optional: true
+    turbo-darwin-arm64:
+      optional: true
+    turbo-linux-64:
+      optional: true
+    turbo-linux-arm64:
+      optional: true
+    turbo-windows-64:
+      optional: true
+    turbo-windows-arm64:
+      optional: true
+  bin:
+    turbo: bin/turbo
+  checksum: 69d1892593449b264e0bd48b851317a743016ab62cf470e7293b2cc3781240e863c48232c89f65a5a4ce97eb791ca550b201593449350da073db07703a19cfa5
+  languageName: node
+  linkType: hard
+
 "type-check@npm:^0.4.0, type-check@npm:~0.4.0":
   version: 0.4.0
   resolution: "type-check@npm:0.4.0"
@@ -10813,50 +10995,6 @@ __metadata:
   checksum: 814e9d1ddcc9798f7377ffa448a5a3892232b9275ebb30a41b529607691c0491de47cba426e917a4d08ded3ee7e9ba2f3fe32e62ee3cd9c7d3bafb7754bd553c
   languageName: node
   linkType: hard
-
-"web@workspace:web":
-  version: 0.0.0-use.local
-  resolution: "web@workspace:web"
-  dependencies:
-    "@contrak/db": "workspace:*"
-    "@contrak/rest": "workspace:*"
-    "@contrak/utils": "workspace:*"
-    "@radix-ui/react-avatar": ^1.0.3
-    "@radix-ui/react-dropdown-menu": ^2.0.5
-    "@radix-ui/react-icons": ^1.3.0
-    "@radix-ui/react-separator": ^1.0.3
-    "@radix-ui/react-slot": ^1.0.2
-    "@radix-ui/react-tooltip": ^1.0.6
-    "@tanstack/react-query": ^4.35.3
-    "@ts-rest/core": ^3.30.2
-    "@ts-rest/next": ^3.30.2
-    "@ts-rest/react-query": ^3.30.2
-    "@types/luxon": ^3.3.2
-    "@types/node": 20.6.3
-    "@types/react": 18.2.22
-    "@types/react-dom": 18.2.7
-    "@types/rss": ^0.0.30
-    autoprefixer: 10.4.16
-    class-variance-authority: ^0.7.0
-    clsx: ^2.0.0
-    eslint: 8.50.0
-    eslint-config-next: 13.5.2
-    framer-motion: ^10.16.4
-    lucide-react: ^0.279.0
-    luxon: ^3.4.3
-    next: 13.5.2
-    next-themes: ^0.2.1
-    postcss: 8.4.30
-    react: 18.2.0
-    react-dom: 18.2.0
-    rss: ^1.2.2
-    tailwind-merge: ^1.14.0
-    tailwindcss: 3.3.3
-    tailwindcss-animate: ^1.0.7
-    typescript: 5.2.2
-    zod: ^3.22.2
-  languageName: unknown
-  linkType: soft
 
 "webidl-conversions@npm:^3.0.0":
   version: 3.0.1
@@ -11304,7 +11442,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^3.20.2, zod@npm:^3.22.2":
+"zod@npm:^3.20.2, zod@npm:^3.22.2, zod@npm:^3.22.4":
   version: 3.22.4
   resolution: "zod@npm:3.22.4"
   checksum: 80bfd7f8039b24fddeb0718a2ec7c02aa9856e4838d6aa4864335a047b6b37a3273b191ef335bf0b2002e5c514ef261ffcda5a589fb084a48c336ffc4cdbab7f
