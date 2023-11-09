@@ -2,6 +2,9 @@
 
 import { DateTime } from "luxon";
 import { client } from "~/lib/react-query";
+import { Button } from "./ui/button";
+import { LucideCheck, LucideCopy } from "lucide-react";
+import { useState, useEffect } from "react";
 
 function createBadgeUrl(contractId: number) {
   return new URL(
@@ -32,6 +35,13 @@ export function ContractDetails({ id }: { id: number }) {
     { params: { id } },
     { suspense: true }
   );
+
+  const [hasCopied, setHasCopied] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setHasCopied(false);
+    }, 2000);
+  }, [hasCopied]);
 
   if (!data || !data.body) {
     return <div>Contract not found</div>;
@@ -81,8 +91,20 @@ export function ContractDetails({ id }: { id: number }) {
           <span>
             <img src={badgeUrl} alt="Contract badge" />
           </span>
-          <code className="text-sm bg-gray-100 p-4 rounded text-gray-800 break-all">
+          <code className="text-sm bg-card p-6 rounded break-all border relative pr-12">
             {markdownBadge}
+            <Button
+              size="icon"
+              variant="ghost"
+              className="absolute top-2 right-2"
+              onClick={async () => {
+                await navigator.clipboard.writeText(markdownBadge);
+                setHasCopied(true);
+              }}
+            >
+              {!hasCopied && <LucideCopy className="w-3 h-3" />}
+              {hasCopied && <LucideCheck className="w-3 h-3" />}
+            </Button>
           </code>
         </div>
       </div>
