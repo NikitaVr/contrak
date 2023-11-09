@@ -6,7 +6,7 @@ const c = initContract();
 const ContractSchema = z.object({
   id: z.number(),
   name: z.string(),
-  createdAt: z.date(),
+  createdAt: z.date().transform((d) => d.toString()),
   contractHistoryId: z.string(),
   contractAddress: z.string(),
   deploymentTransactionHash: z.string().nullable(),

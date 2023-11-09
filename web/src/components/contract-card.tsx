@@ -1,12 +1,6 @@
-import {
-  CircleIcon,
-  CodeIcon,
-  GitHubLogoIcon,
-  ListBulletIcon,
-  LapTimerIcon,
-} from "@radix-ui/react-icons";
+import { getChainName, getExplorerUrl } from "@contrak/utils";
+import { GitHubLogoIcon, ListBulletIcon } from "@radix-ui/react-icons";
 import { DateTime } from "luxon";
-import { getExplorerUrl, getChainName } from "@contrak/utils";
 
 import {
   Tooltip,
@@ -15,6 +9,7 @@ import {
   TooltipTrigger,
 } from "~/components/ui/tooltip";
 
+import Link from "next/link";
 import { Button } from "~/components/ui/button";
 import {
   Card,
@@ -23,9 +18,6 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
-import { Spacer } from "./ui/spacer";
-import Link from "next/link";
-import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 
 export function ContractCard({
   name,
@@ -44,17 +36,21 @@ export function ContractCard({
   contractHistoryId: string;
   id: number;
   contractAddress: string;
-  deployerAddress: string;
+  deployerAddress?: string | null;
   chainId: string;
-  githubUrl?: string;
-  gitUsername?: string;
+  githubUrl?: string | null;
+  gitUsername?: string | null;
   selected?: boolean;
 }) {
   return (
     <Card className={selected ? "border-primary border-2" : undefined}>
       <CardHeader className="grid grid-cols-[1fr_min-content] items-start gap-4 space-y-0">
         <div className="space-y-1">
-          <CardTitle className="leading-tight">{name}</CardTitle>
+          <CardTitle className="leading-tight">
+            <Link href={`/contracts/${id}`} className="hover:underline">
+              {name}
+            </Link>
+          </CardTitle>
           <CardDescription>
             <div className="flex flex-col">
               Deployed to {getChainName(chainId)} - {chainId}
@@ -69,16 +65,18 @@ export function ContractCard({
                 {contractAddress}
               </Link>
             </div>
-            <div>
-              Deployer Address{" "}
-              <Link
-                href={getExplorerUrl(chainId, deployerAddress)}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {deployerAddress}
-              </Link>
-            </div>
+            {deployerAddress && (
+              <div>
+                Deployer Address{" "}
+                <Link
+                  href={getExplorerUrl(chainId, deployerAddress)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {deployerAddress}
+                </Link>
+              </div>
+            )}
           </CardDescription>
         </div>
         <div className="flex gap-2">
@@ -132,7 +130,7 @@ export function ContractCard({
             href={`/contracts/history/${contractHistoryId}?contractId=${id}`}
           >
             <strong className="text-accent-foreground font-medium">
-              {gitUsername}
+              {gitUsername ?? "Unknown User"}
             </strong>{" "}
             deployed{" "}
             <TooltipProvider>

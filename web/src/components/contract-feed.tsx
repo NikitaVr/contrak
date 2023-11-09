@@ -82,14 +82,14 @@ export function ContractsFeed() {
         <motion.div layout key={contract.id} variants={childVariants}>
           <ContractCard
             name={contract.name!}
-            createdAt={new Date(contract.createdAt!)}
-            contractHistoryId={contract.contractHistoryId!}
+            createdAt={new Date(contract.createdAt)}
+            contractHistoryId={contract.contractHistoryId}
             id={contract.id!}
-            contractAddress={contract.contractAddress!}
-            deployerAddress={contract.deployerAddress!}
-            chainId={contract.chainId!}
-            githubUrl={contract.githubUrl!}
-            gitUsername={contract.gitUsername!}
+            contractAddress={contract.contractAddress}
+            deployerAddress={contract.deployerAddress}
+            chainId={contract.chainId}
+            githubUrl={contract.githubUrl}
+            gitUsername={contract.gitUsername}
           />
         </motion.div>
       ))}
