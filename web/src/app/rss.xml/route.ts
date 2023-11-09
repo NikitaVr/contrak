@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import Rss from "rss";
 
-const SITE_URL = process.env.SITE_URL ?? "https://contrak.xyz";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://contrak.xyz";
 
 export const revalidate = 0;
 

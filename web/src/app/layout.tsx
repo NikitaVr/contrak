@@ -7,7 +7,7 @@ import { ThemeProvider } from "~/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.SITE_URL!),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
   title: "Contrak",
   description:
     "Contrak helps teams track track their smart contract deployments",

@@ -11,10 +11,10 @@ Contrak helps teams track their smart contract deployments.
 1. Click the "Deploy on Railway" button above
 2. Fill in the environment variables:
 
-| Variable       | Description                                          |
-| -------------- | ---------------------------------------------------- |
-| `SITE_URL`     | Set this to `https://${{RAILWAY_PUBLIC_DOMAIN}}/`    |
-| `DATABASE_URL` | Set this to `${{RAILWAY_VOLUME_MOUNT_PATH}}/data.db` |
+| Variable               | Description                                          |
+| ---------------------- | ---------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL` | Set this to `https://${{RAILWAY_PUBLIC_DOMAIN}}/`    |
+| `DATABASE_URL`         | Set this to `${{RAILWAY_VOLUME_MOUNT_PATH}}/data.db` |
 
 4. Click "Deploy"
 
