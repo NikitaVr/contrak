@@ -1,5 +1,20 @@
+"use client";
+
 import { DateTime } from "luxon";
 import { client } from "~/lib/react-query";
+
+function createBadgeUrl(contractId: number) {
+  return new URL(
+    `/contracts/${contractId}/badge.svg`,
+    process.env.NEXT_PUBLIC_SITE_URL
+  ).href;
+}
+
+function createMarkdownBadge(contractId: number, contractName: string) {
+  return `[![${contractName} - ${contractId}](${createBadgeUrl(contractId)})](${
+    new URL(`/contracts/${contractId}`, process.env.NEXT_PUBLIC_SITE_URL).href
+  })`;
+}
 
 export function ContractDetails({ id }: { id: number }) {
   const { data } = client.getContract.useQuery(
@@ -13,8 +28,8 @@ export function ContractDetails({ id }: { id: number }) {
   }
 
   const contract = data.body;
-
-  console.log(contract);
+  const badgeUrl = createBadgeUrl(contract.id);
+  const markdownBadge = createMarkdownBadge(contract.id, contract.name);
 
   return (
     <>
@@ -45,6 +60,16 @@ export function ContractDetails({ id }: { id: number }) {
         <div className="flex flex-col gap-2">
           <span className="text-sm font-semibold">ABI</span>
           <div className="text-sm whitespace-pre-wrap">TODO</div>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <span className="text-sm font-semibold">Badge</span>
+          <span>
+            <img src={badgeUrl} alt="Contract badge" />
+          </span>
+          <code className="text-sm bg-gray-100 p-4 rounded text-gray-800 break-all">
+            {markdownBadge}
+          </code>
         </div>
       </div>
     </>
