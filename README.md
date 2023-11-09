@@ -27,6 +27,7 @@ Contrak helps teams track their smart contract deployments.
 3. Run `yarn install`
 4. Run `yarn db:push` to generate the database
 5. Run `yarn dev:web` to start the web server
+6. Run `yarn dev:cli` to run the CLI to deploy a contract
 
 ### Directory Structure
 
