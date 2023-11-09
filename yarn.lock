@@ -74,7 +74,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@contrak/cli@workspace:cli"
   dependencies:
-    "@contrak/sdk": 0.0.20
+    "@contrak/sdk": "workspace:^"
     "@oclif/core": ^2
     "@oclif/plugin-help": ^5
     "@oclif/plugin-plugins": ^3.7.0
@@ -128,7 +128,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@contrak/sdk@0.0.20, @contrak/sdk@workspace:packages/sdk":
+"@contrak/sdk@workspace:^, @contrak/sdk@workspace:packages/sdk":
   version: 0.0.0-use.local
   resolution: "@contrak/sdk@workspace:packages/sdk"
   dependencies:
