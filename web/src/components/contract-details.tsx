@@ -10,8 +10,18 @@ function createBadgeUrl(contractId: number) {
   ).href;
 }
 
-function createMarkdownBadge(contractId: number, contractName: string) {
-  return `[![${contractName} - ${contractId}](${createBadgeUrl(contractId)})](${
+function createMarkdownBadge({
+  contractId,
+  contractAddress,
+  contractName,
+}: {
+  contractId: number;
+  contractAddress: string;
+  contractName: string;
+}) {
+  return `[![${contractName} - ${contractAddress}](${createBadgeUrl(
+    contractId
+  )})](${
     new URL(`/contracts/${contractId}`, process.env.NEXT_PUBLIC_SITE_URL).href
   })`;
 }
@@ -29,7 +39,11 @@ export function ContractDetails({ id }: { id: number }) {
 
   const contract = data.body;
   const badgeUrl = createBadgeUrl(contract.id);
-  const markdownBadge = createMarkdownBadge(contract.id, contract.name);
+  const markdownBadge = createMarkdownBadge({
+    contractId: contract.id,
+    contractAddress: contract.contractAddress,
+    contractName: contract.name,
+  });
 
   return (
     <>
