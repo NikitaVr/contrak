@@ -36,7 +36,37 @@ const childVariants = {
   },
 } satisfies Variants;
 
+const getLatestContracts = (allContracts: any[]) => {
+  // Create a new map to store the latest contract for each contract_history_id
+  const latestContractsMap = new Map();
+
+  // Iterate over each contract
+  allContracts.forEach((contract) => {
+    // If the contract_history_id is not in the map, or if the current contract is later than the one in the map
+    if (
+      !latestContractsMap.has(contract.contractHistoryId) ||
+      new Date(contract.createdAt) >
+        new Date(latestContractsMap.get(contract.contractHistoryId).createdAt)
+    ) {
+      // Update the map entry for the contract_history_id with the current contract
+      latestContractsMap.set(contract.contractHistoryId, contract);
+    }
+  });
+
+  // Convert the values of the map to an array and return this array
+  const latestList = Array.from(latestContractsMap.values());
+
+  return latestList;
+};
+
 export function ContractsFeed() {
+  // Add state variable for latestOnly
+  const [latestOnly, setLatestOnly] = useState(false);
+
+  // Add toggle function
+  const toggleLatestOnly = () => {
+    setLatestOnly(!latestOnly);
+  };
   const [searchTerm, setSearchTerm] = useState("");
   const {
     data: contracts,
@@ -61,7 +91,11 @@ export function ContractsFeed() {
     return <div>Error: {error.status}</div>;
   }
 
-  const filteredContracts = contracts?.body?.filter(
+  let filteredContracts =
+    contracts?.body &&
+    (latestOnly ? getLatestContracts(contracts.body) : contracts.body);
+
+  filteredContracts = filteredContracts.filter(
     (contract) =>
       contract.contractAddress!.includes(searchTerm) ||
       contract.name.toLowerCase().includes(searchTerm)
@@ -73,6 +107,15 @@ export function ContractsFeed() {
       initial="hidden"
       animate="visible"
     >
+      <div className="flex items-center">
+        <input
+          type="checkbox"
+          checked={latestOnly}
+          onChange={toggleLatestOnly}
+          className="mr-2"
+        />
+        <label>Show only latest contracts</label>
+      </div>
       <Input
         type="text"
         placeholder="Search by contract hash or name"
