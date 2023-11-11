@@ -61,10 +61,11 @@ export function ContractsFeed() {
     return <div>Error: {error.status}</div>;
   }
 
-  const filteredContracts = contracts?.body?.filter((contract) =>
-    contract.contractAddress!.includes(searchTerm)
+  const filteredContracts = contracts?.body?.filter(
+    (contract) =>
+      contract.contractAddress!.includes(searchTerm) ||
+      contract.name.toLowerCase().includes(searchTerm)
   );
-
   return (
     <motion.div
       className="flex flex-col gap-4"
@@ -74,10 +75,11 @@ export function ContractsFeed() {
     >
       <Input
         type="text"
-        placeholder="Search by contract hash"
+        placeholder="Search by contract hash or name"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
+
       {filteredContracts?.map((contract) => (
         <motion.div layout key={contract.id} variants={childVariants}>
           <ContractCard
