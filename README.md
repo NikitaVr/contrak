@@ -4,16 +4,23 @@
 </p>
 
 <p align="center"> 
-  <a href="https://railway.app/template/qc4V0T?referralCode=kMU60t">
-    <img src="https://railway.app/button.svg" alt="Deploy on Railway" />
+  <a href="https://github.com/NikitaVr/contrak/actions/workflows/ci.yml">
+    <img src="https://github.com/NikitaVr/contrak/actions/workflows/ci.yml/badge.svg" alt="CI" />
   </a>
 </p>
 
 ![CleanShot 2023-11-13 at 18 36 16@2x](https://github.com/NikitaVr/contrak/assets/8302959/a69d2486-5041-44cf-9538-70f24c06e480)
 
+
 ## 🚀 Getting Started
 
 ### Deploying Contrak
+
+<a href="https://railway.app/template/qc4V0T?referralCode=kMU60t">
+  <img src="https://railway.app/button.svg" alt="Deploy on Railway" />
+</a>
+<br />
+<br />
 
 1. Click the "Deploy on Railway" button above
 2. Fill in the environment variables:
