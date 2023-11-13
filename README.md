@@ -1,8 +1,18 @@
-# Contrak
+<h1 align="center">Contrak</h1>
+<p align="center">
+  <strong>Contrak</strong> is a dead-simple tool to keep track of your smart contract deployments and keep your docs up-to-date. 
+</p>
+<p align="center">
+  Every time you deploy, your deployment artifacts are uploaded to Contrak, and we auto-generate a Web UI and RSS feed that you can share with your team.
+</p>
 
-Contrak helps teams track their smart contract deployments.
+<p align="center"> 
+  <a href="https://railway.app/template/qc4V0T?referralCode=kMU60t">
+    <img src="https://railway.app/button.svg" alt="Deploy on Railway" />
+  </a>
+</p>
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/qc4V0T?referralCode=kMU60t)
+![CleanShot 2023-11-13 at 18 36 16@2x](https://github.com/NikitaVr/contrak/assets/8302959/a69d2486-5041-44cf-9538-70f24c06e480)
 
 ## 🚀 Getting Started
 
