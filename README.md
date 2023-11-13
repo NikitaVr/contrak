@@ -2,9 +2,6 @@
 <p align="center">
   <strong>Contrak</strong> is a dead-simple tool to keep track of your smart contract deployments and keep your docs up-to-date. 
 </p>
-<p align="center">
-  Every time you deploy, your deployment artifacts are uploaded to Contrak, and we auto-generate a Web UI and RSS feed that you can share with your team.
-</p>
 
 <p align="center"> 
   <a href="https://railway.app/template/qc4V0T?referralCode=kMU60t">
